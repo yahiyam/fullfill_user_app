@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../main.dart';
+import '../common_widgets/common_widgets.dart';
+
 
 class OrderPage extends StatelessWidget {
   const OrderPage({super.key});

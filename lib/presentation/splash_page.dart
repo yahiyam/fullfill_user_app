@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../main.dart';
+import 'common_widgets/common_widgets.dart';
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({super.key});
+  final VoidCallback onDismiss;
+  const SplashPage({
+    super.key,
+    required this.onDismiss,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../main.dart';
+import '../common_widgets/common_widgets.dart';
 
 class ConnectionErrorPage extends StatelessWidget {
   const ConnectionErrorPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  const Scaffold(
       body:  Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

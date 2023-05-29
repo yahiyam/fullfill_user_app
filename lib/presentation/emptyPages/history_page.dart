@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../main.dart';
+import '../common_widgets/common_widgets.dart';
 
 class HistoryPage extends StatelessWidget {
   const HistoryPage({super.key});
@@ -8,7 +8,6 @@ class HistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: CustomAppBar(title: 'History'),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
