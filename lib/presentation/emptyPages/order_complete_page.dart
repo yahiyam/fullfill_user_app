@@ -7,12 +7,12 @@ class OrderCompletePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(),
+    return Scaffold(
+      appBar: const CustomAppBar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text(
+          const Text(
             'Order Complete',
             style: TextStyle(
               fontSize: 34,
@@ -22,12 +22,15 @@ class OrderCompletePage extends StatelessWidget {
               color: Color(0xff000000),
             ),
           ),
-          EmptyPageMessege(
+          const EmptyPageMessege(
             icon: Icons.shopping_cart_outlined,
             mainTitle: 'Thank you for Ordering',
             subTitle: 'Your delivery will be in\nsoon',
           ),
-          CommonButton(title: 'Continue '),
+          CommonButton(
+            title: 'Continue ',
+            onTap: () {},
+          ),
         ],
       ),
     );

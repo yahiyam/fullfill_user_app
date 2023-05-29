@@ -7,16 +7,20 @@ class ConnectionErrorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Scaffold(
-      body:  Column(
+    return Scaffold(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          EmptyPageMessege(
+          const EmptyPageMessege(
             icon: Icons.wifi_off_rounded,
             mainTitle: 'No internet Connection',
-            subTitle: 'Your internet connection is currently\nnot available please check or try again.',
+            subTitle:
+                'Your internet connection is currently\nnot available please check or try again.',
           ),
-          CommonButton(title: 'Try again'),
+          CommonButton(
+            title: 'Try again',
+            onTap: () {},
+          ),
         ],
       ),
     );

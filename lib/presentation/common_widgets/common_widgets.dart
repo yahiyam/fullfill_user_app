@@ -117,10 +117,12 @@ class CommonButton extends StatelessWidget {
     Key? key,
     this.title,
     this.isWhite = false,
+    required this.onTap,
   }) : super(key: key);
 
   final String? title;
   final bool isWhite;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -133,18 +135,7 @@ class CommonButton extends StatelessWidget {
         color: isWhite ? Colors.white : const Color(0xfffa4a0c),
         borderRadius: BorderRadius.circular(30),
         child: InkWell(
-          onTap: () {
-            // Navigate to the home page
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => const HomePage()),
-            );
-
-            // Dismiss the splash screen
-            final splashProvider =
-                Provider.of<SplashProvider>(context, listen: false);
-            splashProvider.markSplashAsShown();
-          },
+          onTap: onTap,
           splashColor: Colors.black12,
           borderRadius: BorderRadius.circular(30),
           child: Center(

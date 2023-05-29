@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../provider/splash_provider.dart';
 import 'common_widgets/common_widgets.dart';
 
 class SplashPage extends StatelessWidget {
-  final VoidCallback onDismiss;
   const SplashPage({
     super.key,
-    required this.onDismiss,
   });
 
   @override
@@ -111,9 +111,19 @@ class SplashPage extends StatelessWidget {
                 ),
               ],
             ),
-            const CommonButton(
+            CommonButton(
               isWhite: true,
               title: 'Get started',
+              onTap: () {
+                // Navigate to the home page
+                Navigator.pushNamed(context, '/home');
+                // Dismiss the splash screen
+                final splashProvider = Provider.of<SplashProvider>(
+                  context,
+                  listen: false,
+                );
+                splashProvider.markSplashAsShown();
+              },
             ),
           ],
         ),

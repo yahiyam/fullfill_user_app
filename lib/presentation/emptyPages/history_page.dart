@@ -7,16 +7,19 @@ class HistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          EmptyPageMessege(
+          const EmptyPageMessege(
             icon: Icons.event_note_outlined,
             mainTitle: 'No history yet',
             subTitle: 'Hit the orange button down\nbelow to Create an order',
           ),
-          CommonButton(title: 'Start ordering'),
+          CommonButton(
+            title: 'Start ordering',
+            onTap: () {},
+          ),
         ],
       ),
     );

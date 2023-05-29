@@ -10,6 +10,7 @@ class SplashProvider extends ChangeNotifier {
   Future<void> initialize() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     _hasShownSplash = prefs.getBool(_prefKey) ?? false;
+    notifyListeners();
   }
 
   Future<void> markSplashAsShown() async {
