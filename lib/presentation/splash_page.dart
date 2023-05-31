@@ -5,9 +5,7 @@ import '../provider/splash_provider.dart';
 import 'common_widgets/common_widgets.dart';
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({
-    super.key,
-  });
+  const SplashPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -115,8 +113,8 @@ class SplashPage extends StatelessWidget {
               isWhite: true,
               title: 'Get started',
               onTap: () {
-                // Navigate to the home page
-                Navigator.pushNamed(context, '/home');
+                // Navigate to the auth page
+                Navigator.pushNamed(context, '/auth');
                 // Dismiss the splash screen
                 final splashProvider = Provider.of<SplashProvider>(
                   context,

@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../../main.dart';
-import '../../provider/splash_provider.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -114,15 +110,15 @@ class EmptyPageMessege extends StatelessWidget {
 
 class CommonButton extends StatelessWidget {
   const CommonButton({
-    Key? key,
+    super.key,
     this.title,
     this.isWhite = false,
-    required this.onTap,
-  }) : super(key: key);
+    this.onTap,
+  });
 
   final String? title;
   final bool isWhite;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
