@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/presentation/common_widgets/custom_drawer.dart';
+import '../../Globals/colors.dart';
 import 'widgets/restaurant_app_bar.dart';
 import 'widgets/restaurant_flexible_space_bar.dart';
 
@@ -37,6 +38,13 @@ class RestaurantPage extends StatelessWidget {
                 pinned: true,
                 delegate: _SliverTabBarDelegate(
                   child: const TabBar(
+                    dividerColor: transparent,
+                    labelColor: orange,
+                    unselectedLabelColor: grey,
+                    indicatorColor: orange,
+                    indicatorWeight: 3,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    indicatorPadding: EdgeInsets.symmetric(horizontal: 10),
                     tabs: [
                       Tab(text: 'Foods'),
                       Tab(text: 'Drinks'),
