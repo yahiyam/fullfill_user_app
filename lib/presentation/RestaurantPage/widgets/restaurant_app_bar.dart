@@ -17,14 +17,14 @@ class RestaurantAppBar extends StatelessWidget {
           },
           icon: const Icon(
             Icons.menu,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         IconButton(
           onPressed: () {},
           icon: const Icon(
             Icons.shopping_cart_outlined,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
       ],

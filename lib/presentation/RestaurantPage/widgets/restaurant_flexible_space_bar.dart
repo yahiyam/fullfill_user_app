@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class RestaurantFlexiableSpaceBar extends StatelessWidget {
-  const RestaurantFlexiableSpaceBar({super.key});
+class RestaurantFlexibleSpaceBar extends StatelessWidget {
+  const RestaurantFlexibleSpaceBar({super.key});
   final double appBarHeight = 66.0;
 
   @override
@@ -43,7 +43,7 @@ class RestaurantFlexiableSpaceBar extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Column(
+                  const Column(
                     children: [
                       Chip(label: Text('free')),
                       Chip(label: Text('4.8')),
