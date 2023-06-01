@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class RestaurantFlexibleSpaceBar extends StatelessWidget {
-  const RestaurantFlexibleSpaceBar({super.key});
+  RestaurantFlexibleSpaceBar({super.key});
   final double appBarHeight = 66.0;
-
+  final FocusNode _textFieldFocus = FocusNode();
   @override
   Widget build(BuildContext context) {
     final Size screen = MediaQuery.of(context).size;
@@ -54,6 +54,13 @@ class RestaurantFlexibleSpaceBar extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: TextField(
+                  focusNode: _textFieldFocus,
+                  textInputAction:
+                      TextInputAction.done, // Specify the desired action
+                  onSubmitted: (_) {
+                    _textFieldFocus
+                        .unfocus(); // Dismiss the keyboard when the action is performed
+                  },
                   decoration: InputDecoration(
                     prefixIcon: const Padding(
                       padding: EdgeInsets.only(left: 30.0),
