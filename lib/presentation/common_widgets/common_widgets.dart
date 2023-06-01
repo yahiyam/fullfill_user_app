@@ -37,7 +37,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.transparent,
       leading: IconButton(
         padding: EdgeInsets.only(left: screen.width / 100 * 4),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context);
+        },
         icon: Icon(
           Icons.arrow_back_ios_new_rounded,
           size: screen.height / 100 * 2.2,
@@ -226,4 +228,3 @@ class SearchFoodCard extends StatelessWidget {
     );
   }
 }
-

@@ -8,6 +8,7 @@ import 'package:fullfill_user_app/presentation/emptyPages/order_page.dart';
 import 'package:fullfill_user_app/presentation/emptyPages/search_page.dart';
 import 'package:fullfill_user_app/presentation/HomePage/home_page.dart';
 import 'package:fullfill_user_app/presentation/AuthPage/auth_page.dart';
+import 'package:fullfill_user_app/presentation/profile/profile_page.dart';
 import 'package:fullfill_user_app/presentation/splash_page.dart';
 import 'package:fullfill_user_app/provider/auth_provider.dart';
 import 'package:fullfill_user_app/provider/splash_provider.dart';
@@ -61,6 +62,7 @@ class MyApp extends StatelessWidget {
         '/orderComplete': (context) => const OrderCompletePage(),
         '/order': (context) => const OrderPage(),
         '/search': (context) => const SearchPage(),
+        '/profile': (context) => const ProfilePage(),
       },
     );
   }

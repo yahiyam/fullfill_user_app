@@ -5,10 +5,10 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Drawer(
-      backgroundColor: Color(0xfffa4a0c),
+    return  Drawer(
+      backgroundColor: const Color(0xfffa4a0c),
       child: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -18,31 +18,34 @@ class CustomDrawer extends StatelessWidget {
                 CustomDrawerTile(
                   leadingIcon: Icons.account_circle_outlined,
                   title: 'Profile',
+                  onTap: () {
+                    Navigator.pushNamed(context, '/profile');
+                  },
                 ),
-                CustomDrawerDivider(),
-                CustomDrawerTile(
+                const CustomDrawerDivider(),
+                const CustomDrawerTile(
                   leadingIcon: Icons.shopping_cart_checkout_rounded,
                   title: 'orders',
                 ),
-                CustomDrawerDivider(),
-                CustomDrawerTile(
+                const CustomDrawerDivider(),
+                const CustomDrawerTile(
                   leadingIcon: Icons.local_offer_outlined,
                   title: 'offer and promo',
                 ),
-                CustomDrawerDivider(),
-                CustomDrawerTile(
+                const CustomDrawerDivider(),
+                const CustomDrawerTile(
                   leadingIcon: Icons.sticky_note_2_outlined,
                   title: 'Privacy policy',
                 ),
-                CustomDrawerDivider(),
-                CustomDrawerTile(
+                const CustomDrawerDivider(),
+                const CustomDrawerTile(
                   leadingIcon: Icons.history,
                   title: 'History',
                 ),
               ],
             ),
-            SizedBox(),
-            CustomDrawerTile(
+            const SizedBox(),
+            const CustomDrawerTile(
               leadingIcon: Icons.logout_outlined,
               title: 'Sign-out',
             )
@@ -58,9 +61,11 @@ class CustomDrawerTile extends StatelessWidget {
     super.key,
     this.title,
     this.leadingIcon,
+    this.onTap,
   });
   final String? title;
   final IconData? leadingIcon;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -77,6 +82,7 @@ class CustomDrawerTile extends StatelessWidget {
           color: Color(0xffffffff),
         ),
       ),
+      onTap: onTap,
     );
   }
 }
