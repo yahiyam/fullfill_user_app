@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
@@ -37,9 +36,7 @@ class HomeAppBar extends StatelessWidget {
         ),
         IconButton(
           onPressed: () {
-            log(MediaQuery.of(context).padding.top.toString());
-            log(screen.height.toString());
-            log(screen.width.toString());
+            Navigator.pushNamed(context, '/delivery');
           },
           icon: const Icon(Icons.shopping_cart_outlined),
         ),

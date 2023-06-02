@@ -5,7 +5,7 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Drawer(
+    return Drawer(
       backgroundColor: const Color(0xfffa4a0c),
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -19,28 +19,52 @@ class CustomDrawer extends StatelessWidget {
                   leadingIcon: Icons.account_circle_outlined,
                   title: 'Profile',
                   onTap: () {
+                    Navigator.pop(context);
                     Navigator.pushNamed(context, '/profile');
                   },
                 ),
                 const CustomDrawerDivider(),
-                const CustomDrawerTile(
+                CustomDrawerTile(
                   leadingIcon: Icons.shopping_cart_checkout_rounded,
                   title: 'orders',
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/order');
+                  },
                 ),
                 const CustomDrawerDivider(),
-                const CustomDrawerTile(
+                CustomDrawerTile(
                   leadingIcon: Icons.local_offer_outlined,
                   title: 'offer and promo',
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/myOffer');
+                  },
                 ),
                 const CustomDrawerDivider(),
-                const CustomDrawerTile(
+                CustomDrawerTile(
                   leadingIcon: Icons.sticky_note_2_outlined,
                   title: 'Privacy policy',
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/privacy');
+                  },
                 ),
                 const CustomDrawerDivider(),
-                const CustomDrawerTile(
+                CustomDrawerTile(
                   leadingIcon: Icons.history,
                   title: 'History',
+                  onTap: () {
+                    Navigator.pop(context);
+                    if (ModalRoute.of(context)!.settings.name != '/home') {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        '/home',
+                        (route) => false,
+                      );
+                    }
+                    Navigator.pushNamed(context, '/history');
+                  },
                 ),
               ],
             ),

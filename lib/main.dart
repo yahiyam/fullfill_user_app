@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/presentation/CheckoutPage/checkout_delivery_page.dart';
+import 'package:fullfill_user_app/presentation/CheckoutPage/checkout_patment.dart';
 import 'package:fullfill_user_app/presentation/RestaurantPage/restaurant_page.dart';
 import 'package:fullfill_user_app/presentation/emptyPages/connection_page.dart';
 import 'package:fullfill_user_app/presentation/emptyPages/history_page.dart';
@@ -13,6 +15,8 @@ import 'package:fullfill_user_app/presentation/splash_page.dart';
 import 'package:fullfill_user_app/provider/auth_provider.dart';
 import 'package:fullfill_user_app/provider/splash_provider.dart';
 import 'package:provider/provider.dart';
+
+import 'presentation/emptyPages/privacy_page.dart';
 
 void main(List<String> args) {
   runApp(
@@ -63,6 +67,9 @@ class MyApp extends StatelessWidget {
         '/order': (context) => const OrderPage(),
         '/search': (context) => const SearchPage(),
         '/profile': (context) => const ProfilePage(),
+        '/privacy': (context) => const PrivacyPage(),
+        '/delivery': (context) => const DeliveryPage(),
+        '/payment': (context) => const PaymentPage(),
       },
     );
   }

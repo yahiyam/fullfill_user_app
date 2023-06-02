@@ -18,7 +18,9 @@ class HistoryPage extends StatelessWidget {
           ),
           CommonButton(
             title: 'Start ordering',
-            onTap: () {},
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/home');
+            },
           ),
         ],
       ),
