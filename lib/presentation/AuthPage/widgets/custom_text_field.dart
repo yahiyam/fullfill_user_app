@@ -7,6 +7,7 @@ class CustomTextField extends StatefulWidget {
   final IconData? icon;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
+  final bool? showSuffixIcon;
   const CustomTextField({
     super.key,
     this.obscureText = false,
@@ -14,6 +15,7 @@ class CustomTextField extends StatefulWidget {
     this.icon,
     this.controller,
     this.keyboardType,
+    this.showSuffixIcon = false,
   });
 
   @override
@@ -41,7 +43,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           widget.icon,
           color: orange,
         ),
-        suffixIcon: widget.obscureText!
+        suffixIcon: widget.obscureText! && widget.showSuffixIcon!
             ? IconButton(
                 icon: Icon(
                   _passwordVisible ? Icons.visibility : Icons.visibility_off,

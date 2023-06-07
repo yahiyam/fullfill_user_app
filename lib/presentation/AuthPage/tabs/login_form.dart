@@ -31,6 +31,7 @@ class LoginForm extends StatelessWidget {
                       obscureText: true,
                       labelText: 'Password',
                       icon: Icons.password_rounded,
+                      showSuffixIcon: true,
                     ),
                     SizedBox(height: screen.height / 70),
                     Align(

@@ -62,6 +62,7 @@ class SignUpForm extends StatelessWidget {
                         icon: Icons.password,
                         labelText: 'Password',
                         obscureText: true,
+                        showSuffixIcon: true,
                       ),
                       SizedBox(height: screen.height / 70),
                       CustomTextField(
