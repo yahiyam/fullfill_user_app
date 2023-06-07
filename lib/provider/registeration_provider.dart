@@ -18,7 +18,6 @@ class RegisterationProvider with ChangeNotifier {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
   String userImageUrl = '';
   @override
   void dispose() {
@@ -40,8 +39,7 @@ class RegisterationProvider with ChangeNotifier {
       if (passwordController.text == confirmPasswordController.text) {
         if (confirmPasswordController.text.isNotEmpty &&
             emailController.text.isNotEmpty &&
-            nameController.text.isNotEmpty &&
-            phoneController.text.isNotEmpty) {
+            nameController.text.isNotEmpty) {
           showMessageDialog(
             context,
             isLoading: true,
@@ -115,7 +113,6 @@ class RegisterationProvider with ChangeNotifier {
       "userEmail": currentUser.email,
       "userName": nameController.text.trim(),
       "userAvatarUrl": userImageUrl,
-      "phone": phoneController.text.trim(),
       "status": "approved",
     });
 

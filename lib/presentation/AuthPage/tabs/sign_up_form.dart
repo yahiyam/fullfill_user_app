@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/Globals/colors.dart';
 import 'package:fullfill_user_app/presentation/common_widgets/common_widgets.dart';
 import 'package:fullfill_user_app/presentation/AuthPage/widgets/custom_text_field.dart';
 import 'package:fullfill_user_app/provider/registeration_provider.dart';
@@ -73,13 +74,6 @@ class SignUpForm extends StatelessWidget {
                         obscureText: true,
                       ),
                       SizedBox(height: screen.height / 70),
-                      CustomTextField(
-                        controller: registerationProvider.phoneController,
-                        icon: Icons.phone,
-                        labelText: 'Phone',
-                        keyboardType: TextInputType.phone,
-                      ),
-                      SizedBox(height: screen.height / 70),
                       Align(
                         alignment: Alignment.bottomLeft,
                         child: Row(
@@ -90,7 +84,7 @@ class SignUpForm extends StatelessWidget {
                               child: const Text(
                                 'Log in',
                                 style: TextStyle(
-                                  color: Color(0xfffa4a0c),
+                                  color: orange,
                                 ),
                               ),
                             ),
