@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/presentation/CheckoutPage/checkout_delivery_page.dart';
 import 'package:fullfill_user_app/presentation/CheckoutPage/checkout_patment.dart';
@@ -12,18 +13,25 @@ import 'package:fullfill_user_app/presentation/HomePage/home_page.dart';
 import 'package:fullfill_user_app/presentation/AuthPage/auth_page.dart';
 import 'package:fullfill_user_app/presentation/profile/profile_page.dart';
 import 'package:fullfill_user_app/presentation/splash_page.dart';
-import 'package:fullfill_user_app/provider/auth_provider.dart';
+import 'package:fullfill_user_app/provider/registeration_provider.dart';
+import 'package:fullfill_user_app/provider/image_provider.dart';
 import 'package:fullfill_user_app/provider/splash_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import 'Globals/instence.dart';
 import 'presentation/emptyPages/privacy_page.dart';
 
-void main(List<String> args) {
+Future<void> main(List<String> args) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  sharedPreferences = await SharedPreferences.getInstance();
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => SplashProvider()),
-        ChangeNotifierProvider(create: (context) => AuthProvider()),
+        ChangeNotifierProvider(create: (context) => RegisterationProvider()),
+        ChangeNotifierProvider(create: (context) => ImagesProvider()),
       ],
       child: const MyApp(),
     ),
@@ -50,8 +58,13 @@ class MyApp extends StatelessWidget {
       routes: {
         '/splash': (context) => Consumer<SplashProvider>(
               builder: (context, splashProvider, child) {
+                // if user is logged in
                 if (splashProvider.hasShownSplash) {
-                  return const AuthPage();
+                  if (firebaseAuth.currentUser != null) {
+                    return const HomePage();
+                  } else {
+                    return const AuthPage();
+                  }
                 } else {
                   return const SplashPage();
                 }

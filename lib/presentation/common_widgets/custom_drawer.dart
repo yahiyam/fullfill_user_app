@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/Globals/instence.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -69,10 +70,19 @@ class CustomDrawer extends StatelessWidget {
               ],
             ),
             const SizedBox(),
-            const CustomDrawerTile(
+            CustomDrawerTile(
               leadingIcon: Icons.logout_outlined,
               title: 'Sign-out',
-            )
+              onTap: () {
+                firebaseAuth.signOut().then((value) {
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    '/auth',
+                    (route) => false,
+                  );
+                });
+              },
+            ),
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/Globals/colors.dart';
+import 'package:fullfill_user_app/Globals/instence.dart';
 import 'package:fullfill_user_app/presentation/HomePage/widgets/heading_title.dart';
 import 'package:fullfill_user_app/presentation/common_widgets/common_widgets.dart';
 
@@ -10,7 +11,9 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size screen = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: const CustomAppBar(title: 'My profile'),
+      appBar: CustomAppBar(
+        title: 'Welcome ${sharedPreferences!.getString("name")!}',
+      ),
       backgroundColor: grey200,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -141,7 +144,7 @@ class PersonCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(30),
             ),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
                   margin: const EdgeInsets.all(20),
@@ -151,33 +154,35 @@ class PersonCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.blueGrey[400],
                     borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(
-                      fit: BoxFit.fitHeight,
-                      image: AssetImage('assets/malePerson.png'),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        sharedPreferences!.getString("photoUrl")!,
+                      ),
                     ),
                   ),
                 ),
-                const Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Sample person',
-                      style: TextStyle(
+                      sharedPreferences!.getString("name")!,
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w400,
                         color: Colors.black,
                       ),
                     ),
                     Text(
-                      'sample@gmail.com',
-                      style: TextStyle(
+                      sharedPreferences!.getString("email")!,
+                      style: const TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w400,
                         color: grey,
                       ),
                     ),
-                    Text(
+                    const Text(
                       'sample address, behind  campus',
                       style: TextStyle(
                         fontSize: 13,
@@ -185,7 +190,7 @@ class PersonCard extends StatelessWidget {
                         color: grey,
                       ),
                     ),
-                    SizedBox(),
+                    const SizedBox(),
                   ],
                 ),
               ],
