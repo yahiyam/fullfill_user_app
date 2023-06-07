@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/Globals/colors.dart';
+import 'package:fullfill_user_app/presentation/HomePage/functions/meal_categories.dart';
+
+import '../../../Globals/instence.dart';
 
 class HomeFlexiableSpaceBar extends StatelessWidget {
   final double appBarHeight = 66.0;
@@ -7,6 +11,7 @@ class HomeFlexiableSpaceBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double statusBarHeight = MediaQuery.of(context).padding.top;
+    final String currentCategory = getMealCategory();
     return FlexibleSpaceBar(
       background: Container(
         padding: EdgeInsets.only(top: statusBarHeight),
@@ -17,16 +22,16 @@ class HomeFlexiableSpaceBar extends StatelessWidget {
             children: [
               RichText(
                 textAlign: TextAlign.center,
-                text: const TextSpan(
-                  style: TextStyle(
+                text: TextSpan(
+                  style: const TextStyle(
                     height: 1.5,
                     fontSize: 24,
                     fontWeight: FontWeight.w900,
                     color: Colors.black,
                   ),
                   children: [
-                    TextSpan(
-                      text: 'What do you want\nfor ',
+                    const TextSpan(
+                      text: 'Welcome ',
                       style: TextStyle(
                         height: 1.5,
                         fontSize: 24,
@@ -35,12 +40,39 @@ class HomeFlexiableSpaceBar extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: 'Dinner',
+                      text: sharedPreferences!.getString("name")!,
+                      style: const TextStyle(
+                        height: 1.5,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w900,
+                        color: orange,
+                      ),
+                    ),
+                    const TextSpan(
+                      text: '.\nWhat do you want for ',
                       style: TextStyle(
                         height: 1.5,
                         fontSize: 24,
                         fontWeight: FontWeight.w900,
-                        color: Color(0xffff6838),
+                        color: Colors.black,
+                      ),
+                    ),
+                    TextSpan(
+                      text: currentCategory,
+                      style: const TextStyle(
+                        height: 1.5,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w900,
+                        color: orange,
+                      ),
+                    ),
+                    const TextSpan(
+                      text: '. ',
+                      style: TextStyle(
+                        height: 1.5,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w900,
+                        color: Colors.black,
                       ),
                     ),
                   ],

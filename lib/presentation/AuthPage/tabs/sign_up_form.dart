@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/presentation/common_widgets/common_widgets.dart';
 import 'package:fullfill_user_app/presentation/AuthPage/widgets/custom_text_field.dart';
-import 'package:fullfill_user_app/provider/auth_provider.dart';
+import 'package:fullfill_user_app/provider/registeration_provider.dart';
 import 'package:fullfill_user_app/provider/image_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +14,7 @@ class SignUpForm extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screen = MediaQuery.of(context).size;
     return SingleChildScrollView(
-      child: Consumer<RegisterationProvideref>(
+      child: Consumer<RegisterationProvider>(
         builder: (context, registerationProvider, _) {
           return Column(
             children: [

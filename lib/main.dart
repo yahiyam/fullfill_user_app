@@ -13,6 +13,8 @@ import 'package:fullfill_user_app/presentation/HomePage/home_page.dart';
 import 'package:fullfill_user_app/presentation/AuthPage/auth_page.dart';
 import 'package:fullfill_user_app/presentation/profile/profile_page.dart';
 import 'package:fullfill_user_app/presentation/splash_page.dart';
+import 'package:fullfill_user_app/provider/login_provider.dart';
+import 'package:fullfill_user_app/provider/password_visibility_provider.dart';
 import 'package:fullfill_user_app/provider/registeration_provider.dart';
 import 'package:fullfill_user_app/provider/image_provider.dart';
 import 'package:fullfill_user_app/provider/splash_provider.dart';
@@ -30,7 +32,10 @@ Future<void> main(List<String> args) async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => SplashProvider()),
+        ChangeNotifierProvider(
+            create: (context) => PasswordVisibilityProvider()),
         ChangeNotifierProvider(create: (context) => RegisterationProvider()),
+        ChangeNotifierProvider(create: (context) => LoginProvider()),
         ChangeNotifierProvider(create: (context) => ImagesProvider()),
       ],
       child: const MyApp(),

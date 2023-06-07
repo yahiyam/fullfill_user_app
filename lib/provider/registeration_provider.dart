@@ -13,14 +13,13 @@ import 'image_provider.dart';
 
 class RegisterationProvider with ChangeNotifier {
   final GlobalKey<FormState> registrationFormKey = GlobalKey<FormState>();
-  final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
   final TextEditingController phoneController = TextEditingController();
-  String sellerImageUrl = '';
+  String userImageUrl = '';
   @override
   void dispose() {
     nameController.dispose();
@@ -60,10 +59,10 @@ class RegisterationProvider with ChangeNotifier {
           firebase_storage.TaskSnapshot taskSnapshot =
               await uploadTask.whenComplete(() {});
           await taskSnapshot.ref.getDownloadURL().then((url) {
-            sellerImageUrl = url;
+            userImageUrl = url;
 
             //save info to firestore
-            authenticateSellerAndSignUp(context);
+            authenticateuserAndSignUp(context);
           });
         } else {
           showMessageDialog(
@@ -82,7 +81,7 @@ class RegisterationProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void authenticateSellerAndSignUp(BuildContext context) async {
+  void authenticateuserAndSignUp(BuildContext context) async {
     User? currentUser;
     FirebaseAuth firebaseAuth = FirebaseAuth.instance;
     await firebaseAuth
@@ -112,10 +111,10 @@ class RegisterationProvider with ChangeNotifier {
 
   Future<void> saveDataToFirestore(User currentUser) async {
     FirebaseFirestore.instance.collection("users").doc(currentUser.uid).set({
-      "sellerUID": currentUser.uid,
-      "sellerEmail": currentUser.email,
-      "sellerName": nameController.text.trim(),
-      "sellerAvatarUrl": sellerImageUrl,
+      "userUID": currentUser.uid,
+      "userEmail": currentUser.email,
+      "userName": nameController.text.trim(),
+      "userAvatarUrl": userImageUrl,
       "phone": phoneController.text.trim(),
       "status": "approved",
     });
@@ -125,7 +124,7 @@ class RegisterationProvider with ChangeNotifier {
     await sharedPreferences!.setString("uid", currentUser.uid);
     await sharedPreferences!.setString("email", currentUser.email.toString());
     await sharedPreferences!.setString("name", nameController.text.trim());
-    await sharedPreferences!.setString("photoUrl", sellerImageUrl);
+    await sharedPreferences!.setString("photoUrl", userImageUrl);
     notifyListeners();
   }
 }
