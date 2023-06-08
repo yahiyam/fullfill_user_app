@@ -49,15 +49,7 @@ class _RestaurantAppBarState extends State<RestaurantAppBar> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        IconButton(
-          onPressed: () {
-            widget.scaffoldKey.currentState!.openDrawer();
-          },
-          icon: Icon(
-            Icons.menu,
-            color: _isScrolledUp ? Colors.black : Colors.white,
-          ),
-        ),
+        const SizedBox(),
         IconButton(
           onPressed: () {},
           icon: Icon(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/presentation/common_widgets/custom_drawer.dart';
 import '../../Globals/colors.dart';
 import 'widgets/menu_food_card.dart';
 import 'widgets/restaurant_app_bar.dart';
@@ -17,7 +16,7 @@ class RestaurantPage extends StatelessWidget {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: grey200,
-      drawer: const CustomDrawer(),
+      
       body: DefaultTabController(
         length: 4,
         child: NestedScrollView(

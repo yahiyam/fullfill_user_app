@@ -4,9 +4,9 @@ import 'package:fullfill_user_app/presentation/HomePage/functions/meal_categorie
 
 import '../../../Globals/instence.dart';
 
-class HomeFlexiableSpaceBar extends StatelessWidget {
+class HomeFlexibleSpaceBar extends StatelessWidget {
   final double appBarHeight = 66.0;
-  const HomeFlexiableSpaceBar({super.key});
+  const HomeFlexibleSpaceBar({super.key});
 
   @override
   Widget build(BuildContext context) {

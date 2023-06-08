@@ -1,9 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'widgets/restaurant_card.dart';
-import 'widgets/heading_title.dart';
-import 'widgets/home_app_bar.dart';
-import '../common_widgets/custom_drawer.dart';
-import 'widgets/home_flexiable_space_bar.dart';
+import 'package:fullfill_user_app/models/sellers.dart';
+import 'package:fullfill_user_app/presentation/HomePage/widgets/custom_drawer.dart';
+import 'package:fullfill_user_app/presentation/HomePage/widgets/heading_title.dart';
+import 'package:fullfill_user_app/presentation/HomePage/widgets/home_app_bar.dart';
+import 'package:fullfill_user_app/presentation/HomePage/widgets/home_flexiable_space_bar.dart';
+import 'package:fullfill_user_app/presentation/HomePage/widgets/restaurant_card.dart';
+import 'package:fullfill_user_app/presentation/commonFunctions/progress_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,6 +14,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screen = MediaQuery.of(context).size;
+
     return Scaffold(
       drawer: const CustomDrawer(),
       body: CustomScrollView(
@@ -19,18 +23,58 @@ class HomePage extends StatelessWidget {
             pinned: true,
             title: const HomeAppBar(),
             expandedHeight: screen.height / 3.5,
-            flexibleSpace: const HomeFlexiableSpaceBar(),
+            flexibleSpace: const HomeFlexibleSpaceBar(),
           ),
           SliverList(
             delegate: SliverChildListDelegate(
               [
                 const HeadingTitle(title: 'Restaurants'),
-                const RestaurantCard(),
-                const RestaurantCard(),
-                const RestaurantCard(),
-                const RestaurantCard(),
               ],
             ),
+          ),
+          StreamBuilder<QuerySnapshot>(
+            stream:
+                FirebaseFirestore.instance.collection("sellers").snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return SliverToBoxAdapter(
+                  child: Center(child: Text('Error: ${snapshot.error}')),
+                );
+              }
+
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return SliverToBoxAdapter(
+                  child: Center(child: circularProgress()),
+                );
+              }
+
+              if (snapshot.data!.docs.isEmpty) {
+                return const SliverToBoxAdapter(
+                  child: Center(child: Text('No restaurants available')),
+                );
+              }
+
+              List<Sellers> sellersList = snapshot.data!.docs
+                  .map((doc) =>
+                      Sellers.fromJson(doc.data() as Map<String, dynamic>))
+                  .toList();
+
+              return SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    Sellers seller = sellersList[index];
+                    return Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * .05,
+                        vertical: MediaQuery.of(context).size.width * .03,
+                      ),
+                      child: RestaurantCard(model: seller),
+                    );
+                  },
+                  childCount: sellersList.length,
+                ),
+              );
+            },
           ),
         ],
       ),
