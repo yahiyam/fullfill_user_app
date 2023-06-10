@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 import '../provider/splash_provider.dart';
 import 'common_widgets/common_widgets.dart';
 
-class SplashPage extends StatelessWidget {
-  const SplashPage({super.key});
+class GetStartedPage extends StatelessWidget {
+  const GetStartedPage({super.key});
 
   @override
   Widget build(BuildContext context) {

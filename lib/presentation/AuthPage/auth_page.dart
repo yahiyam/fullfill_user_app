@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/Globals/colors.dart';
+import 'package:fullfill_user_app/provider/auth_page_tabs_provider.dart';
+import 'package:provider/provider.dart';
 import 'tabs/login_form.dart';
 import 'tabs/sign_up_form.dart';
 
@@ -8,8 +11,9 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screen = MediaQuery.of(context).size;
+    final tabProvider = Provider.of<AuthTabsProvider>(context);
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: backgroundColor,
       body: DefaultTabController(
         length: 2,
         child: NestedScrollView(
@@ -32,20 +36,21 @@ class AuthPage extends StatelessWidget {
                     bottomRight: Radius.circular(30),
                   ),
                 ),
-                bottom: const TabBar(
-                  labelColor: Colors.black,
-                  indicatorColor: Color(0xfffa4a0c),
+                bottom: TabBar(
+                  labelColor: black,
+                  indicatorColor: orange,
                   splashFactory: NoSplash.splashFactory,
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
-                  unselectedLabelStyle: TextStyle(
+                  unselectedLabelStyle: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.normal,
                   ),
                   isScrollable: true,
-                  tabs: [
+                  controller: tabProvider.tabController,
+                  tabs: const [
                     Tab(text: "Login"),
                     Tab(text: "Sign-up"),
                   ],
@@ -53,8 +58,9 @@ class AuthPage extends StatelessWidget {
               )
             ];
           },
-          body:  const TabBarView(
-            children: [
+          body: TabBarView(
+            controller: tabProvider.tabController,
+            children: const [
               LoginForm(),
               SignUpForm(),
             ],

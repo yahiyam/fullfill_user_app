@@ -5,8 +5,8 @@ class ImagesProvider extends ChangeNotifier {
   XFile? imageXFile;
 
   Future<void> pickImage() async {
-    final picker = ImagePicker();
-    final pickedImage = await picker.pickImage(source: ImageSource.gallery);
+    final ImagePicker picker = ImagePicker();
+    final XFile? pickedImage = await picker.pickImage(source: ImageSource.gallery);
     imageXFile = pickedImage;
     notifyListeners();
   }

@@ -3,7 +3,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/presentation/AuthPage/auth_page.dart';
 import 'package:fullfill_user_app/presentation/commonFunctions/show_message_dialog.dart';
 
 import '../Globals/instence.dart';
@@ -75,8 +74,7 @@ class LoginProvider extends ChangeNotifier {
       } else {
         firebaseAuth.signOut();
         Navigator.pop(context);
-        Navigator.push(
-            context, MaterialPageRoute(builder: (c) => const AuthPage()));
+        Navigator.pushNamedAndRemoveUntil(context, '/auth', (route) => false);
         showMessageDialog(
           context,
           message: "no record exists.",

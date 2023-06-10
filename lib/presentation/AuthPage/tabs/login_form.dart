@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/Globals/colors.dart';
 import 'package:fullfill_user_app/presentation/common_widgets/common_widgets.dart';
 import 'package:fullfill_user_app/presentation/AuthPage/widgets/custom_text_field.dart';
 import 'package:fullfill_user_app/provider/login_provider.dart';
@@ -11,6 +12,7 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screen = MediaQuery.of(context).size;
     return SingleChildScrollView(
+      padding: EdgeInsets.only(top: screen.height/8),
       child: Consumer<LoginProvider>(builder: (context, loginProvider, _) {
         return Form(
           key: loginProvider.loginFormKey,
@@ -24,6 +26,7 @@ class LoginForm extends StatelessWidget {
                       controller: loginProvider.emailController,
                       labelText: 'Email address',
                       icon: Icons.alternate_email,
+                      keyboardType: TextInputType.emailAddress,
                     ),
                     SizedBox(height: screen.height / 70),
                     CustomTextField(
@@ -41,7 +44,7 @@ class LoginForm extends StatelessWidget {
                         child: const Text(
                           'Forgot Passcode?',
                           style: TextStyle(
-                            color: Color(0xfffa4a0c),
+                            color: orange,
                           ),
                         ),
                       ),

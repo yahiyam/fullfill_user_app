@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/Globals/colors.dart';
 import 'package:fullfill_user_app/presentation/common_widgets/common_widgets.dart';
 import 'package:fullfill_user_app/presentation/AuthPage/widgets/custom_text_field.dart';
+import 'package:fullfill_user_app/provider/auth_page_tabs_provider.dart';
 import 'package:fullfill_user_app/provider/registeration_provider.dart';
 import 'package:fullfill_user_app/provider/image_provider.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,8 @@ class SignUpForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screen = MediaQuery.of(context).size;
+    final tabProvider = Provider.of<AuthTabsProvider>(context);
+
     return SingleChildScrollView(
       child: Consumer<RegisterationProvider>(
         builder: (context, registerationProvider, _) {
@@ -21,19 +24,19 @@ class SignUpForm extends StatelessWidget {
             children: [
               SizedBox(height: screen.height / 70),
               Consumer<ImagesProvider>(
-                builder: (context, imagesProvider, _) => InkWell(
-                  onTap: () => imagesProvider.pickImage(),
+                builder: (context, imageProvider, _) => InkWell(
+                  onTap: () => imageProvider.pickImage(),
                   child: CircleAvatar(
                     radius: screen.width * 0.20,
-                    backgroundColor: Colors.white,
-                    backgroundImage: imagesProvider.imageXFile == null
+                    backgroundColor: white,
+                    backgroundImage: imageProvider.imageXFile == null
                         ? null
-                        : FileImage(File(imagesProvider.imageXFile!.path)),
-                    child: imagesProvider.imageXFile == null
+                        : FileImage(File(imageProvider.imageXFile!.path)),
+                    child: imageProvider.imageXFile == null
                         ? Icon(
                             Icons.add_photo_alternate,
                             size: screen.width * 0.20,
-                            color: Colors.grey,
+                            color: grey,
                           )
                         : null,
                   ),
@@ -56,6 +59,7 @@ class SignUpForm extends StatelessWidget {
                         controller: registerationProvider.emailController,
                         icon: Icons.alternate_email,
                         labelText: 'Email',
+                        keyboardType: TextInputType.emailAddress,
                       ),
                       SizedBox(height: screen.height / 70),
                       CustomTextField(
@@ -80,7 +84,9 @@ class SignUpForm extends StatelessWidget {
                           children: [
                             const Text('Already have an account?'),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                tabProvider.changeTab(0);
+                              },
                               child: const Text(
                                 'Log in',
                                 style: TextStyle(

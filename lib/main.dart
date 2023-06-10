@@ -12,7 +12,8 @@ import 'package:fullfill_user_app/presentation/emptyPages/search_page.dart';
 import 'package:fullfill_user_app/presentation/HomePage/home_page.dart';
 import 'package:fullfill_user_app/presentation/AuthPage/auth_page.dart';
 import 'package:fullfill_user_app/presentation/profile/profile_page.dart';
-import 'package:fullfill_user_app/presentation/splash_page.dart';
+import 'package:fullfill_user_app/presentation/get_started_page.dart';
+import 'package:fullfill_user_app/provider/auth_page_tabs_provider.dart';
 import 'package:fullfill_user_app/provider/login_provider.dart';
 import 'package:fullfill_user_app/provider/registeration_provider.dart';
 import 'package:fullfill_user_app/provider/image_provider.dart';
@@ -34,6 +35,7 @@ Future<void> main(List<String> args) async {
         ChangeNotifierProvider(create: (context) => RegisterationProvider()),
         ChangeNotifierProvider(create: (context) => LoginProvider()),
         ChangeNotifierProvider(create: (context) => ImagesProvider()),
+        ChangeNotifierProvider(create: (context) => AuthTabsProvider()),
       ],
       child: const MyApp(),
     ),
@@ -68,7 +70,7 @@ class MyApp extends StatelessWidget {
                     return const AuthPage();
                   }
                 } else {
-                  return const SplashPage();
+                  return const GetStartedPage();
                 }
               },
             ),
@@ -89,3 +91,11 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+/* 
+// predicate
+Navigator.pushNamedAndRemoveUntil(
+  context,
+  '/home',
+  (route) => route.settings.name == '/stopRemovalRoute',
+);
+ */

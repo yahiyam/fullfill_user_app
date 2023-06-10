@@ -42,7 +42,7 @@ Future<dynamic> showMessageDialog(
               child: const Center(
                 child: Text(
                   'OK',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: white),
                 ),
               ),
             ),
