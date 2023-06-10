@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/Globals/colors.dart';
-import 'package:fullfill_user_app/presentation/HomePage/functions/meal_categories.dart';
+import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/presentation/homePage/functions/meal_categories.dart';
 
-import '../../../Globals/instence.dart';
+import '../../../globals/instence.dart';
 
 class HomeFlexibleSpaceBar extends StatelessWidget {
   final double appBarHeight = 66.0;
@@ -27,7 +27,7 @@ class HomeFlexibleSpaceBar extends StatelessWidget {
                     height: 1.5,
                     fontSize: 24,
                     fontWeight: FontWeight.w900,
-                    color: Colors.black,
+                    color: black,
                   ),
                   children: [
                     const TextSpan(
@@ -36,11 +36,11 @@ class HomeFlexibleSpaceBar extends StatelessWidget {
                         height: 1.5,
                         fontSize: 24,
                         fontWeight: FontWeight.w900,
-                        color: Colors.black,
+                        color: black,
                       ),
                     ),
                     TextSpan(
-                      text: sharedPreferences!.getString("name")!,
+                      text: sharedPreferences!.getString("name")!.toUpperCase(),
                       style: const TextStyle(
                         height: 1.5,
                         fontSize: 24,
@@ -54,7 +54,7 @@ class HomeFlexibleSpaceBar extends StatelessWidget {
                         height: 1.5,
                         fontSize: 24,
                         fontWeight: FontWeight.w900,
-                        color: Colors.black,
+                        color: black,
                       ),
                     ),
                     TextSpan(
@@ -72,7 +72,7 @@ class HomeFlexibleSpaceBar extends StatelessWidget {
                         height: 1.5,
                         fontSize: 24,
                         fontWeight: FontWeight.w900,
-                        color: Colors.black,
+                        color: black,
                       ),
                     ),
                   ],
@@ -93,12 +93,12 @@ class HomeFlexibleSpaceBar extends StatelessWidget {
                     ),
                     contentPadding: const EdgeInsets.symmetric(vertical: 15),
                     filled: true,
-                    fillColor: const Color(0xFFEFEEEE),
+                    fillColor: searchBGC,
                     hintText: 'Search',
                     hintStyle: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w400,
-                      color: Colors.grey,
+                      color: grey,
                     ),
                   ),
                 ),

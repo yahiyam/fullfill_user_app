@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/models/sellers.dart';
-import 'package:fullfill_user_app/presentation/HomePage/widgets/custom_drawer.dart';
-import 'package:fullfill_user_app/presentation/HomePage/widgets/heading_title.dart';
-import 'package:fullfill_user_app/presentation/HomePage/widgets/home_app_bar.dart';
-import 'package:fullfill_user_app/presentation/HomePage/widgets/home_flexiable_space_bar.dart';
-import 'package:fullfill_user_app/presentation/HomePage/widgets/restaurant_card.dart';
+import 'package:fullfill_user_app/presentation/homePage/widgets/custom_drawer.dart';
+import 'package:fullfill_user_app/presentation/homePage/widgets/heading_title.dart';
+import 'package:fullfill_user_app/presentation/homePage/widgets/home_app_bar.dart';
+import 'package:fullfill_user_app/presentation/homePage/widgets/home_flexiable_space_bar.dart';
+import 'package:fullfill_user_app/presentation/homePage/widgets/restaurant_card.dart';
 import 'package:fullfill_user_app/presentation/commonFunctions/progress_bar.dart';
 
 class HomePage extends StatelessWidget {
@@ -27,14 +27,11 @@ class HomePage extends StatelessWidget {
           ),
           SliverList(
             delegate: SliverChildListDelegate(
-              [
-                const HeadingTitle(title: 'Restaurants'),
-              ],
+              [const HeadingTitle(title: 'Restaurants')],
             ),
           ),
           StreamBuilder<QuerySnapshot>(
-            stream:
-                FirebaseFirestore.instance.collection("sellers").snapshots(),
+            stream: FirebaseFirestore.instance.collection("sellers").snapshots(),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
                 return SliverToBoxAdapter(
@@ -54,10 +51,8 @@ class HomePage extends StatelessWidget {
                 );
               }
 
-              List<Sellers> sellersList = snapshot.data!.docs
-                  .map((doc) =>
-                      Sellers.fromJson(doc.data() as Map<String, dynamic>))
-                  .toList();
+              List<Sellers> sellersList = snapshot.data!.docs.map((doc) =>
+                      Sellers.fromJson(doc.data() as Map<String, dynamic>)).toList();
 
               return SliverList(
                 delegate: SliverChildBuilderDelegate(
@@ -65,10 +60,10 @@ class HomePage extends StatelessWidget {
                     Sellers seller = sellersList[index];
                     return Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: MediaQuery.of(context).size.width * .05,
-                        vertical: MediaQuery.of(context).size.width * .03,
+                        horizontal: screen.width * .05,
+                        vertical: screen.width * .03,
                       ),
-                      child: RestaurantCard(model: seller),
+                      child: RestaurantCard(seller: seller),
                     );
                   },
                   childCount: sellersList.length,

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/presentation/common_widgets/common_widgets.dart';
+import 'package:fullfill_user_app/presentation/checkoutPage/widgets/delivery_type_card.dart';
+import 'package:fullfill_user_app/presentation/commonWidgets/common_widgets.dart';
 
-import '../../Globals/colors.dart';
-import '../HomePage/widgets/heading_title.dart';
+import '../../globals/colors.dart';
+import '../homePage/widgets/heading_title.dart';
 
 class DeliveryPage extends StatelessWidget {
   const DeliveryPage({super.key});
@@ -25,7 +26,7 @@ class DeliveryPage extends StatelessWidget {
                 fontSize: 34,
                 fontWeight: FontWeight.w400,
                 height: 1.2025,
-                color: Color(0xff000000),
+                color: black,
               ),
             ),
           ),
@@ -57,7 +58,7 @@ class DeliveryPage extends StatelessWidget {
                   height: screen.height / 6,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.white70,
+                    color: white70,
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: const Padding(
@@ -72,7 +73,7 @@ class DeliveryPage extends StatelessWidget {
                             fontSize: 18,
                             fontWeight: FontWeight.w400,
                             height: 1.2025,
-                            color: Color(0xff000000),
+                            color: black,
                           ),
                         ),
                         Text(
@@ -81,7 +82,7 @@ class DeliveryPage extends StatelessWidget {
                             fontSize: 13,
                             fontWeight: FontWeight.w400,
                             height: 1.2025,
-                            color: Color(0xff000000),
+                            color: black,
                           ),
                         ),
                         Text(
@@ -90,7 +91,7 @@ class DeliveryPage extends StatelessWidget {
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
                             height: 1.2025,
-                            color: Color(0xff000000),
+                            color: black,
                           ),
                         ),
                       ],
@@ -114,7 +115,7 @@ class DeliveryPage extends StatelessWidget {
                   height: screen.height / 6,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.white70,
+                    color: white70,
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: const Column(
@@ -141,37 +142,6 @@ class DeliveryPage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class DeliveryTypeCard extends StatelessWidget {
-  const DeliveryTypeCard({
-    super.key,
-    required this.type,
-    this.isSelected = false,
-  });
-  final String type;
-  final bool? isSelected;
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        type,
-        style: const TextStyle(
-          fontSize: 17,
-          fontWeight: FontWeight.w400,
-        ),
-      ),
-      leading: isSelected!
-          ? const Icon(
-              Icons.adjust_rounded,
-              color: orange,
-            )
-          : const Icon(
-              Icons.fiber_manual_record_outlined,
-              color: grey,
-            ),
     );
   }
 }

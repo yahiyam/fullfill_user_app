@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/presentation/commonFunctions/show_message_dialog.dart';
 
-import '../Globals/instence.dart';
+import '../globals/instence.dart';
 
 class LoginProvider extends ChangeNotifier {
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();

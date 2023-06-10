@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/Globals/colors.dart';
+import 'package:fullfill_user_app/globals/colors.dart';
 
 class CustomTextField extends StatefulWidget {
   final bool? obscureText;

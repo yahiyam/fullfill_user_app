@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/globals/colors.dart';
 
 circularProgress() {
   return Container(
@@ -6,7 +7,7 @@ circularProgress() {
     padding: const EdgeInsets.only(top: 12),
     child: const CircularProgressIndicator(
       valueColor: AlwaysStoppedAnimation(
-        Colors.amber,
+        orange,
       ),
     ),
   );

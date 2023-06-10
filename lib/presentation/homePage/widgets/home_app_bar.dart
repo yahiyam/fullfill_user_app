@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/globals/colors.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -18,7 +19,7 @@ class HomeAppBar extends StatelessWidget {
             children: [
               Icon(
                 Icons.place_outlined,
-                color: Color(0xfffa4a0c),
+                color: orange,
               ),
               Text(
                 'Location',
@@ -29,7 +30,7 @@ class HomeAppBar extends StatelessWidget {
               ),
               Icon(
                 Icons.expand_more_rounded,
-                color: Color(0xfffa4a0c),
+                color: orange,
               ),
             ],
           ),

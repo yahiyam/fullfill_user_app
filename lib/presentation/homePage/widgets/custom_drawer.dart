@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/Globals/instence.dart';
+import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/globals/instence.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -7,7 +8,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: const Color(0xfffa4a0c),
+      backgroundColor: orange,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -57,13 +58,6 @@ class CustomDrawer extends StatelessWidget {
                   title: 'History',
                   onTap: () {
                     Navigator.pop(context);
-                    if (ModalRoute.of(context)!.settings.name != '/home') {
-                      Navigator.pushNamedAndRemoveUntil(
-                        context,
-                        '/home',
-                        (route) => false,
-                      );
-                    }
                     Navigator.pushNamed(context, '/history');
                   },
                 ),
@@ -105,7 +99,7 @@ class CustomDrawerTile extends StatelessWidget {
     return ListTile(
       leading: Icon(
         leadingIcon,
-        color: Colors.white,
+        color: white,
       ),
       title: Text(
         title ?? '',
@@ -113,7 +107,7 @@ class CustomDrawerTile extends StatelessWidget {
           fontSize: 17,
           fontWeight: FontWeight.w600,
           height: 1.5,
-          color: Color(0xffffffff),
+          color: white,
         ),
       ),
       onTap: onTap,
@@ -129,7 +123,7 @@ class CustomDrawerDivider extends StatelessWidget {
     return Divider(
       indent: 56,
       endIndent: 80,
-      color: Colors.grey[350],
+      color: grey350,
     );
   }
 }

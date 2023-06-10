@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/models/sellers.dart';
 
 class RestaurantCard extends StatelessWidget {
   const RestaurantCard({
     super.key,
-    this.model,
+    this.seller,
   });
-  final Sellers? model;
+  final Sellers? seller;
   @override
   Widget build(BuildContext context) {
     Size screen = MediaQuery.of(context).size;
@@ -22,17 +23,17 @@ class RestaurantCard extends StatelessWidget {
             width: screen.width * .9,
             decoration: BoxDecoration(
               //background image
-              image: (model == null)
+              image: (seller == null)
                   ? const DecorationImage(
                       fit: BoxFit.cover,
                       image: AssetImage('assets/foodimage01.png'))
                   : DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage(model!.sellerAvatarUrl!)),
+                      image: NetworkImage(seller!.sellerAvatarUrl!)),
               borderRadius: BorderRadius.circular(30),
               boxShadow: const [
                 BoxShadow(
-                  color: Color.fromRGBO(250, 75, 12, 0.2),
+                  color: shadowColor,
                   spreadRadius: 3,
                   blurRadius: 5,
                   offset: Offset(3, 3),
@@ -49,7 +50,7 @@ class RestaurantCard extends StatelessWidget {
                 bottomLeft: Radius.circular(30),
                 bottomRight: Radius.circular(30),
               ),
-              color: Colors.white,
+              color: white,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,14 +62,13 @@ class RestaurantCard extends StatelessWidget {
                       width: screen.width * .5,
                       child: Text(
                         // restaurant name
-                        model?.sellerName ?? 'Restaurent Name',
+                        seller?.sellerName ?? 'Restaurent Name',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                         style: const TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.w400,
                           height: 1.2025,
-                          color: Color(0xff302f3c),
+                          color: black,
                         ),
                       ),
                     ),
@@ -80,7 +80,7 @@ class RestaurantCard extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.delivery_dining_rounded,
-                          color: Color(0xfffa4a0c),
+                          color: orange,
                         ),
                         // delivery time
                         Text('58 min'),
@@ -90,7 +90,7 @@ class RestaurantCard extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.star_rate_rounded,
-                          color: Color(0xfffa4a0c),
+                          color: orange,
                         ),
                         // rating
                         Text('4.8'),

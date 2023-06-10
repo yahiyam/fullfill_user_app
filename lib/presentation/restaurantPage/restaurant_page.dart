@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../Globals/colors.dart';
+import '../../globals/colors.dart';
 import 'widgets/menu_food_card.dart';
 import 'widgets/restaurant_app_bar.dart';
 import 'widgets/restaurant_flexible_space_bar.dart';

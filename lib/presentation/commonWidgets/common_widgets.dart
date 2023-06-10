@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fullfill_user_app/globals/colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
-    Key? key,
+    super.key,
     this.title,
     this.showTextField = false,
-  }) : super(key: key);
+  });
 
   final String? title;
   final bool showTextField;
@@ -26,7 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           hintStyle: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w400,
-            color: Colors.black,
+            color: black,
           ),
         ),
       );
@@ -34,13 +35,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     // Set the system UI overlay style for the status bar color
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.blue, // Replace with your desired color
+      statusBarColor: blue, // Replace with your desired color
     ));
 
     return AppBar(
       toolbarHeight: screen.height / 100 * 10,
       centerTitle: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: transparent,
       leading: IconButton(
         padding: EdgeInsets.only(left: screen.width / 100 * 4),
         onPressed: () {
@@ -58,7 +59,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: black,
             ),
           ),
     );
@@ -85,12 +86,9 @@ class EmptyPageMessege extends StatelessWidget {
             ? Icon(
                 icon,
                 size: screen.height / 5,
-                color: Colors.black12,
-                // color: Color(0xffC7C7C7),
+                color: black12,
               )
-            : SizedBox(
-                height: screen.height / 9,
-              ),
+            : SizedBox(height: screen.height / 9),
         Text(
           mainTitle,
           textAlign: TextAlign.center,
@@ -98,7 +96,7 @@ class EmptyPageMessege extends StatelessWidget {
             fontSize: 28,
             fontWeight: FontWeight.bold,
             height: 2.5,
-            color: Color(0xff000000),
+            color: black,
           ),
         ),
         Text(
@@ -108,7 +106,7 @@ class EmptyPageMessege extends StatelessWidget {
             fontSize: 17,
             fontWeight: FontWeight.w400,
             height: 1.2025,
-            color: Colors.grey,
+            color: grey,
           ),
         ),
       ],
@@ -136,11 +134,11 @@ class CommonButton extends StatelessWidget {
       width: double.infinity,
       height: screen.height * 0.08,
       child: Material(
-        color: isWhite ? Colors.white : const Color(0xfffa4a0c),
+        color: isWhite ? white : orange,
         borderRadius: BorderRadius.circular(30),
         child: InkWell(
           onTap: onTap,
-          splashColor: Colors.black12,
+          splashColor: black12,
           borderRadius: BorderRadius.circular(30),
           child: Center(
             child: Text(
@@ -149,7 +147,7 @@ class CommonButton extends StatelessWidget {
                 fontSize: 17,
                 fontWeight: FontWeight.w400,
                 height: 1,
-                color: isWhite ? const Color(0xfffa4a0c) : Colors.white,
+                color: isWhite ? orange : white,
               ),
             ),
           ),
@@ -175,7 +173,7 @@ class SearchFoodCard extends StatelessWidget {
           height: screen.height * .22,
           width: screen.width * .38,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: white,
             borderRadius: BorderRadius.circular(30),
           ),
         ),
@@ -187,7 +185,7 @@ class SearchFoodCard extends StatelessWidget {
           height: screen.width * .31,
           width: screen.width * .31,
           decoration: BoxDecoration(
-            color: Colors.grey,
+            color: grey,
             borderRadius: BorderRadius.circular(100),
           ),
         ),
@@ -225,7 +223,7 @@ class SearchFoodCard extends StatelessWidget {
               fontSize: 16,
               height: 1,
               fontWeight: FontWeight.w500,
-              color: Color.fromARGB(255, 250, 74, 12),
+              color: orange,
               overflow: TextOverflow.ellipsis,
             ),
           ),

@@ -17,13 +17,4 @@ class Sellers {
     sellerAvatarUrl = json["sellerAvatarUrl"];
     sellerEmail = json["sellerEmail"];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data["sellerUID"] = sellerUID;
-    data["sellerName"] = sellerName;
-    data["sellerAvatarUrl"] = sellerAvatarUrl;
-    data["sellerEmail"] = sellerEmail;
-    return data;
-  }
 }

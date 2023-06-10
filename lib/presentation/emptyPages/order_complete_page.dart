@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/globals/colors.dart';
 
-import '../common_widgets/common_widgets.dart';
+import '../commonWidgets/common_widgets.dart';
 
 class OrderCompletePage extends StatelessWidget {
   const OrderCompletePage({super.key});
@@ -19,7 +20,7 @@ class OrderCompletePage extends StatelessWidget {
               fontWeight: FontWeight.w500,
               height: 3,
               letterSpacing: -1.7,
-              color: Color(0xff000000),
+              color: black,
             ),
           ),
           const EmptyPageMessege(

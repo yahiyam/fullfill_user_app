@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/presentation/common_widgets/common_widgets.dart';
-import 'package:fullfill_user_app/presentation/profile/profile_page.dart';
+import 'package:fullfill_user_app/presentation/commonWidgets/common_widgets.dart';
+import 'package:fullfill_user_app/presentation/profilePage/profile_page.dart';
 
-import '../../Globals/colors.dart';
-import '../HomePage/widgets/heading_title.dart';
+import '../../globals/colors.dart';
+import '../homePage/widgets/heading_title.dart';
 
 class PaymentPage extends StatelessWidget {
   const PaymentPage({super.key});
@@ -43,7 +43,7 @@ class PaymentPage extends StatelessWidget {
                   height: screen.height / 6,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.white70,
+                    color: white70,
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: const Column(
@@ -58,7 +58,7 @@ class PaymentPage extends StatelessWidget {
                       PaymentTypeCard(
                         type: 'UPI',
                         icon: Icons.account_balance_rounded,
-                        iconBGcolor: Colors.pink,
+                        iconBGcolor: pink,
                       ),
                     ],
                   ),

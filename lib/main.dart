@@ -1,17 +1,17 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/presentation/CheckoutPage/checkout_delivery_page.dart';
-import 'package:fullfill_user_app/presentation/CheckoutPage/checkout_patment.dart';
-import 'package:fullfill_user_app/presentation/RestaurantPage/restaurant_page.dart';
+import 'package:fullfill_user_app/presentation/checkoutPage/checkout_delivery_page.dart';
+import 'package:fullfill_user_app/presentation/checkoutPage/checkout_patment.dart';
+import 'package:fullfill_user_app/presentation/restaurantPage/restaurant_page.dart';
 import 'package:fullfill_user_app/presentation/emptyPages/connection_page.dart';
 import 'package:fullfill_user_app/presentation/emptyPages/history_page.dart';
 import 'package:fullfill_user_app/presentation/emptyPages/my_offer_page.dart';
 import 'package:fullfill_user_app/presentation/emptyPages/order_complete_page.dart';
 import 'package:fullfill_user_app/presentation/emptyPages/order_page.dart';
 import 'package:fullfill_user_app/presentation/emptyPages/search_page.dart';
-import 'package:fullfill_user_app/presentation/HomePage/home_page.dart';
-import 'package:fullfill_user_app/presentation/AuthPage/auth_page.dart';
-import 'package:fullfill_user_app/presentation/profile/profile_page.dart';
+import 'package:fullfill_user_app/presentation/homePage/home_page.dart';
+import 'package:fullfill_user_app/presentation/authPage/auth_page.dart';
+import 'package:fullfill_user_app/presentation/profilePage/profile_page.dart';
 import 'package:fullfill_user_app/presentation/get_started_page.dart';
 import 'package:fullfill_user_app/provider/auth_page_tabs_provider.dart';
 import 'package:fullfill_user_app/provider/login_provider.dart';
@@ -21,7 +21,7 @@ import 'package:fullfill_user_app/provider/splash_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'Globals/instence.dart';
+import 'globals/instence.dart';
 import 'presentation/emptyPages/privacy_page.dart';
 
 Future<void> main(List<String> args) async {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/Globals/colors.dart';
+import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/presentation/commonFunctions/progress_bar.dart';
 
 Future<dynamic> showMessageDialog(
   BuildContext context, {
@@ -14,15 +15,7 @@ Future<dynamic> showMessageDialog(
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.only(top: 12),
-                child: const CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation(
-                    orange,
-                  ),
-                ),
-              ),
+              circularProgress(),
               const SizedBox(height: 10),
               Text('$message, Please wait...'),
             ],

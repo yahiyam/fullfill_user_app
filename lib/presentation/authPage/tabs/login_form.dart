@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/Globals/colors.dart';
-import 'package:fullfill_user_app/presentation/common_widgets/common_widgets.dart';
-import 'package:fullfill_user_app/presentation/AuthPage/widgets/custom_text_field.dart';
+import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/presentation/commonWidgets/common_widgets.dart';
+import 'package:fullfill_user_app/presentation/authPage/widgets/custom_text_field.dart';
 import 'package:fullfill_user_app/provider/login_provider.dart';
 import 'package:provider/provider.dart';
 

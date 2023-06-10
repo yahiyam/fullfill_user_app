@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/presentation/common_widgets/common_widgets.dart';
+import 'package:fullfill_user_app/presentation/commonWidgets/common_widgets.dart';
 
 class PrivacyPage extends StatelessWidget {
   const PrivacyPage({super.key});

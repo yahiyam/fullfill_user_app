@@ -7,7 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:shared_preferences/shared_preferences.dart';
-import '../Globals/instence.dart';
+import '../globals/instence.dart';
 import '../presentation/commonFunctions/show_message_dialog.dart';
 import 'image_provider.dart';
 
@@ -16,9 +16,8 @@ class RegisterationProvider with ChangeNotifier {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
-  String userImageUrl = '';
+  final TextEditingController confirmPasswordController = TextEditingController();
+
   @override
   void dispose() {
     nameController.dispose();
@@ -28,9 +27,10 @@ class RegisterationProvider with ChangeNotifier {
     super.dispose();
   }
 
+  String userImageUrl = '';
+
   Future<void> registrationFormValidation(BuildContext context) async {
-    ImagesProvider imagesProvider =
-        Provider.of<ImagesProvider>(context, listen: false);
+    ImagesProvider imagesProvider = Provider.of<ImagesProvider>(context, listen: false);
     XFile? selectedImage = imagesProvider.imageXFile;
 
     if (selectedImage == null) {
@@ -52,10 +52,8 @@ class RegisterationProvider with ChangeNotifier {
               .ref()
               .child("users")
               .child(fileName);
-          firebase_storage.UploadTask uploadTask =
-              reference.putFile(File(selectedImage.path));
-          firebase_storage.TaskSnapshot taskSnapshot =
-              await uploadTask.whenComplete(() {});
+          firebase_storage.UploadTask uploadTask = reference.putFile(File(selectedImage.path));
+          firebase_storage.TaskSnapshot taskSnapshot = await uploadTask.whenComplete(() {});
           await taskSnapshot.ref.getDownloadURL().then((url) {
             userImageUrl = url;
 
@@ -65,8 +63,7 @@ class RegisterationProvider with ChangeNotifier {
         } else {
           showMessageDialog(
             context,
-            message:
-                "Please write the complete required info for Registration.",
+            message:"Please write the complete required info for Registration.",
           );
         }
       } else {
@@ -82,12 +79,10 @@ class RegisterationProvider with ChangeNotifier {
   void authenticateuserAndSignUp(BuildContext context) async {
     User? currentUser;
     FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-    await firebaseAuth
-        .createUserWithEmailAndPassword(
+    await firebaseAuth.createUserWithEmailAndPassword(
       email: emailController.text,
       password: passwordController.text,
-    )
-        .then((auth) {
+    ).then((auth) {
       currentUser = auth.user;
     }).catchError((error) {
       Navigator.pop(context);
