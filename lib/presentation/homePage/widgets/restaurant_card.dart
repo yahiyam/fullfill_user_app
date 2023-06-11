@@ -31,12 +31,12 @@ class RestaurantCard extends StatelessWidget {
                       fit: BoxFit.cover,
                       image: NetworkImage(seller!.sellerAvatarUrl!)),
               borderRadius: BorderRadius.circular(30),
-              boxShadow: const [
+              boxShadow:  [
                 BoxShadow(
                   color: shadowColor,
                   spreadRadius: 3,
                   blurRadius: 5,
-                  offset: Offset(3, 3),
+                  offset: const Offset(3, 3),
                 ),
               ],
             ),

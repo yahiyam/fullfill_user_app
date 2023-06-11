@@ -78,10 +78,9 @@ class RegisterationProvider with ChangeNotifier {
 
   void authenticateuserAndSignUp(BuildContext context) async {
     User? currentUser;
-    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
     await firebaseAuth.createUserWithEmailAndPassword(
-      email: emailController.text,
-      password: passwordController.text,
+      email: emailController.text.trim(),
+      password: passwordController.text.trim(),
     ).then((auth) {
       currentUser = auth.user;
     }).catchError((error) {

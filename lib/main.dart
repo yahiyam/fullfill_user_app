@@ -21,6 +21,7 @@ import 'package:fullfill_user_app/provider/splash_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'globals/colors.dart';
 import 'globals/instence.dart';
 import 'presentation/emptyPages/privacy_page.dart';
 
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.white,
+          seedColor: white,
         ),
       ),
       routes: {
