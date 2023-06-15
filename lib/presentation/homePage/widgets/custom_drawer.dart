@@ -8,7 +8,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: orange,
+      backgroundColor: commonColor,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(

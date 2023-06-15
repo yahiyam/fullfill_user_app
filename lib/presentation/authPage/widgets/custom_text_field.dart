@@ -41,7 +41,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         labelText: widget.labelText,
         prefixIcon: Icon(
           widget.icon,
-          color: orange,
+          color: commonColor,
         ),
         suffixIcon: widget.obscureText! && widget.showSuffixIcon!
             ? IconButton(

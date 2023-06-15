@@ -53,7 +53,7 @@ class PaymentPage extends StatelessWidget {
                         type: 'Card',
                         icon: Icons.payment,
                         isSelected: true,
-                        iconBGcolor: orange,
+                        iconBGcolor: commonColor,
                       ),
                       PaymentTypeCard(
                         type: 'UPI',

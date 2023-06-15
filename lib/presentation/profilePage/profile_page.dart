@@ -43,7 +43,7 @@ class ProfilePage extends StatelessWidget {
                         icon: Icons.payment,
                         type: 'Card',
                         isSelected: true,
-                        iconBGcolor: orange,
+                        iconBGcolor: commonColor,
                       ),
                       PaymentTypeCard(
                         icon: Icons.account_balance_rounded,
@@ -106,7 +106,7 @@ class PaymentTypeCard extends StatelessWidget {
       trailing: isSelected!
           ? const Icon(
               Icons.adjust_rounded,
-              color: orange,
+              color: commonColor,
             )
           : const Icon(
               Icons.fiber_manual_record_outlined,

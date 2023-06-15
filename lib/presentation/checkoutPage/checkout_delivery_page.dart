@@ -47,7 +47,7 @@ class DeliveryPage extends StatelessWidget {
                       child: const Text(
                         'change',
                         style: TextStyle(
-                          color: orange,
+                          color: commonColor,
                         ),
                       ),
                     )

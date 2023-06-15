@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/presentation/checkoutPage/checkout_delivery_page.dart';
 import 'package:fullfill_user_app/presentation/checkoutPage/checkout_patment.dart';
-import 'package:fullfill_user_app/presentation/restaurantPage/restaurant_page.dart';
 import 'package:fullfill_user_app/presentation/emptyPages/connection_page.dart';
 import 'package:fullfill_user_app/presentation/emptyPages/history_page.dart';
 import 'package:fullfill_user_app/presentation/emptyPages/my_offer_page.dart';
@@ -77,7 +76,6 @@ class MyApp extends StatelessWidget {
             ),
         '/auth': (context) => const AuthPage(),
         '/home': (context) => const HomePage(),
-        '/restaurant': (context) => const RestaurantPage(),
         '/connectionError': (context) => const ConnectionErrorPage(),
         '/history': (context) => const HistoryPage(),
         '/myOffer': (context) => const MyOfferPage(),

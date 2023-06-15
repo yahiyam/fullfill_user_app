@@ -45,7 +45,7 @@ class HomeFlexibleSpaceBar extends StatelessWidget {
                         height: 1.5,
                         fontSize: 24,
                         fontWeight: FontWeight.w900,
-                        color: orange,
+                        color: commonColor,
                       ),
                     ),
                     const TextSpan(
@@ -63,7 +63,7 @@ class HomeFlexibleSpaceBar extends StatelessWidget {
                         height: 1.5,
                         fontSize: 24,
                         fontWeight: FontWeight.w900,
-                        color: orange,
+                        color: commonColor,
                       ),
                     ),
                     const TextSpan(

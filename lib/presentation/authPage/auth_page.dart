@@ -27,7 +27,8 @@ class AuthPage extends StatelessWidget {
                 flexibleSpace: FlexibleSpaceBar(
                   background: Container(
                     alignment: Alignment.center,
-                    child: Image.asset('assets/icon.png'),
+                    child: ColorFiltered(colorFilter: const ColorFilter.mode(commonColor, BlendMode.srcIn),
+                    child: Image.asset('assets/icon.png')),
                   ),
                 ),
                 shape: const RoundedRectangleBorder(
@@ -38,7 +39,7 @@ class AuthPage extends StatelessWidget {
                 ),
                 bottom: TabBar(
                   labelColor: black,
-                  indicatorColor: orange,
+                  indicatorColor: commonColor,
                   splashFactory: NoSplash.splashFactory,
                   labelStyle: const TextStyle(
                     fontSize: 20,

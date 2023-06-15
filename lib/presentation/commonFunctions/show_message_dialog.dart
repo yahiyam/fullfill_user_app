@@ -30,7 +30,7 @@ Future<dynamic> showMessageDialog(
                 Navigator.pop(context);
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: orange,
+                backgroundColor: commonColor,
               ),
               child: const Center(
                 child: Text(

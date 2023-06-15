@@ -19,7 +19,7 @@ class HomeAppBar extends StatelessWidget {
             children: [
               Icon(
                 Icons.place_outlined,
-                color: orange,
+                color: commonColor,
               ),
               Text(
                 'Location',
@@ -30,7 +30,7 @@ class HomeAppBar extends StatelessWidget {
               ),
               Icon(
                 Icons.expand_more_rounded,
-                color: orange,
+                color: commonColor,
               ),
             ],
           ),

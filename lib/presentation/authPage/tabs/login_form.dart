@@ -44,7 +44,7 @@ class LoginForm extends StatelessWidget {
                         child: const Text(
                           'Forgot Passcode?',
                           style: TextStyle(
-                            color: orange,
+                            color: commonColor,
                           ),
                         ),
                       ),

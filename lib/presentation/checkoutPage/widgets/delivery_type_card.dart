@@ -22,7 +22,7 @@ class DeliveryTypeCard extends StatelessWidget {
       leading: isSelected!
           ? const Icon(
               Icons.adjust_rounded,
-              color: orange,
+              color: commonColor,
             )
           : const Icon(
               Icons.fiber_manual_record_outlined,

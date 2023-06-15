@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/globals/strings.dart';
+import 'package:fullfill_user_app/models/items.dart';
 
 class MenuFoodCard extends StatelessWidget {
-  const MenuFoodCard({super.key});
-
+  const MenuFoodCard({
+    super.key,
+    required this.item,
+  });
+  final Items item;
   @override
   Widget build(BuildContext context) {
     final Size screen = MediaQuery.of(context).size;
@@ -16,7 +22,7 @@ class MenuFoodCard extends StatelessWidget {
             height: screen.height * .25,
             width: screen.width * .5,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: white,
               borderRadius: BorderRadius.circular(30),
             ),
           ),
@@ -28,9 +34,9 @@ class MenuFoodCard extends StatelessWidget {
             height: screen.width * .35,
             width: screen.width * .35,
             decoration: BoxDecoration(
-              image: const DecorationImage(
+              image:  DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/foodimage01.png'),
+                image: NetworkImage(item.thumbnailUrl!),
               ),
               borderRadius: BorderRadius.circular(100),
             ),
@@ -42,11 +48,11 @@ class MenuFoodCard extends StatelessWidget {
               top: screen.height * .18,
             ),
             width: screen.width * .3,
-            child: const Text(
-              'Veggie tomato mix',
+            child:  Text(
+              item.title??'food name',
               textAlign: TextAlign.center,
               maxLines: 2,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 19,
                 height: 1,
                 fontWeight: FontWeight.w400,
@@ -61,15 +67,15 @@ class MenuFoodCard extends StatelessWidget {
               top: screen.height * .24,
             ),
             width: screen.width * .3,
-            child: const Text(
-              'RS 8.00',
+            child:  Text(
+              "${item.price.toString()} $rupee",
               textAlign: TextAlign.center,
               maxLines: 2,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 12,
                 height: 1,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 250, 74, 12),
+                color: commonColor,
                 overflow: TextOverflow.ellipsis,
               ),
             ),

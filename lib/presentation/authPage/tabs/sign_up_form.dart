@@ -89,7 +89,7 @@ class SignUpForm extends StatelessWidget {
                               child: const Text(
                                 'Log in',
                                 style: TextStyle(
-                                  color: orange,
+                                  color: commonColor,
                                 ),
                               ),
                             ),

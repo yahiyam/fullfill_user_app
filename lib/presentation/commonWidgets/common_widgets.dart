@@ -134,7 +134,7 @@ class CommonButton extends StatelessWidget {
       width: double.infinity,
       height: screen.height * 0.08,
       child: Material(
-        color: isWhite ? white : orange,
+        color: isWhite ? white : commonColor,
         borderRadius: BorderRadius.circular(30),
         child: InkWell(
           onTap: onTap,
@@ -147,7 +147,7 @@ class CommonButton extends StatelessWidget {
                 fontSize: 17,
                 fontWeight: FontWeight.w400,
                 height: 1,
-                color: isWhite ? orange : white,
+                color: isWhite ? commonColor : white,
               ),
             ),
           ),
@@ -223,7 +223,7 @@ class SearchFoodCard extends StatelessWidget {
               fontSize: 16,
               height: 1,
               fontWeight: FontWeight.w500,
-              color: orange,
+              color: commonColor,
               overflow: TextOverflow.ellipsis,
             ),
           ),
