@@ -9,7 +9,7 @@ class StepperWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screen = MediaQuery.of(context).size;
-    return Consumer<CartProvider>(
+    return Consumer<StepperProvider>(
       builder: (context, cartProvider, _) {
         return Container(
           width: screen.width / 2.4,

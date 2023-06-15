@@ -130,7 +130,7 @@ class CommonButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size screen = MediaQuery.of(context).size;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 40),
+      margin: EdgeInsets.symmetric(horizontal: screen.width / 10),
       width: double.infinity,
       height: screen.height * 0.08,
       child: Material(

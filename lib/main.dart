@@ -17,6 +17,7 @@ import 'package:fullfill_user_app/provider/login_provider.dart';
 import 'package:fullfill_user_app/provider/registeration_provider.dart';
 import 'package:fullfill_user_app/provider/image_provider.dart';
 import 'package:fullfill_user_app/provider/splash_provider.dart';
+import 'package:fullfill_user_app/provider/stepper_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -36,6 +37,7 @@ Future<void> main(List<String> args) async {
         ChangeNotifierProvider(create: (context) => LoginProvider()),
         ChangeNotifierProvider(create: (context) => ImagesProvider()),
         ChangeNotifierProvider(create: (context) => AuthTabsProvider()),
+        ChangeNotifierProvider(create: (context) => StepperProvider()),
       ],
       child: const MyApp(),
     ),
@@ -56,7 +58,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: white,
+          seedColor: commonColor,
         ),
       ),
       routes: {
