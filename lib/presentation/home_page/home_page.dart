@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/models/sellers.dart';
-import 'package:fullfill_user_app/presentation/homePage/widgets/custom_drawer.dart';
-import 'package:fullfill_user_app/presentation/homePage/widgets/heading_title.dart';
-import 'package:fullfill_user_app/presentation/homePage/widgets/home_app_bar.dart';
-import 'package:fullfill_user_app/presentation/homePage/widgets/home_flexiable_space_bar.dart';
-import 'package:fullfill_user_app/presentation/homePage/widgets/restaurant_card.dart';
-import 'package:fullfill_user_app/presentation/commonFunctions/progress_bar.dart';
+import 'package:fullfill_user_app/presentation/home_page/widgets/custom_drawer.dart';
+import 'package:fullfill_user_app/presentation/home_page/widgets/heading_title.dart';
+import 'package:fullfill_user_app/presentation/home_page/widgets/home_app_bar.dart';
+import 'package:fullfill_user_app/presentation/home_page/widgets/home_flexiable_space_bar.dart';
+import 'package:fullfill_user_app/presentation/home_page/widgets/restaurant_card.dart';
+import 'package:fullfill_user_app/presentation/common_functions/progress_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

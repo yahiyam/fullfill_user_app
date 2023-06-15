@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/presentation/checkoutPage/widgets/delivery_type_card.dart';
-import 'package:fullfill_user_app/presentation/commonWidgets/common_widgets.dart';
+import 'package:fullfill_user_app/presentation/checkout_page/widgets/delivery_type_card.dart';
+import 'package:fullfill_user_app/presentation/widgets/common_widgets.dart';
 
 import '../../globals/colors.dart';
-import '../homePage/widgets/heading_title.dart';
+import '../home_page/widgets/heading_title.dart';
 
 class DeliveryPage extends StatelessWidget {
   const DeliveryPage({super.key});

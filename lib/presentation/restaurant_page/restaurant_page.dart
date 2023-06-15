@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/models/categories.dart';
 import 'package:fullfill_user_app/models/items.dart';
 import 'package:fullfill_user_app/models/sellers.dart';
-import 'package:fullfill_user_app/presentation/restaurantPage/widgets/menu_food_card.dart';
+import 'package:fullfill_user_app/presentation/restaurant_page/widgets/menu_food_card.dart';
 import '../../globals/colors.dart';
-import '../commonFunctions/progress_bar.dart';
+import '../common_functions/progress_bar.dart';
 import 'widgets/restaurant_app_bar.dart';
 import 'widgets/restaurant_flexible_space_bar.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/models/sellers.dart';
-import 'package:fullfill_user_app/presentation/restaurantPage/restaurant_page.dart';
+import 'package:fullfill_user_app/presentation/restaurant_page/restaurant_page.dart';
 
 class RestaurantCard extends StatelessWidget {
   const RestaurantCard({

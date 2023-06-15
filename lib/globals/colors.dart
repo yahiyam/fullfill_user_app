@@ -7,15 +7,15 @@ const Color grey = Colors.grey;
 const Color pink = Colors.pink;
 const Color blue = Colors.blue;
 const Color transparent = Colors.transparent;
-
+//
 Color grey200 = Colors.grey.shade200;
 Color? grey350 = Colors.grey[350];
 Color white70 = Colors.white70;
 Color black12 = Colors.black12;
+Color black54 = Colors.black54;
+const Color transparent15 = Color.fromARGB(15, 0, 0, 0);
 
-const Color commonColor= pink;
+const Color commonColor = pink;
 Color searchBGC = const Color(0xFFEFEEEE);
 Color? backgroundColor = Colors.grey[200];
 Color shadowColor = const Color.fromRGBO(250, 75, 12, 0.2);
-
-

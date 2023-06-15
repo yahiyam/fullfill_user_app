@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
-import 'package:fullfill_user_app/presentation/commonFunctions/progress_bar.dart';
+import 'package:fullfill_user_app/presentation/common_functions/progress_bar.dart';
 
 Future<dynamic> showMessageDialog(
   BuildContext context, {

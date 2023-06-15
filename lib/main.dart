@@ -1,16 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/presentation/checkoutPage/checkout_delivery_page.dart';
-import 'package:fullfill_user_app/presentation/checkoutPage/checkout_patment.dart';
-import 'package:fullfill_user_app/presentation/emptyPages/connection_page.dart';
-import 'package:fullfill_user_app/presentation/emptyPages/history_page.dart';
-import 'package:fullfill_user_app/presentation/emptyPages/my_offer_page.dart';
-import 'package:fullfill_user_app/presentation/emptyPages/order_complete_page.dart';
-import 'package:fullfill_user_app/presentation/emptyPages/order_page.dart';
-import 'package:fullfill_user_app/presentation/emptyPages/search_page.dart';
-import 'package:fullfill_user_app/presentation/homePage/home_page.dart';
-import 'package:fullfill_user_app/presentation/authPage/auth_page.dart';
-import 'package:fullfill_user_app/presentation/profilePage/profile_page.dart';
+import 'package:fullfill_user_app/presentation/checkout_page/checkout_delivery_page.dart';
+import 'package:fullfill_user_app/presentation/checkout_page/checkout_patment.dart';
+import 'package:fullfill_user_app/presentation/empty_pages/connection_page.dart';
+import 'package:fullfill_user_app/presentation/empty_pages/history_page.dart';
+import 'package:fullfill_user_app/presentation/empty_pages/my_offer_page.dart';
+import 'package:fullfill_user_app/presentation/empty_pages/order_complete_page.dart';
+import 'package:fullfill_user_app/presentation/empty_pages/order_page.dart';
+import 'package:fullfill_user_app/presentation/empty_pages/search_page.dart';
+import 'package:fullfill_user_app/presentation/home_page/home_page.dart';
+import 'package:fullfill_user_app/presentation/auth_page/auth_page.dart';
+import 'package:fullfill_user_app/presentation/profile_page/profile_page.dart';
 import 'package:fullfill_user_app/presentation/get_started_page.dart';
 import 'package:fullfill_user_app/provider/auth_page_tabs_provider.dart';
 import 'package:fullfill_user_app/provider/login_provider.dart';
@@ -22,7 +22,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'globals/colors.dart';
 import 'globals/instence.dart';
-import 'presentation/emptyPages/privacy_page.dart';
+import 'presentation/empty_pages/privacy_page.dart';
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();

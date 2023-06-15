@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/instence.dart';
-import 'package:fullfill_user_app/presentation/homePage/widgets/heading_title.dart';
-import 'package:fullfill_user_app/presentation/commonWidgets/common_widgets.dart';
+import 'package:fullfill_user_app/presentation/home_page/widgets/heading_title.dart';
+import 'package:fullfill_user_app/presentation/widgets/common_widgets.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

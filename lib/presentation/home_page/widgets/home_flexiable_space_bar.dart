@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
-import 'package:fullfill_user_app/presentation/homePage/functions/meal_categories.dart';
+import 'package:fullfill_user_app/presentation/home_page/functions/meal_categories.dart';
 
 import '../../../globals/instence.dart';
 

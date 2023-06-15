@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
 
-import '../commonWidgets/common_widgets.dart';
+import '../widgets/common_widgets.dart';
 
 class OrderCompletePage extends StatelessWidget {
   const OrderCompletePage({super.key});

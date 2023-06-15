@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:shared_preferences/shared_preferences.dart';
 import '../globals/instence.dart';
-import '../presentation/commonFunctions/show_message_dialog.dart';
+import '../presentation/common_functions/show_message_dialog.dart';
 import 'image_provider.dart';
 
 class RegisterationProvider with ChangeNotifier {

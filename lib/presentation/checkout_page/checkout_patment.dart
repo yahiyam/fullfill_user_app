@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/presentation/commonWidgets/common_widgets.dart';
-import 'package:fullfill_user_app/presentation/profilePage/profile_page.dart';
+import 'package:fullfill_user_app/presentation/widgets/common_widgets.dart';
+import 'package:fullfill_user_app/presentation/profile_page/profile_page.dart';
 
 import '../../globals/colors.dart';
-import '../homePage/widgets/heading_title.dart';
+import '../home_page/widgets/heading_title.dart';
 
 class PaymentPage extends StatelessWidget {
   const PaymentPage({super.key});
