@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/presentation/widgets/cart_icon_button.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -35,12 +35,7 @@ class HomeAppBar extends StatelessWidget {
             ],
           ),
         ),
-        IconButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/delivery');
-          },
-          icon: const Icon(Icons.shopping_cart_outlined),
-        ),
+        const CartIconButton(),
       ],
     );
   }

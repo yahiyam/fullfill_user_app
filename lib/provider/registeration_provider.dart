@@ -108,6 +108,7 @@ class RegisterationProvider with ChangeNotifier {
       "userName": nameController.text.trim(),
       "userAvatarUrl": userImageUrl,
       "status": "approved",
+      "userCart": ['garbageValue'],
     });
 
     //save data locally
@@ -116,6 +117,7 @@ class RegisterationProvider with ChangeNotifier {
     await sharedPreferences!.setString("email", currentUser.email.toString());
     await sharedPreferences!.setString("name", nameController.text.trim());
     await sharedPreferences!.setString("photoUrl", userImageUrl);
+    await sharedPreferences!.setStringList("userCart", ['garbageValue']);
     notifyListeners();
   }
 }

@@ -13,6 +13,7 @@ import 'package:fullfill_user_app/presentation/auth_page/auth_page.dart';
 import 'package:fullfill_user_app/presentation/profile_page/profile_page.dart';
 import 'package:fullfill_user_app/presentation/get_started_page.dart';
 import 'package:fullfill_user_app/provider/auth_page_tabs_provider.dart';
+import 'package:fullfill_user_app/provider/cart_item_counter_provider.dart';
 import 'package:fullfill_user_app/provider/login_provider.dart';
 import 'package:fullfill_user_app/provider/registeration_provider.dart';
 import 'package:fullfill_user_app/provider/image_provider.dart';
@@ -32,6 +33,7 @@ Future<void> main(List<String> args) async {
   runApp(
     MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (context) => CartItemCounter()),
         ChangeNotifierProvider(create: (context) => SplashProvider()),
         ChangeNotifierProvider(create: (context) => RegisterationProvider()),
         ChangeNotifierProvider(create: (context) => LoginProvider()),

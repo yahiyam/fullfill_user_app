@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/assistent_methods/assistant_methods.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/strings.dart';
 import 'package:fullfill_user_app/models/items.dart';
 import 'package:fullfill_user_app/presentation/item_page/widgets/stepper_widget.dart';
+import 'package:fullfill_user_app/presentation/widgets/cart_icon_button.dart';
 import 'package:fullfill_user_app/presentation/widgets/common_widgets.dart';
+import 'package:fullfill_user_app/presentation/widgets/toast_message.dart';
 import 'package:fullfill_user_app/provider/stepper_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -35,6 +38,7 @@ class ItemPage extends StatelessWidget {
                 Icons.favorite_border,
               ),
             ),
+            const CartIconButton(),
           ],
         ),
         body: Column(
@@ -48,8 +52,16 @@ class ItemPage extends StatelessWidget {
               screen,
             ),
             buildBodySection(item.shortInfo ?? "Food's short info", screen),
-            const CommonButton(title: 'Add to cart'),
-            // SizedBox(height: screen.height / 30),
+            CommonButton(
+              title: 'Add to cart',
+              onTap: () {
+                List<String> separateItemIDsList = separateItemIDs();
+                separateItemIDsList.contains(item.itemID)
+                    ? ToastMessage.show(context, "Item is already in cart")
+                    : addItemToCart(context, item.itemID, stepper.itemCount);
+              },
+            ),
+            SizedBox(height: screen.height / 30),
           ],
         ),
       ),

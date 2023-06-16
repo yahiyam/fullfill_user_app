@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 
 class StepperProvider with ChangeNotifier {
-@override
-  void dispose() {
-   print('hello');
-    super.dispose();
-  }
-
   late int _itemCount = 1;
 
   int get itemCount => _itemCount;
@@ -18,7 +12,7 @@ class StepperProvider with ChangeNotifier {
 
   void decrementItemCount() {
     if (itemCount > 1) {
-     _itemCount--;
+      _itemCount--;
     }
     notifyListeners();
   }

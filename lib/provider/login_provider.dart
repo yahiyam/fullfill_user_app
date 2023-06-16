@@ -62,12 +62,12 @@ class LoginProvider extends ChangeNotifier {
         .then((snapshot) async {
       if (snapshot.exists) {
         await sharedPreferences!.setString("uid", currentUser.uid);
-        await sharedPreferences!
-            .setString("email", snapshot.data()!["userEmail"]);
-        await sharedPreferences!
-            .setString("name", snapshot.data()!["userName"]);
-        await sharedPreferences!
-            .setString("photoUrl", snapshot.data()!["userAvatarUrl"]);
+        await sharedPreferences!.setString("email", snapshot.data()!["userEmail"]);
+        await sharedPreferences!.setString("name", snapshot.data()!["userName"]);
+        await sharedPreferences!.setString("photoUrl", snapshot.data()!["userAvatarUrl"]);
+
+        List<String> userCartList = snapshot.data()!["userCart"].cast<String>();
+        await sharedPreferences!.setStringList("userCart", userCartList);
 
         Navigator.pop(context);
         Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
