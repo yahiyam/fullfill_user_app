@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/presentation/cart_page/cart_page.dart';
 import 'package:fullfill_user_app/provider/cart_item_counter_provider.dart';
 import 'package:provider/provider.dart';
 
 class CartIconButton extends StatelessWidget {
   const CartIconButton({
     super.key,
-    this.onPressed,
+    // this.onPressed,
     this.isScrolledUp,
+    required this.sellerUID,
   });
 
   final bool? isScrolledUp;
-  final VoidCallback? onPressed;
+  // final VoidCallback? onPressed;
+  final String sellerUID;
 
   Color? cartColor() {
     if (isScrolledUp != null) {
@@ -34,7 +37,11 @@ class CartIconButton extends StatelessWidget {
             Icons.shopping_cart,
             color: cartColor(),
           ),
-          onPressed: onPressed,
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => CartPage(sellerUID: sellerUID),
+            ));
+          },
         ),
         Positioned(
           child: Stack(

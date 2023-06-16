@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const Color orange = Color(0xfffa4a0c);
+const Color danger = Color(0xFFF9D342);
 const Color black = Colors.black;
 const Color white = Colors.white;
 const Color grey = Colors.grey;
@@ -9,7 +10,7 @@ const Color blue = Colors.blue;
 const Color transparent = Colors.transparent;
 //
 Color grey200 = Colors.grey.shade200;
-Color? grey350 = Colors.grey[350];
+Color? grey300 = Colors.grey.shade300;
 Color white70 = Colors.white70;
 Color black12 = Colors.black12;
 Color black54 = Colors.black54;

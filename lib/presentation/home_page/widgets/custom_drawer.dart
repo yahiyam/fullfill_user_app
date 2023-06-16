@@ -123,7 +123,7 @@ class CustomDrawerDivider extends StatelessWidget {
     return Divider(
       indent: 56,
       endIndent: 80,
-      color: grey350,
+      color: grey300,
     );
   }
 }

@@ -7,10 +7,11 @@ class RestaurantAppBar extends StatefulWidget {
   const RestaurantAppBar({
     super.key,
     required this.scrollController,
+    required this.sellerUID,
   });
 
   final ScrollController scrollController;
-
+  final String sellerUID;
   @override
   State<RestaurantAppBar> createState() => _RestaurantAppBarState();
 }
@@ -63,7 +64,10 @@ class _RestaurantAppBarState extends State<RestaurantAppBar> {
             color: _isScrolledUp ? commonColor : backgroundColor,
           ),
         ),
-        CartIconButton(isScrolledUp: _isScrolledUp),
+        CartIconButton(
+          isScrolledUp: _isScrolledUp,
+          sellerUID: widget.sellerUID,
+        ),
       ],
     );
   }

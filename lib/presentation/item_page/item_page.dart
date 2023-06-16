@@ -38,7 +38,7 @@ class ItemPage extends StatelessWidget {
                 Icons.favorite_border,
               ),
             ),
-            const CartIconButton(),
+            CartIconButton(sellerUID: item.sellerUID!),
           ],
         ),
         body: Column(

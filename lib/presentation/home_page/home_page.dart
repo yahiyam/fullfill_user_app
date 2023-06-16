@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/assistent_methods/progress_bar.dart';
 import 'package:fullfill_user_app/models/sellers.dart';
 import 'package:fullfill_user_app/presentation/home_page/widgets/custom_drawer.dart';
 import 'package:fullfill_user_app/presentation/home_page/widgets/heading_title.dart';
 import 'package:fullfill_user_app/presentation/home_page/widgets/home_app_bar.dart';
 import 'package:fullfill_user_app/presentation/home_page/widgets/home_flexiable_space_bar.dart';
 import 'package:fullfill_user_app/presentation/home_page/widgets/restaurant_card.dart';
-import 'package:fullfill_user_app/presentation/common_functions/progress_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -31,7 +31,8 @@ class HomePage extends StatelessWidget {
             ),
           ),
           StreamBuilder<QuerySnapshot>(
-            stream: FirebaseFirestore.instance.collection("sellers").snapshots(),
+            stream:
+                FirebaseFirestore.instance.collection("sellers").snapshots(),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
                 return SliverToBoxAdapter(
@@ -51,8 +52,10 @@ class HomePage extends StatelessWidget {
                 );
               }
 
-              List<Sellers> sellersList = snapshot.data!.docs.map((doc) =>
-                      Sellers.fromJson(doc.data() as Map<String, dynamic>)).toList();
+              List<Sellers> sellersList = snapshot.data!.docs
+                  .map((doc) =>
+                      Sellers.fromJson(doc.data() as Map<String, dynamic>))
+                  .toList();
 
               return SliverList(
                 delegate: SliverChildBuilderDelegate(

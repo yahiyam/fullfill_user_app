@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/assistent_methods/progress_bar.dart';
 import 'package:fullfill_user_app/models/categories.dart';
 import 'package:fullfill_user_app/models/items.dart';
 import 'package:fullfill_user_app/models/sellers.dart';
 import 'package:fullfill_user_app/presentation/restaurant_page/widgets/menu_food_card.dart';
 import '../../globals/colors.dart';
-import '../common_functions/progress_bar.dart';
 import 'widgets/restaurant_app_bar.dart';
 import 'widgets/restaurant_flexible_space_bar.dart';
 
@@ -30,6 +30,7 @@ class RestaurantPage extends StatelessWidget {
             floating: true,
             automaticallyImplyLeading: false,
             title: RestaurantAppBar(
+              sellerUID: seller.sellerUID!,
               scrollController: scrollController,
             ),
             expandedHeight: screen.height / 4,

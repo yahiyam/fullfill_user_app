@@ -6,12 +6,11 @@ import 'package:fullfill_user_app/presentation/empty_pages/connection_page.dart'
 import 'package:fullfill_user_app/presentation/empty_pages/history_page.dart';
 import 'package:fullfill_user_app/presentation/empty_pages/my_offer_page.dart';
 import 'package:fullfill_user_app/presentation/empty_pages/order_complete_page.dart';
-import 'package:fullfill_user_app/presentation/empty_pages/order_page.dart';
 import 'package:fullfill_user_app/presentation/empty_pages/search_page.dart';
 import 'package:fullfill_user_app/presentation/home_page/home_page.dart';
 import 'package:fullfill_user_app/presentation/auth_page/auth_page.dart';
 import 'package:fullfill_user_app/presentation/profile_page/profile_page.dart';
-import 'package:fullfill_user_app/presentation/get_started_page.dart';
+import 'package:fullfill_user_app/presentation/get_started_page/get_started_page.dart';
 import 'package:fullfill_user_app/provider/auth_page_tabs_provider.dart';
 import 'package:fullfill_user_app/provider/cart_item_counter_provider.dart';
 import 'package:fullfill_user_app/provider/login_provider.dart';
@@ -84,7 +83,6 @@ class MyApp extends StatelessWidget {
         '/history': (context) => const HistoryPage(),
         '/myOffer': (context) => const MyOfferPage(),
         '/orderComplete': (context) => const OrderCompletePage(),
-        '/order': (context) => const OrderPage(),
         '/search': (context) => const SearchPage(),
         '/profile': (context) => const ProfilePage(),
         '/privacy': (context) => const PrivacyPage(),
