@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/instence.dart';
-import 'package:fullfill_user_app/globals/text_style.dart';
 
 import 'package:fullfill_user_app/presentation/history_page/history_page.dart';
 import 'package:fullfill_user_app/presentation/my_offer_page.dart/my_offer_page.dart';
@@ -122,7 +121,7 @@ class CustomDrawerTile extends StatelessWidget {
       ),
       title: Text(
         title ?? '',
-        style: CommonUtils.getTextStyle(
+        style: const TextStyle(
           fontSize: 17,
           fontWeight: FontWeight.w600,
           height: 1.5,

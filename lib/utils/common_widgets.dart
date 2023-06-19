@@ -12,7 +12,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final String? title;
   final bool showTextField;
-  final List<Widget>? actions; 
+  final List<Widget>? actions;
 
   @override
   Size get preferredSize => const Size.fromHeight(56.0);
@@ -64,55 +64,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               color: black,
             ),
           ),
-          actions: actions,
-    );
-  }
-}
-
-class EmptyPageMessege extends StatelessWidget {
-  const EmptyPageMessege({
-    super.key,
-    this.icon,
-    required this.mainTitle,
-    required this.subTitle,
-  });
-  final IconData? icon;
-  final String mainTitle;
-  final String subTitle;
-
-  @override
-  Widget build(BuildContext context) {
-    final Size screen = MediaQuery.of(context).size;
-    return Column(
-      children: [
-        icon != null
-            ? Icon(
-                icon,
-                size: screen.height / 5,
-                color: black12,
-              )
-            : SizedBox(height: screen.height / 9),
-        Text(
-          mainTitle,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-            height: 2.5,
-            color: black,
-          ),
-        ),
-        Text(
-          subTitle,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.w400,
-            height: 1.2025,
-            color: grey,
-          ),
-        ),
-      ],
+      actions: actions,
     );
   }
 }

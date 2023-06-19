@@ -7,13 +7,11 @@ import 'package:provider/provider.dart';
 class CartIconButton extends StatelessWidget {
   const CartIconButton({
     super.key,
-    // this.onPressed,
     this.isScrolledUp,
     required this.sellerUID,
   });
 
   final bool? isScrolledUp;
-  // final VoidCallback? onPressed;
   final String sellerUID;
 
   Color? cartColor() {

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/instence.dart';
 import 'package:fullfill_user_app/globals/screen_size.dart';
-import 'package:fullfill_user_app/globals/text_style.dart';
 
 import 'package:fullfill_user_app/presentation/home_page/functions/meal_categories.dart';
 
@@ -31,7 +30,7 @@ Widget _buildWelcomeMessage(String userName, String currentCategory) {
   return RichText(
     textAlign: TextAlign.center,
     text: TextSpan(
-      style: CommonUtils.getTextStyle(
+      style: const TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.w900,
         color: black,
@@ -40,15 +39,15 @@ Widget _buildWelcomeMessage(String userName, String currentCategory) {
         const TextSpan(text: 'Welcome '),
         TextSpan(
           text: userName,
-          style: CommonUtils.getTextStyle(color: commonColor),
+          style: const TextStyle(color: commonColor),
         ),
-        TextSpan(
+        const TextSpan(
           text: '.\nWhat do you want for ',
-          style: CommonUtils.getTextStyle(color: black),
+          style: TextStyle(color: black),
         ),
         TextSpan(
           text: currentCategory,
-          style: CommonUtils.getTextStyle(
+          style: const TextStyle(
             height: 1.5,
             color: commonColor,
           ),
@@ -76,7 +75,7 @@ Widget _buildSearchTextField() {
         filled: true,
         fillColor: searchBGC,
         hintText: 'Search',
-        hintStyle: CommonUtils.getTextStyle(
+        hintStyle: const TextStyle(
           fontSize: 18,
           color: grey,
         ),

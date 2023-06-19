@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/globals/screen_size.dart';
 import 'package:fullfill_user_app/globals/strings.dart';
+
 import 'package:fullfill_user_app/data/models/items.dart';
+
 import 'package:fullfill_user_app/presentation/item_page/item_page.dart';
 
 class MenuFoodCard extends StatelessWidget {
@@ -12,7 +16,6 @@ class MenuFoodCard extends StatelessWidget {
   final Items item;
   @override
   Widget build(BuildContext context) {
-    final Size screen = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 18.0),
       child: InkWell(
@@ -25,9 +28,9 @@ class MenuFoodCard extends StatelessWidget {
           children: [
             //bg white
             Container(
-              margin: EdgeInsets.only(top: screen.height * .04),
-              height: screen.height * .25,
-              width: screen.width * .5,
+              margin: EdgeInsets.only(top: Screen.height(4)),
+              height: Screen.height(25),
+              width: Screen.width(50),
               decoration: BoxDecoration(
                 color: white,
                 borderRadius: BorderRadius.circular(30),
@@ -35,15 +38,13 @@ class MenuFoodCard extends StatelessWidget {
             ),
             //top circle
             Container(
-              margin: EdgeInsets.only(
-                left: screen.width * .075,
-              ),
-              height: screen.width * .35,
-              width: screen.width * .35,
+              margin: EdgeInsets.only(left: Screen.width(7.5)),
+              height: Screen.width(35),
+              width: Screen.width(35),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: NetworkImage(item.thumbnailUrl??netImage),
+                  image: NetworkImage(item.thumbnailUrl ?? netImage),
                 ),
                 borderRadius: BorderRadius.circular(100),
               ),
@@ -51,18 +52,17 @@ class MenuFoodCard extends StatelessWidget {
             //food name
             Container(
               margin: EdgeInsets.only(
-                left: screen.width * .1,
-                top: screen.height * .18,
+                left: Screen.width(10),
+                top: Screen.height(18),
               ),
-              width: screen.width * .3,
+              width: Screen.width(30),
+              alignment: Alignment.topCenter,
               child: Text(
                 item.title ?? 'food name',
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 style: const TextStyle(
                   fontSize: 19,
-                  height: 1,
-                  fontWeight: FontWeight.w400,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -70,17 +70,16 @@ class MenuFoodCard extends StatelessWidget {
             //prize tag
             Container(
               margin: EdgeInsets.only(
-                left: screen.width * .1,
-                top: screen.height * .24,
+                left: Screen.width(10),
+                top: Screen.height(25),
               ),
-              width: screen.width * .3,
+              width: Screen.width(30),
               child: Text(
                 "${item.price.toString()} $rupee",
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 style: const TextStyle(
                   fontSize: 12,
-                  height: 1,
                   fontWeight: FontWeight.bold,
                   color: commonColor,
                   overflow: TextOverflow.ellipsis,

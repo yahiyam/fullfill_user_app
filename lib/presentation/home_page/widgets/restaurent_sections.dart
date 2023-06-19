@@ -5,7 +5,6 @@ import 'package:fullfill_user_app/data/models/sellers.dart';
 
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/screen_size.dart';
-import 'package:fullfill_user_app/globals/text_style.dart';
 
 import 'package:fullfill_user_app/presentation/home_page/widgets/restaurant_card.dart';
 
@@ -16,10 +15,10 @@ SliverToBoxAdapter buildRestaurantsSection() {
         left: Screen.width(5),
         top: Screen.width(5),
       ),
-      child: Text(
+      child: const Text(
         'Restaurants',
         textAlign: TextAlign.left,
-        style: CommonUtils.getTextStyle(fontSize: 18),
+        style: TextStyle(fontSize: 18),
       ),
     ),
   );

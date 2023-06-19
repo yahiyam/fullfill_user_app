@@ -4,7 +4,6 @@ import 'package:fullfill_user_app/data/models/sellers.dart';
 
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/screen_size.dart';
-import 'package:fullfill_user_app/globals/text_style.dart';
 
 import 'package:fullfill_user_app/presentation/restaurant_page/restaurant_page.dart';
 
@@ -67,7 +66,7 @@ class RestaurantCard extends StatelessWidget {
                         seller.sellerName ?? 'Restaurent Name',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
-                        style: CommonUtils.getTextStyle(
+                        style: const TextStyle(
                           fontSize: 18,
                           color: black,
                         ),

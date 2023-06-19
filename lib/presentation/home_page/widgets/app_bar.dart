@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/screen_size.dart';
-import 'package:fullfill_user_app/globals/text_style.dart';
 
 AppBar buildAppBar() {
   return AppBar(
@@ -12,18 +11,18 @@ AppBar buildAppBar() {
         const SizedBox(),
         SizedBox(
           width: Screen.width(40),
-          child: Row(
+          child: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Icon(
+              Icon(
                 Icons.place_outlined,
                 color: commonColor,
               ),
               Text(
                 'Location',
-                style: CommonUtils.getTextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 18),
               ),
-              const Icon(
+              Icon(
                 Icons.expand_more_rounded,
                 color: commonColor,
               ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/utils/common_widgets.dart';
-
+import 'package:fullfill_user_app/utils/empty_page_message.dart';
 
 class HistoryPage extends StatelessWidget {
   const HistoryPage({super.key});
@@ -19,11 +19,11 @@ class HistoryPage extends StatelessWidget {
           CommonButton(
             title: 'Start ordering',
             onTap: () {
-                Navigator.pushNamedAndRemoveUntil(
-                  context,
-                  '/home',
-                  (route) => false,
-                );
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                '/home',
+                (route) => false,
+              );
             },
           ),
         ],
