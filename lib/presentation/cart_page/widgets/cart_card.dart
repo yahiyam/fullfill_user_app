@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/data/models/items.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/globals/screen_size.dart';
 import 'package:fullfill_user_app/globals/strings.dart';
-
-import '../../../data/models/items.dart';
 
 class CartCard extends StatefulWidget {
   const CartCard({
@@ -21,7 +21,6 @@ class _CartCardState extends State<CartCard> {
   @override
   Widget build(BuildContext context) {
     int? price = (widget.item?.price ?? 1) * (widget.quanNumber ?? 1);
-    final Size screen = MediaQuery.of(context).size;
     return GestureDetector(
       onLongPress: () {
         setState(() {
@@ -30,8 +29,8 @@ class _CartCardState extends State<CartCard> {
       },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20),
-        height: screen.height * .9 / 6.5,
-        width: screen.width * .9 * .9,
+        height: Screen.height(13.84),
+        width: Screen.width(81),
         child: Stack(
           children: [
             Container(
@@ -55,8 +54,8 @@ class _CartCardState extends State<CartCard> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: screen.height * .9 / 4 / 6,
-                          width: screen.width * .9 / 1.8,
+                          height: Screen.height(3.75),
+                          width: Screen.width(50),
                           child: Text(
                             widget.item?.title ?? 'Item title',
                             overflow: TextOverflow.ellipsis,
@@ -67,8 +66,8 @@ class _CartCardState extends State<CartCard> {
                           ),
                         ),
                         SizedBox(
-                          width: screen.width * .9 / 1.8 / 3 * 2,
-                          height: screen.height * .9 / 4 / 6,
+                          width: Screen.width(33.13),
+                          height: Screen.height(3.75),
                           child: Text(
                             widget.item?.shortInfo ?? "Items Short info",
                             overflow: TextOverflow.ellipsis,
@@ -83,8 +82,8 @@ class _CartCardState extends State<CartCard> {
                           children: [
                             Container(
                               alignment: Alignment.centerLeft,
-                              width: screen.width * .9 / 1.8 / 3 + 25,
-                              height: screen.height * .9 / 4 / 6,
+                              width: Screen.width(23.02),
+                              height: Screen.height(3.75),
                               child: Text(
                                 "$rupee${widget.item?.price ?? 0} x ${widget.quanNumber.toString()}",
                                 style: const TextStyle(
@@ -93,10 +92,8 @@ class _CartCardState extends State<CartCard> {
                               ),
                             ),
                             Container(
-                              width: screen.width * .9 / 1.8 / 3 +
-                                  screen.width * .9 / 1.8 / 4 +
-                                  5,
-                              height: screen.height * .9 / 4 / 6,
+                              width: Screen.width(30.43),
+                              height: Screen.height(3.75),
                               alignment: Alignment.bottomRight,
                               child: Text(
                                 "$rupee$price",
@@ -107,7 +104,6 @@ class _CartCardState extends State<CartCard> {
                                 ),
                               ),
                             ),
-                            // const StepperWidget(isSmall: true),
                           ],
                         ),
                       ],
@@ -137,9 +133,7 @@ class _CartCardState extends State<CartCard> {
                       ),
                       Text(
                         'you will loose this item from cart!!!',
-                        style: TextStyle(
-                          color: grey200,
-                        ),
+                        style: TextStyle(color: grey200),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

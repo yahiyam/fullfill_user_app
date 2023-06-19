@@ -3,8 +3,11 @@ import 'package:fullfill_user_app/data/models/items.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/strings.dart';
 import 'package:fullfill_user_app/presentation/item_page/providers/stepper_provider.dart';
+import 'package:provider/provider.dart';
 
-Widget buildItemInfo(StepperProvider stepperProvider,Items item) {
+Widget buildItemInfo(BuildContext context, Items item) {
+  final stepperProvider = Provider.of<StepperProvider>(context, listen: false);
+
   return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

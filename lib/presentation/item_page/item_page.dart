@@ -20,16 +20,11 @@ class ItemPage extends StatelessWidget {
 
   final Items item;
 
-  void itemToCart(BuildContext context) {}
-
   @override
   Widget build(BuildContext context) {
-    final stepperProvider = Provider.of<StepperProvider>(context);
-
     return WillPopScope(
       onWillPop: () async {
-        Provider.of<StepperProvider>(context, listen: false);
-        stepperProvider.reset();
+        Provider.of<StepperProvider>(context, listen: false).reset();
         return true;
       },
       child: Scaffold(
@@ -40,7 +35,7 @@ class ItemPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             buildItemAvatar(item),
-            buildItemInfo(stepperProvider, item),
+            buildItemInfo(context, item),
             buildShortInfo(item),
             buildAddToCartButton(context, item),
           ],

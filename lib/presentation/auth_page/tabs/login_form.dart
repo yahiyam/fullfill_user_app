@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/globals/screen_size.dart';
 import 'package:fullfill_user_app/presentation/auth_page/providers/login_provider.dart';
 import 'package:fullfill_user_app/presentation/auth_page/widgets/custom_text_field.dart';
 import 'package:fullfill_user_app/utils/common_widgets.dart';
@@ -10,16 +11,15 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screen = MediaQuery.of(context).size;
     return SingleChildScrollView(
-      padding: EdgeInsets.only(top: screen.height/8),
+      padding: EdgeInsets.only(top: Screen.height(12.5)),
       child: Consumer<LoginProvider>(builder: (context, loginProvider, _) {
         return Form(
           key: loginProvider.loginFormKey,
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: screen.width / 10),
+                padding: EdgeInsets.symmetric(horizontal: Screen.width(10)),
                 child: Column(
                   children: [
                     CustomTextField(
@@ -28,7 +28,7 @@ class LoginForm extends StatelessWidget {
                       icon: Icons.alternate_email,
                       keyboardType: TextInputType.emailAddress,
                     ),
-                    SizedBox(height: screen.height / 70),
+                    SizedBox(height: Screen.height(1.42)),
                     CustomTextField(
                       controller: loginProvider.passwordController,
                       obscureText: true,
@@ -36,7 +36,7 @@ class LoginForm extends StatelessWidget {
                       icon: Icons.password_rounded,
                       showSuffixIcon: true,
                     ),
-                    SizedBox(height: screen.height / 70),
+                    SizedBox(height: Screen.height(1.42)),
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: TextButton(
@@ -49,7 +49,7 @@ class LoginForm extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: screen.height / 70),
+                    SizedBox(height: Screen.height(1.42)),
                   ],
                 ),
               ),

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/globals/screen_size.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/globals/screen_size.dart';
 import 'package:fullfill_user_app/data/models/items.dart';
 import 'package:fullfill_user_app/globals/strings.dart';
 import 'package:fullfill_user_app/presentation/cart_page/functions/assistant_methods.dart';
@@ -25,7 +25,7 @@ class CartPage extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: Screen.height(10),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
+        backgroundColor: transparent,
         leading: IconButton(
           padding: EdgeInsets.only(left: Screen.width(4)),
           onPressed: () {
@@ -42,7 +42,7 @@ class CartPage extends StatelessWidget {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: black,
           ),
         ),
         actions: [
@@ -118,7 +118,7 @@ class CartPage extends StatelessWidget {
                           margin: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            color: Colors.grey[300],
+                            color: grey300,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -151,10 +151,10 @@ class CartPage extends StatelessWidget {
                           margin: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            color: Colors.grey[300],
+                            color: grey300,
                           ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(20.0),
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -165,14 +165,14 @@ class CartPage extends StatelessWidget {
                                     Text(
                                       'Subtotal',
                                       style: TextStyle(
-                                        color: Colors.black54,
+                                        color: black54,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Text(
                                       '$rupee 10.25',
                                       style: TextStyle(
-                                        color: Colors.black54,
+                                        color: black54,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -185,14 +185,14 @@ class CartPage extends StatelessWidget {
                                     Text(
                                       'Delivery fee',
                                       style: TextStyle(
-                                        color: Colors.black54,
+                                        color: black54,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Text(
                                       '$rupee 25',
                                       style: TextStyle(
-                                        color: Colors.black54,
+                                        color: black54,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -205,14 +205,14 @@ class CartPage extends StatelessWidget {
                                     Text(
                                       'Discount',
                                       style: TextStyle(
-                                        color: Colors.black54,
+                                        color: black54,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Text(
                                       '$rupee 0.25',
                                       style: TextStyle(
-                                        color: Colors.black54,
+                                        color: black54,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -225,20 +225,20 @@ class CartPage extends StatelessWidget {
                                     Text(
                                       'Tax',
                                       style: TextStyle(
-                                        color: Colors.black54,
+                                        color: black54,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Text(
                                       '% 8',
                                       style: TextStyle(
-                                        color: Colors.black54,
+                                        color: black54,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                   ],
                                 ),
-                                Row(
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
