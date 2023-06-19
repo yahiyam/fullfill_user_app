@@ -9,15 +9,11 @@ import 'package:fullfill_user_app/globals/screen_size.dart';
 import 'package:fullfill_user_app/presentation/cart_page/cart_page.dart';
 import 'package:fullfill_user_app/presentation/cart_page/providers/cart_item_counter_provider.dart';
 
-Widget buildAppBar(
-  BuildContext context,
-  Sellers seller,
-  ValueNotifier<bool> scrolledNotifier,
-) {
+Widget buildAppBar(BuildContext context, Sellers seller) {
   return SliverAppBar(
     pinned: true,
     floating: true,
-    title: _buildAppBarTitle(context, seller, scrolledNotifier),
+    title: _buildAppBarTitle(context, seller),
     expandedHeight: Screen.height(25),
     backgroundColor: backgroundColor,
     flexibleSpace: FlexibleSpaceBar(
@@ -26,47 +22,36 @@ Widget buildAppBar(
   );
 }
 
-Widget _buildAppBarTitle(
-  BuildContext context,
-  Sellers seller,
-  ValueNotifier<bool> scrolledNotifier,
-) {
-  final Color? iconColor =
-      scrolledNotifier.value ? commonColor : backgroundColor;
-
+Widget _buildAppBarTitle(BuildContext context, Sellers seller) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.end,
     children: [
       IconButton(
         onPressed: () {},
-        icon: Icon(
+        icon: const Icon(
           Icons.search,
-          color: iconColor,
+          color: black,
         ),
       ),
       IconButton(
         onPressed: () {},
-        icon: Icon(
+        icon: const Icon(
           Icons.favorite_outline,
-          color: iconColor,
+          color: black,
         ),
       ),
-      _buildCartIconButton(context, seller, scrolledNotifier),
+      _buildCartIconButton(context, seller),
     ],
   );
 }
 
-Widget _buildCartIconButton(
-  BuildContext context,
-  Sellers seller,
-  ValueNotifier<bool> scrolledNotifier,
-) {
+Widget _buildCartIconButton(BuildContext context, Sellers seller) {
   return Stack(
     children: [
       IconButton(
-        icon: Icon(
+        icon: const Icon(
           Icons.shopping_cart,
-          color: scrolledNotifier.value ? commonColor : backgroundColor,
+          color: black,
         ),
         onPressed: () {
           Navigator.of(context).push(

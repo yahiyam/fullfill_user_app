@@ -17,30 +17,14 @@ class RestaurantPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scrolledNotifier = ValueNotifier<bool>(false);
-    final scrollController = ScrollController();
-
-    scrollController.addListener(() {
-      if (scrollController.offset > 0) {
-        scrolledNotifier.value = true;
-      } else {
-        scrolledNotifier.value = false;
-      }
-    });
-
     return Scaffold(
       backgroundColor: backgroundColor,
-      body: ValueListenableBuilder<bool>(
-          valueListenable: scrolledNotifier,
-          builder: (context, isScrolled, _) {
-            return CustomScrollView(
-              controller: scrollController,
-              slivers: [
-                buildAppBar(context, seller, scrolledNotifier),
-                buildBodySection(seller),
-              ],
-            );
-          }),
+      body: CustomScrollView(
+        slivers: [
+          buildAppBar(context, seller),
+          buildBodySection(seller),
+        ],
+      ),
     );
   }
 }

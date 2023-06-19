@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/instence.dart';
 import 'package:fullfill_user_app/presentation/cart_page/providers/cart_item_counter_provider.dart';
+import 'package:fullfill_user_app/presentation/home_page/home_page.dart';
 import 'package:fullfill_user_app/utils/toast_message.dart';
 import 'package:provider/provider.dart';
 
@@ -71,11 +72,7 @@ clearCartNow(context) {
     Provider.of<CartItemCounter>(context, listen: false)
         .displayCartListItemsNumber();
     ToastMessage.show(context, 'Cart has been cleared');
-    // Navigator.pushAndRemoveUntil(
-    //     context,
-    //     MaterialPageRoute(
-    //       builder: (context) => const HomePage(),
-    //     ),
-    //     (route) => false);
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const HomePage()));
   });
 }
