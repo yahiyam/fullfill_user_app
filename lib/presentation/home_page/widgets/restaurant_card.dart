@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/globals/colors.dart';
+
 import 'package:fullfill_user_app/data/models/sellers.dart';
+
+import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/globals/screen_size.dart';
+import 'package:fullfill_user_app/globals/text_style.dart';
+
 import 'package:fullfill_user_app/presentation/restaurant_page/restaurant_page.dart';
 
 class RestaurantCard extends StatelessWidget {
@@ -11,8 +16,6 @@ class RestaurantCard extends StatelessWidget {
   final Sellers seller;
   @override
   Widget build(BuildContext context) {
-    Size screen = MediaQuery.of(context).size;
-
     return InkWell(
       splashColor: transparent,
       onTap: () {
@@ -22,8 +25,8 @@ class RestaurantCard extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            height: screen.height * .26,
-            width: screen.width * .9,
+            height: Screen.height(26),
+            width: Screen.width(90),
             decoration: BoxDecoration(
               //background image
               image: DecorationImage(
@@ -41,9 +44,9 @@ class RestaurantCard extends StatelessWidget {
             ),
           ),
           Container(
-            height: screen.height * .06,
-            width: screen.width * .9,
-            margin: EdgeInsets.only(top: screen.height * .2),
+            height: Screen.height(6),
+            width: Screen.width(90),
+            margin: EdgeInsets.only(top: Screen.height(20)),
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(30),
@@ -56,17 +59,16 @@ class RestaurantCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    SizedBox(width: screen.width * .05),
+                    SizedBox(width: Screen.width(5)),
                     SizedBox(
-                      width: screen.width * .5,
+                      width: Screen.width(50),
                       child: Text(
                         // restaurant name
                         seller.sellerName ?? 'Restaurent Name',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
-                        style: const TextStyle(
+                        style: CommonUtils.getTextStyle(
                           fontSize: 18,
-                          height: 1.2025,
                           color: black,
                         ),
                       ),
@@ -95,7 +97,7 @@ class RestaurantCard extends StatelessWidget {
                         Text('4.8'),
                       ],
                     ),
-                    SizedBox(width: screen.width * .05),
+                    SizedBox(width: Screen.width(5)),
                   ],
                 )
               ],

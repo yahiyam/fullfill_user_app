@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/instence.dart';
+import 'package:fullfill_user_app/globals/text_style.dart';
+
+import 'package:fullfill_user_app/presentation/history_page/history_page.dart';
+import 'package:fullfill_user_app/presentation/my_offer_page.dart/my_offer_page.dart';
+import 'package:fullfill_user_app/presentation/order_complete_page/order_complete_page.dart';
+import 'package:fullfill_user_app/presentation/privacy_page/privacy_page.dart';
+import 'package:fullfill_user_app/presentation/profile_page/profile_page.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -22,7 +30,9 @@ class CustomDrawer extends StatelessWidget {
                   title: 'Profile',
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.pushNamed(context, '/profile');
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ProfilePage(),
+                    ));
                   },
                 ),
                 const CustomDrawerDivider(),
@@ -31,7 +41,9 @@ class CustomDrawer extends StatelessWidget {
                   title: 'orders',
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.pushNamed(context, '/order');
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const OrderCompletePage(),
+                    ));
                   },
                 ),
                 const CustomDrawerDivider(),
@@ -40,7 +52,9 @@ class CustomDrawer extends StatelessWidget {
                   title: 'offer and promo',
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.pushNamed(context, '/myOffer');
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const MyOfferPage(),
+                    ));
                   },
                 ),
                 const CustomDrawerDivider(),
@@ -49,7 +63,9 @@ class CustomDrawer extends StatelessWidget {
                   title: 'Privacy policy',
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.pushNamed(context, '/privacy');
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const PrivacyPage(),
+                    ));
                   },
                 ),
                 const CustomDrawerDivider(),
@@ -58,7 +74,9 @@ class CustomDrawer extends StatelessWidget {
                   title: 'History',
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.pushNamed(context, '/history');
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const HistoryPage(),
+                    ));
                   },
                 ),
               ],
@@ -97,13 +115,14 @@ class CustomDrawerTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      splashColor: commonColor,
       leading: Icon(
         leadingIcon,
         color: white,
       ),
       title: Text(
         title ?? '',
-        style: const TextStyle(
+        style: CommonUtils.getTextStyle(
           fontSize: 17,
           fontWeight: FontWeight.w600,
           height: 1.5,

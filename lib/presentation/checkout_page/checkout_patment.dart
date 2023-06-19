@@ -3,7 +3,7 @@ import 'package:fullfill_user_app/utils/common_widgets.dart';
 import 'package:fullfill_user_app/presentation/profile_page/profile_page.dart';
 
 import '../../globals/colors.dart';
-import '../home_page/widgets/heading_title.dart';
+import '../../utils/heading_title.dart';
 
 class PaymentPage extends StatelessWidget {
   const PaymentPage({super.key});

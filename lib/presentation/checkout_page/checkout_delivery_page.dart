@@ -3,7 +3,7 @@ import 'package:fullfill_user_app/presentation/checkout_page/widgets/delivery_ty
 import 'package:fullfill_user_app/utils/common_widgets.dart';
 
 import '../../globals/colors.dart';
-import '../home_page/widgets/heading_title.dart';
+import '../../utils/heading_title.dart';
 
 class DeliveryPage extends StatelessWidget {
   const DeliveryPage({super.key});

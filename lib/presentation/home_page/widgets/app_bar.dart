@@ -1,45 +1,40 @@
 import 'package:flutter/material.dart';
+
 import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/globals/screen_size.dart';
+import 'package:fullfill_user_app/globals/text_style.dart';
 
-class HomeAppBar extends StatelessWidget {
-  const HomeAppBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final Size screen = MediaQuery.of(context).size;
-    return Row(
+AppBar buildAppBar() {
+  return AppBar(
+    title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const SizedBox(),
         SizedBox(
-          width: screen.width * .4,
-          child: const Row(
+          width: Screen.width(40),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Icon(
+              const Icon(
                 Icons.place_outlined,
                 color: commonColor,
               ),
               Text(
                 'Location',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                ),
+                style: CommonUtils.getTextStyle(fontSize: 18),
               ),
-              Icon(
+              const Icon(
                 Icons.expand_more_rounded,
                 color: commonColor,
               ),
             ],
           ),
         ),
-        // const CartIconButton(),
         IconButton(
           onPressed: () {},
           icon: const Icon(Icons.shopping_bag),
         ),
       ],
-    );
-  }
+    ),
+  );
 }
