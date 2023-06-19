@@ -13,7 +13,6 @@ Widget buildAppBar(BuildContext context, Sellers seller) {
   return SliverAppBar(
     pinned: true,
     floating: true,
-    automaticallyImplyLeading: false,
     title: _buildAppBarTitle(context, seller),
     expandedHeight: Screen.height(25),
     backgroundColor: backgroundColor,
@@ -31,14 +30,14 @@ Widget _buildAppBarTitle(BuildContext context, Sellers seller) {
         onPressed: () {},
         icon: const Icon(
           Icons.search,
-          color: commonColor,
+          color: black,
         ),
       ),
       IconButton(
         onPressed: () {},
         icon: const Icon(
           Icons.favorite_outline,
-          color: commonColor,
+          color: black,
         ),
       ),
       _buildCartIconButton(context, seller),
@@ -52,7 +51,7 @@ Widget _buildCartIconButton(BuildContext context, Sellers seller) {
       IconButton(
         icon: const Icon(
           Icons.shopping_cart,
-          color: commonColor,
+          color: black,
         ),
         onPressed: () {
           Navigator.of(context).push(
