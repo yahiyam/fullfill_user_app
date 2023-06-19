@@ -9,11 +9,15 @@ import 'package:fullfill_user_app/globals/screen_size.dart';
 import 'package:fullfill_user_app/presentation/cart_page/cart_page.dart';
 import 'package:fullfill_user_app/presentation/cart_page/providers/cart_item_counter_provider.dart';
 
-Widget buildAppBar(BuildContext context, Sellers seller) {
+Widget buildAppBar(
+  BuildContext context,
+  Sellers seller,
+  ValueNotifier<bool> scrolledNotifier,
+) {
   return SliverAppBar(
     pinned: true,
     floating: true,
-    title: _buildAppBarTitle(context, seller),
+    title: _buildAppBarTitle(context, seller, scrolledNotifier),
     expandedHeight: Screen.height(25),
     backgroundColor: backgroundColor,
     flexibleSpace: FlexibleSpaceBar(
@@ -22,36 +26,47 @@ Widget buildAppBar(BuildContext context, Sellers seller) {
   );
 }
 
-Widget _buildAppBarTitle(BuildContext context, Sellers seller) {
+Widget _buildAppBarTitle(
+  BuildContext context,
+  Sellers seller,
+  ValueNotifier<bool> scrolledNotifier,
+) {
+  final Color? iconColor =
+      scrolledNotifier.value ? commonColor : backgroundColor;
+
   return Row(
     mainAxisAlignment: MainAxisAlignment.end,
     children: [
       IconButton(
         onPressed: () {},
-        icon: const Icon(
+        icon: Icon(
           Icons.search,
-          color: black,
+          color: iconColor,
         ),
       ),
       IconButton(
         onPressed: () {},
-        icon: const Icon(
+        icon: Icon(
           Icons.favorite_outline,
-          color: black,
+          color: iconColor,
         ),
       ),
-      _buildCartIconButton(context, seller),
+      _buildCartIconButton(context, seller, scrolledNotifier),
     ],
   );
 }
 
-Widget _buildCartIconButton(BuildContext context, Sellers seller) {
+Widget _buildCartIconButton(
+  BuildContext context,
+  Sellers seller,
+  ValueNotifier<bool> scrolledNotifier,
+) {
   return Stack(
     children: [
       IconButton(
-        icon: const Icon(
+        icon: Icon(
           Icons.shopping_cart,
-          color: black,
+          color: scrolledNotifier.value ? commonColor : backgroundColor,
         ),
         onPressed: () {
           Navigator.of(context).push(
@@ -76,9 +91,9 @@ Widget _buildCartIconButton(BuildContext context, Sellers seller) {
               right: 6,
               child: Center(
                 child: Consumer<CartItemCounter>(
-                  builder: (context, count, _) {
+                  builder: (context, counter, _) {
                     return Text(
-                      count.count.toString(),
+                      counter.count.toString(),
                       style: const TextStyle(
                         color: white,
                         fontSize: 12,
