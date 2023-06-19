@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/assistent_methods/assistant_methods.dart';
+import 'package:fullfill_user_app/presentation/cart_page/functions/assistant_methods.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/strings.dart';
-import 'package:fullfill_user_app/models/items.dart';
+import 'package:fullfill_user_app/data/models/items.dart';
 import 'package:fullfill_user_app/presentation/item_page/widgets/stepper_widget.dart';
-import 'package:fullfill_user_app/presentation/widgets/cart_icon_button.dart';
-import 'package:fullfill_user_app/presentation/widgets/common_widgets.dart';
-import 'package:fullfill_user_app/presentation/widgets/toast_message.dart';
-import 'package:fullfill_user_app/provider/stepper_provider.dart';
+import 'package:fullfill_user_app/presentation/item_page/providers/stepper_provider.dart';
+import 'package:fullfill_user_app/utils/cart_icon_button.dart';
+import 'package:fullfill_user_app/utils/common_widgets.dart';
+import 'package:fullfill_user_app/utils/toast_message.dart';
 import 'package:provider/provider.dart';
 
 class ItemPage extends StatelessWidget {

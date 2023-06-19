@@ -1,29 +1,22 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/presentation/checkout_page/checkout_delivery_page.dart';
-import 'package:fullfill_user_app/presentation/checkout_page/checkout_patment.dart';
-import 'package:fullfill_user_app/presentation/empty_pages/connection_page.dart';
-import 'package:fullfill_user_app/presentation/empty_pages/history_page.dart';
-import 'package:fullfill_user_app/presentation/empty_pages/my_offer_page.dart';
-import 'package:fullfill_user_app/presentation/empty_pages/order_complete_page.dart';
-import 'package:fullfill_user_app/presentation/empty_pages/search_page.dart';
+import 'package:fullfill_user_app/globals/screen_size.dart';
+import 'package:fullfill_user_app/presentation/auth_page/providers/auth_page_tabs_provider.dart';
+import 'package:fullfill_user_app/presentation/auth_page/providers/login_provider.dart';
+import 'package:fullfill_user_app/presentation/auth_page/providers/registeration_provider.dart';
 import 'package:fullfill_user_app/presentation/home_page/home_page.dart';
 import 'package:fullfill_user_app/presentation/auth_page/auth_page.dart';
-import 'package:fullfill_user_app/presentation/profile_page/profile_page.dart';
 import 'package:fullfill_user_app/presentation/get_started_page/get_started_page.dart';
-import 'package:fullfill_user_app/provider/auth_page_tabs_provider.dart';
-import 'package:fullfill_user_app/provider/cart_item_counter_provider.dart';
-import 'package:fullfill_user_app/provider/login_provider.dart';
-import 'package:fullfill_user_app/provider/registeration_provider.dart';
-import 'package:fullfill_user_app/provider/image_provider.dart';
-import 'package:fullfill_user_app/provider/splash_provider.dart';
-import 'package:fullfill_user_app/provider/stepper_provider.dart';
+import 'package:fullfill_user_app/presentation/cart_page/providers/cart_item_counter_provider.dart';
+import 'package:fullfill_user_app/presentation/auth_page/providers/image_provider.dart';
+import 'package:fullfill_user_app/presentation/get_started_page/providers/splash_provider.dart';
+import 'package:fullfill_user_app/presentation/item_page/providers/stepper_provider.dart';
+import 'package:fullfill_user_app/presentation/cart_page/providers/total_amount.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'globals/colors.dart';
 import 'globals/instence.dart';
-import 'presentation/empty_pages/privacy_page.dart';
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,6 +32,7 @@ Future<void> main(List<String> args) async {
         ChangeNotifierProvider(create: (context) => ImagesProvider()),
         ChangeNotifierProvider(create: (context) => AuthTabsProvider()),
         ChangeNotifierProvider(create: (context) => StepperProvider()),
+        ChangeNotifierProvider(create: (context) => TotalAmount()),
       ],
       child: const MyApp(),
     ),
@@ -50,6 +44,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Screen.size = MediaQuery.of(context).size;
+
     final splashProvider = Provider.of<SplashProvider>(context, listen: false);
     splashProvider.initialize();
     return MaterialApp(
@@ -79,15 +75,6 @@ class MyApp extends StatelessWidget {
             ),
         '/auth': (context) => const AuthPage(),
         '/home': (context) => const HomePage(),
-        '/connectionError': (context) => const ConnectionErrorPage(),
-        '/history': (context) => const HistoryPage(),
-        '/myOffer': (context) => const MyOfferPage(),
-        '/orderComplete': (context) => const OrderCompletePage(),
-        '/search': (context) => const SearchPage(),
-        '/profile': (context) => const ProfilePage(),
-        '/privacy': (context) => const PrivacyPage(),
-        '/delivery': (context) => const DeliveryPage(),
-        '/payment': (context) => const PaymentPage(),
       },
     );
   }

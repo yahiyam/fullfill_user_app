@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
-import 'package:fullfill_user_app/provider/auth_page_tabs_provider.dart';
+import 'package:fullfill_user_app/presentation/auth_page/providers/auth_page_tabs_provider.dart';
 import 'package:provider/provider.dart';
 import 'tabs/login_form.dart';
 import 'tabs/sign_up_form.dart';

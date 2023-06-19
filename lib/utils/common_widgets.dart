@@ -7,10 +7,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.title,
     this.showTextField = false,
+    this.actions,
   });
 
   final String? title;
   final bool showTextField;
+  final List<Widget>? actions; 
 
   @override
   Size get preferredSize => const Size.fromHeight(56.0);
@@ -62,6 +64,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               color: black,
             ),
           ),
+          actions: actions,
     );
   }
 }

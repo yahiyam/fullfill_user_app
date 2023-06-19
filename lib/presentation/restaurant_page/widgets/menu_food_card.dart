@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/strings.dart';
-import 'package:fullfill_user_app/models/items.dart';
+import 'package:fullfill_user_app/data/models/items.dart';
 import 'package:fullfill_user_app/presentation/item_page/item_page.dart';
 
 class MenuFoodCard extends StatelessWidget {

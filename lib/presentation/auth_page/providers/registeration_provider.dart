@@ -3,12 +3,12 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/assistent_methods/show_message_dialog.dart';
+import 'package:fullfill_user_app/globals/instence.dart';
+import 'package:fullfill_user_app/utils/dialog_utils.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:shared_preferences/shared_preferences.dart';
-import '../globals/instence.dart';
 import 'image_provider.dart';
 
 class RegisterationProvider with ChangeNotifier {

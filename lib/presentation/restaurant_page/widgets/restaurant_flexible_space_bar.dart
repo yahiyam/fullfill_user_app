@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
-import 'package:fullfill_user_app/models/sellers.dart';
+import 'package:fullfill_user_app/data/models/sellers.dart';
 
 class RestaurantFlexibleSpaceBar extends StatelessWidget {
   const RestaurantFlexibleSpaceBar({

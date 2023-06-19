@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
-import 'package:fullfill_user_app/provider/stepper_provider.dart';
+import 'package:fullfill_user_app/presentation/item_page/providers/stepper_provider.dart';
 import 'package:provider/provider.dart';
 
 class StepperWidget extends StatelessWidget {

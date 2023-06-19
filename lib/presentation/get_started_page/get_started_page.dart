@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/utils/common_widgets.dart';
 import 'package:provider/provider.dart';
 
-import '../../provider/splash_provider.dart';
-import '../widgets/common_widgets.dart';
+import 'providers/splash_provider.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});

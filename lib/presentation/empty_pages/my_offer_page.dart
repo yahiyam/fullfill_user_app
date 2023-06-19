@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../widgets/common_widgets.dart';
+import 'package:fullfill_user_app/utils/common_widgets.dart';
 
 class MyOfferPage extends StatelessWidget {
   const MyOfferPage({super.key});
