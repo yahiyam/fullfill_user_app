@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/globals/screen_size.dart';
 import 'package:fullfill_user_app/presentation/item_page/providers/stepper_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -20,15 +21,14 @@ class StepperWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size screen = MediaQuery.of(context).size;
     return Consumer<StepperProvider>(
       builder: (context, cartProvider, _) {
         return Container(
-          width: isSmall ? screen.width / 2.4 / 5 * 4 : screen.width / 2.4,
-          height: checkSmall(screen.height / 12.4),
+          width: isSmall ? Screen.width(33) : Screen.width(41.6),
+          height: checkSmall(Screen.height(8)),
           decoration: BoxDecoration(
             color: transparent15,
-            borderRadius: BorderRadius.circular(checkSmall(screen.width / 20)),
+            borderRadius: BorderRadius.circular(checkSmall(Screen.width(5))),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -41,18 +41,18 @@ class StepperWidget extends StatelessWidget {
                 icon: Icon(
                   Icons.remove,
                   color: cartProvider.itemCount == 1 ? black12 : black54,
-                  size: checkSmall(screen.width / 14),
+                  size: checkSmall(Screen.width(7)),
                 ),
                 splashColor: transparent,
               ),
               CircleAvatar(
-                radius: checkSmall(screen.width / 14),
+                radius: checkSmall(Screen.width(7)),
                 backgroundColor: white,
                 child: Text(
                   '${cartProvider.itemCount}',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: checkSmall(screen.width / 14),
+                    fontSize: checkSmall(Screen.width(7)),
                     color: black,
                   ),
                 ),
@@ -64,7 +64,7 @@ class StepperWidget extends StatelessWidget {
                 icon: Icon(
                   Icons.add,
                   color: commonColor,
-                  size: checkSmall(screen.width / 14),
+                  size: checkSmall(Screen.width(7)),
                 ),
                 splashColor: transparent,
               ),
