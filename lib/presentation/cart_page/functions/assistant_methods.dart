@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:fullfill_user_app/globals/instence.dart';
+
 import 'package:fullfill_user_app/presentation/cart_page/providers/cart_item_counter_provider.dart';
 import 'package:fullfill_user_app/presentation/home_page/home_page.dart';
+
 import 'package:fullfill_user_app/utils/toast_message.dart';
-import 'package:provider/provider.dart';
 
 separateItemIDs() {
   List<String> separateItemIDsList = [], defaultItemList = [];
@@ -55,8 +58,7 @@ addItemToCart(BuildContext context, String? foodItemId, int itemCounter) {
     sharedPreferences!.setStringList("userCart", tempList);
 
     //update the badge
-    Provider.of<CartItemCounter>(context, listen: false)
-        .displayCartListItemsNumber();
+    Provider.of<CartItemCounter>(context, listen: false).displayCartListItemsNumber();
   });
 }
 
@@ -69,10 +71,10 @@ clearCartNow(context) {
       .doc(firebaseAuth.currentUser!.uid)
       .update({"userCart": emptyList}).then((value) {
     sharedPreferences!.setStringList("userCart", emptyList!);
-    Provider.of<CartItemCounter>(context, listen: false)
-        .displayCartListItemsNumber();
+    
     ToastMessage.show(context, 'Cart has been cleared');
-    Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomePage()));
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const HomePage()),
+        (route) => false);
   });
 }
