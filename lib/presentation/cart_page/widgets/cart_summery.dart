@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/screen_size.dart';
 import 'package:fullfill_user_app/globals/strings.dart';
-import 'package:fullfill_user_app/presentation/cart_page/providers/cart_summery_provider.dart';
+import 'package:fullfill_user_app/presentation/address_page/address_page.dart';
 import 'package:fullfill_user_app/presentation/cart_page/providers/total_amount.dart';
-import 'package:fullfill_user_app/utils/common_widgets.dart';
+import 'package:fullfill_user_app/utils/common_button.dart';
 import 'package:provider/provider.dart';
 
-SliverList buildCartSummary(QuerySnapshot<Object?>? snapshot) {
+SliverList buildCartSummary(
+    QuerySnapshot<Object?>? snapshot, String sellerUID) {
+  // late double grandTotal;
   if (snapshot == null || snapshot.docs.isEmpty) {
     return SliverList(
       delegate: SliverChildListDelegate([]),
@@ -62,12 +64,7 @@ SliverList buildCartSummary(QuerySnapshot<Object?>? snapshot) {
                   ],
                 ),
               ),
-              Consumer2<TotalAmount, CartSummaryProvider>(
-                  builder: (context, amountProvider, summeryProvider, _) {
-                summeryProvider.updateSubtotal(amountProvider.totalAmount);
-                summeryProvider.updateDeliveryCharge(25);
-                summeryProvider.updateDiscountPercentage(5);
-                summeryProvider.updateTaxPercentage(5);
+              Consumer<TotalAmount>(builder: (context, amountProvider, _) {
                 return Container(
                   height: Screen.height(19.6),
                   margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -110,7 +107,7 @@ SliverList buildCartSummary(QuerySnapshot<Object?>? snapshot) {
                               ),
                             ),
                             Text(
-                              '$rupee ${summeryProvider.deliveryCharge}',
+                              '$rupee ${amountProvider.deliveryCharge}',
                               style: TextStyle(
                                 color: black54,
                                 fontWeight: FontWeight.bold,
@@ -129,7 +126,7 @@ SliverList buildCartSummary(QuerySnapshot<Object?>? snapshot) {
                               ),
                             ),
                             Text(
-                              '$rupee ${summeryProvider.discountAmount}',
+                              '$rupee ${amountProvider.discountAmount}',
                               style: TextStyle(
                                 color: black54,
                                 fontWeight: FontWeight.bold,
@@ -148,7 +145,7 @@ SliverList buildCartSummary(QuerySnapshot<Object?>? snapshot) {
                               ),
                             ),
                             Text(
-                              '% ${summeryProvider.discountPercentage}',
+                              '% ${amountProvider.discountPercentage}',
                               style: TextStyle(
                                 color: black54,
                                 fontWeight: FontWeight.bold,
@@ -167,7 +164,7 @@ SliverList buildCartSummary(QuerySnapshot<Object?>? snapshot) {
                               ),
                             ),
                             Text(
-                              '$rupee ${summeryProvider.grandTotal}',
+                              '$rupee ${amountProvider.grandTotal}',
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -182,7 +179,16 @@ SliverList buildCartSummary(QuerySnapshot<Object?>? snapshot) {
               }),
               CommonButton(
                 title: 'Proceed Order',
-                onTap: () {},
+                onTap: () {
+                  double grandTotal =
+                      Provider.of<TotalAmount>(context,listen: false).totalAmount;
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => AddressPage(
+                      totalAmount: grandTotal,
+                      sellerUID: sellerUID,
+                    ),
+                  ));
+                },
               ),
               const SizedBox(),
             ],

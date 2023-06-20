@@ -29,7 +29,7 @@ class CartPage extends StatelessWidget {
                 .orderBy("publishedDate", descending: true)
                 .snapshots(),
             builder: (context, snapshot) {
-              return buildCartSummary(snapshot.data);
+              return buildCartSummary(snapshot.data, sellerUID);
             },
           ),
         ],

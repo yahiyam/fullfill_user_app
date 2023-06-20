@@ -3,7 +3,7 @@ import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/screen_size.dart';
 import 'package:fullfill_user_app/presentation/auth_page/providers/login_provider.dart';
 import 'package:fullfill_user_app/presentation/auth_page/widgets/custom_text_field.dart';
-import 'package:fullfill_user_app/utils/common_widgets.dart';
+import 'package:fullfill_user_app/utils/common_button.dart';
 import 'package:provider/provider.dart';
 
 class LoginForm extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/utils/common_widgets.dart';
+import 'package:fullfill_user_app/utils/common_button.dart';
 import 'package:provider/provider.dart';
 
 import 'providers/splash_provider.dart';

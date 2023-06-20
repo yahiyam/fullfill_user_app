@@ -28,7 +28,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           hintText: 'Search',
           hintStyle: TextStyle(
             fontSize: 18,
-            fontWeight: FontWeight.w400,
             color: black,
           ),
         ),
@@ -69,48 +68,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-class CommonButton extends StatelessWidget {
-  const CommonButton({
-    super.key,
-    this.title,
-    this.isWhite = false,
-    this.onTap,
-  });
 
-  final String? title;
-  final bool isWhite;
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final Size screen = MediaQuery.of(context).size;
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: screen.width / 10),
-      width: double.infinity,
-      height: screen.height * 0.08,
-      child: Material(
-        color: isWhite ? white : commonColor,
-        borderRadius: BorderRadius.circular(30),
-        child: InkWell(
-          onTap: onTap,
-          splashColor: black12,
-          borderRadius: BorderRadius.circular(30),
-          child: Center(
-            child: Text(
-              title ?? '',
-              style: TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.w400,
-                height: 1,
-                color: isWhite ? commonColor : white,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class SearchFoodCard extends StatelessWidget {
   const SearchFoodCard({super.key});
@@ -158,7 +116,6 @@ class SearchFoodCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 21,
               height: 1,
-              fontWeight: FontWeight.w400,
               overflow: TextOverflow.ellipsis,
             ),
           ),

@@ -3,7 +3,7 @@ import 'package:fullfill_user_app/data/models/items.dart';
 import 'package:fullfill_user_app/globals/screen_size.dart';
 import 'package:fullfill_user_app/presentation/cart_page/functions/assistant_methods.dart';
 import 'package:fullfill_user_app/presentation/item_page/providers/stepper_provider.dart';
-import 'package:fullfill_user_app/utils/common_widgets.dart';
+import 'package:fullfill_user_app/utils/common_button.dart';
 import 'package:fullfill_user_app/utils/toast_message.dart';
 import 'package:provider/provider.dart';
 
