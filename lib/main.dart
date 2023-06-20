@@ -17,6 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'globals/colors.dart';
 import 'globals/instence.dart';
+import 'presentation/cart_page/providers/cart_summery_provider.dart';
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +34,7 @@ Future<void> main(List<String> args) async {
         ChangeNotifierProvider(create: (context) => AuthTabsProvider()),
         ChangeNotifierProvider(create: (context) => StepperProvider()),
         ChangeNotifierProvider(create: (context) => TotalAmount()),
+        ChangeNotifierProvider(create: (context) => CartSummaryProvider()),
       ],
       child: const MyApp(),
     ),
