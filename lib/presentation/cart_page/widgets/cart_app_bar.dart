@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/screen_size.dart';
 import 'package:fullfill_user_app/presentation/cart_page/functions/assistant_methods.dart';
-import 'package:fullfill_user_app/presentation/cart_page/providers/cart_item_counter_provider.dart';
-import 'package:provider/provider.dart';
 
 AppBar buildAppBar(BuildContext context) {
   return AppBar(
@@ -33,8 +31,6 @@ AppBar buildAppBar(BuildContext context) {
       IconButton(
         onPressed: () {
           clearCartNow(context);
-          Provider.of<CartItemCounter>(context, listen: false)
-              .displayCartListItemsNumber();
         },
         icon: const Icon(Icons.clear_all),
       )

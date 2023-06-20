@@ -58,7 +58,8 @@ addItemToCart(BuildContext context, String? foodItemId, int itemCounter) {
     sharedPreferences!.setStringList("userCart", tempList);
 
     //update the badge
-    Provider.of<CartItemCounter>(context, listen: false).displayCartListItemsNumber();
+    Provider.of<CartItemCounter>(context, listen: false)
+        .displayCartListItemsNumber();
   });
 }
 
@@ -71,10 +72,12 @@ clearCartNow(context) {
       .doc(firebaseAuth.currentUser!.uid)
       .update({"userCart": emptyList}).then((value) {
     sharedPreferences!.setStringList("userCart", emptyList!);
-    
-    ToastMessage.show(context, 'Cart has been cleared');
-    Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const HomePage()),
-        (route) => false);
   });
+  Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(builder: (context) => const HomePage()),
+      (route) => false);
+  Provider.of<CartItemCounter>(context, listen: false)
+      .displayCartListItemsNumber();
+
+  ToastMessage.show(context, 'Cart has been cleared');
 }
