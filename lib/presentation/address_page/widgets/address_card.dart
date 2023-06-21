@@ -6,23 +6,26 @@ class AddressCard extends StatelessWidget {
   const AddressCard({
     super.key,
     required this.isSelected,
-    required this.addressIndex,
     required this.onTap,
     required this.address,
+    required this.onDelete,
+    required this.isLongPressed,
+    required this.onLongPress,
   });
   final bool isSelected;
-  final int addressIndex;
   final VoidCallback onTap;
   final Address address;
+  final VoidCallback onDelete;
+  final bool isLongPressed;
+  final VoidCallback onLongPress;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
+      onLongPress: onLongPress,
       child: Container(
-        // height: Screen.height(10),
-        // width: Screen.width(90),
-        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        margin: const EdgeInsets.fromLTRB(20, 0, 20, 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: isSelected ? commonColor.withAlpha(50) : grey300,
@@ -53,12 +56,26 @@ class AddressCard extends StatelessWidget {
                   ),
                 ],
               ),
-              Icon(
-                isSelected
-                    ? Icons.radio_button_checked
-                    : Icons.radio_button_unchecked,
-                color: commonColor,
-              )
+              Row(
+                children: [
+                  Visibility(
+                    visible: isLongPressed,
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.delete,
+                        color: red,
+                      ),
+                      onPressed: onDelete,
+                    ),
+                  ),
+                  Icon(
+                    isSelected
+                        ? Icons.radio_button_checked
+                        : Icons.radio_button_unchecked,
+                    color: commonColor,
+                  ),
+                ],
+              ),
             ],
           ),
         ),

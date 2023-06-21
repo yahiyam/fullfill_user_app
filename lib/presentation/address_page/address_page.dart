@@ -20,27 +20,21 @@ class AddressPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (context) => AddressSelectionProvider(),
-        builder: (context, _) {
-          final addressProvider =
-              Provider.of<AddressSelectionProvider>(context);
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            addressProvider
-                .fetchAddresses(sharedPreferences!.getString("uid")!);
-          });
+    // Access the AddressSelectionProvider
+    final addressProvider = Provider.of<AddressSelectionProvider>(context);
 
-          return Scaffold(
-            appBar: buildAppBar(context),
-            backgroundColor: backgroundColor,
-            body: Column(
-              children: [
-                buildHeading(),
-                buildAddressList(),
-                buildBottomButtons(context),
-              ],
-            ),
-          );
-        });
+    // Call fetchAddresses method to fetch the addresses
+    addressProvider.fetchAddresses(sharedPreferences!.getString("uid"));
+    return Scaffold(
+      appBar: buildAppBar(context),
+      backgroundColor: backgroundColor,
+      body: Column(
+        children: [
+          buildHeading(),
+          buildAddressList(),
+          buildBottomButtons(context),
+        ],
+      ),
+    );
   }
 }

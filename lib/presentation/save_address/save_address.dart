@@ -9,7 +9,6 @@ import 'package:fullfill_user_app/globals/instence.dart';
 import 'package:fullfill_user_app/globals/screen_size.dart';
 import 'package:fullfill_user_app/presentation/save_address/widgets/text_field.dart';
 import 'package:fullfill_user_app/utils/common_button.dart';
-import 'package:fullfill_user_app/utils/toast_message.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -28,7 +27,7 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
   final TextEditingController _state = TextEditingController();
   final TextEditingController _country = TextEditingController();
   final TextEditingController _pinCode = TextEditingController();
-  final TextEditingController _locationController = TextEditingController();
+  final TextEditingController _fullAddressController = TextEditingController();
 
   final GlobalKey<FormState> _addressFormKey = GlobalKey<FormState>();
 
@@ -38,36 +37,38 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
   late bool servicePermission = false;
   late LocationPermission permission;
 
-  getUserLocationAddress() async {
-    servicePermission = await Geolocator.isLocationServiceEnabled();
-    if (!servicePermission) {
-      log('service disabled');
+  Future<void> getUserLocationAddress() async {
+    try {
+      servicePermission = await Geolocator.isLocationServiceEnabled();
+      if (!servicePermission) {
+        log('service disabled');
+      }
+      permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+      }
+      Position newPosition = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      );
+      position = newPosition;
+
+      placemarks = await placemarkFromCoordinates(
+        position!.latitude,
+        position!.longitude,
+      );
+      Placemark pMark = placemarks![0];
+
+      _addressLine.text = '${pMark.subLocality} ${pMark.locality}';
+      _city.text = '${pMark.subAdministrativeArea}';
+      _state.text = '${pMark.administrativeArea} ';
+      _country.text = '${pMark.country}';
+      _pinCode.text = '${pMark.postalCode}';
+      String fullAddress =
+          '${_addressLine.text}, ${_city.text}, ${_state.text}, ${_country.text}, ${_pinCode.text}';
+      _fullAddressController.text = fullAddress;
+    } catch (e) {
+      log('getUserLocationAddress error \n $e');
     }
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-    }
-    Position newPosition = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high,
-    );
-
-    position = newPosition;
-
-    placemarks = await placemarkFromCoordinates(
-      position!.latitude,
-      position!.longitude,
-    );
-
-    Placemark pMark = placemarks![0];
-
-    _addressLine.text = '${pMark.subLocality} ${pMark.locality}';
-    _city.text = '${pMark.subAdministrativeArea}';
-    _state.text = '${pMark.administrativeArea} ';
-    _country.text = '${pMark.country}';
-    _pinCode.text = '${pMark.postalCode}';
-    String fullAddress =
-        '${_addressLine.text}, ${_city.text}, ${_state.text}, ${_country.text}, ${_pinCode.text}';
-    _locationController.text = fullAddress;
   }
 
   @override
@@ -79,7 +80,7 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
     _state.dispose();
     _country.dispose();
     _pinCode.dispose();
-    _locationController.dispose();
+    _fullAddressController.dispose();
     super.dispose();
   }
 
@@ -103,7 +104,7 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
                   Expanded(
                     flex: 6,
                     child: TextField(
-                      controller: _locationController,
+                      controller: _fullAddressController,
                       decoration: const InputDecoration(
                         labelText: "What's your address?",
                       ),
@@ -183,7 +184,7 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
                           child: AddressTextField(
                             controller: _pinCode,
                             label: 'PinCode',
-                            keyboardType: TextInputType.phone,
+                            keyboardType: TextInputType.number,
                             inputFormatters: [
                               LengthLimitingTextInputFormatter(6),
                               FilteringTextInputFormatter.digitsOnly,
@@ -212,8 +213,6 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
                       state: _state.text.trim(),
                       country: _country.text.trim(),
                       pinCode: _pinCode.text.trim(),
-                      lat: position!.latitude,
-                      lng: position!.longitude,
                     ).toJson();
                     FirebaseFirestore.instance
                         .collection("users")
@@ -224,10 +223,6 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
                         .then((value) {
                       _addressFormKey.currentState!.reset();
                       Navigator.pop(context);
-                      ToastMessage.show(
-                        context,
-                        "New Address has been saved.",
-                      );
                     });
                   }
                 },

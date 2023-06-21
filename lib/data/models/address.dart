@@ -6,8 +6,6 @@ class Address {
   String? state;
   String? country;
   String? pinCode;
-  double? lat;
-  double? lng;
 
   Address({
     this.name,
@@ -17,8 +15,6 @@ class Address {
     this.state,
     this.country,
     this.pinCode,
-    this.lat,
-    this.lng,
   });
 
   Address.fromJson(Map<String, dynamic> json) {
@@ -29,8 +25,6 @@ class Address {
     state = json['state'];
     country = json['country'];
     pinCode = json['pinCode'];
-    lat = json['lat'];
-    lng = json['lng'];
   }
 
   Map<String, dynamic> toJson() {
@@ -42,8 +36,6 @@ class Address {
     data['state'] = state;
     data['country'] = country;
     data['pinCode'] = pinCode;
-    data['lat'] = lat;
-    data['lng'] = lng;
 
     return data;
   }

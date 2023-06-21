@@ -186,7 +186,7 @@ SliverList buildCartSummary(
                     builder: (context) => AddressPage(
                       totalAmount: grandTotal,
                       sellerUID: sellerUID,
-                    ),
+                      ),
                   ));
                 },
               ),
