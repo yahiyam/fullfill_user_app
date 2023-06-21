@@ -110,7 +110,6 @@ class GetStartedPage extends StatelessWidget {
               ],
             ),
             CommonButton(
-              isWhite: true,
               title: 'Get started',
               onTap: () {
                 // Navigate to the auth page

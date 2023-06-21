@@ -20,15 +20,11 @@ class AddressPage extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(context),
       backgroundColor: backgroundColor,
-      body: ListView(
+      body: Column(
         children: [
-          Column(
-            children: [
-              buildHeading(),
-              buildAddressList(),
-              buildBottomButtons(),
-            ],
-          ),
+          buildHeading(),
+          buildAddressList(),
+          buildBottomButtons(context),
         ],
       ),
     );

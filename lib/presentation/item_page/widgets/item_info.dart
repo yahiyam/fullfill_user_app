@@ -6,7 +6,7 @@ import 'package:fullfill_user_app/presentation/item_page/providers/stepper_provi
 import 'package:provider/provider.dart';
 
 Widget buildItemInfo(BuildContext context, Items item) {
-  final stepperProvider = Provider.of<StepperProvider>(context, listen: false);
+  final stepperProvider = Provider.of<StepperProvider>(context);
 
   return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
