@@ -1,9 +1,15 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:fullfill_user_app/data/models/address.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/globals/instence.dart';
 import 'package:fullfill_user_app/globals/screen_size.dart';
+import 'package:fullfill_user_app/presentation/save_address/widgets/text_field.dart';
 import 'package:fullfill_user_app/utils/common_button.dart';
+import 'package:fullfill_user_app/utils/toast_message.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -17,19 +23,49 @@ class SaveAddressPage extends StatefulWidget {
 class _SaveAddressPageState extends State<SaveAddressPage> {
   final TextEditingController _name = TextEditingController();
   final TextEditingController _phoneNumber = TextEditingController();
-  final TextEditingController _flatNumber = TextEditingController();
+  final TextEditingController _addressLine = TextEditingController();
   final TextEditingController _city = TextEditingController();
   final TextEditingController _state = TextEditingController();
-  final TextEditingController _completeAddress = TextEditingController();
+  final TextEditingController _country = TextEditingController();
+  final TextEditingController _pinCode = TextEditingController();
   final TextEditingController _locationController = TextEditingController();
+
   final GlobalKey<FormState> _addressFormKey = GlobalKey<FormState>();
 
-  Position? _currentLocation;
+  late final List<Placemark>? placemarks;
+  late final Position? position;
+
   late bool servicePermission = false;
   late LocationPermission permission;
-  String _currentAddress = '';
 
-  Future<Position> _getUserCurrentLocation() async {
+  // Future<Position> _getUserCurrentLocation() async {
+  //   servicePermission = await Geolocator.isLocationServiceEnabled();
+  //   if (!servicePermission) {
+  //     log('service disabled');
+  //   }
+  //   permission = await Geolocator.checkPermission();
+  //   if (permission == LocationPermission.denied) {
+  //     permission = await Geolocator.requestPermission();
+  //   }
+  //   return await Geolocator.getCurrentPosition();
+  // }
+
+  // getAddressFromCoordinates() async {
+  //   try {
+  //     List<Placemark> placemarks = await placemarkFromCoordinates(
+  //       _currentLocation!.latitude,
+  //       _currentLocation!.altitude,
+  //     );
+  //     Placemark place = placemarks[0];
+  //     setState(() {
+  //       _currentAddress = "${place.locality},${place.country}";
+  //     });
+  //   } catch (e) {
+  //     log(e.toString());
+  //   }
+  // }
+
+  getUserLocationAddress() async {
     servicePermission = await Geolocator.isLocationServiceEnabled();
     if (!servicePermission) {
       log('service disabled');
@@ -38,32 +74,38 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
     }
-    return await Geolocator.getCurrentPosition();
-  }
+    Position newPosition = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
 
-  getAddressFromCoordinates() async {
-    try {
-      List<Placemark> placemarks = await placemarkFromCoordinates(
-        _currentLocation!.latitude,
-        _currentLocation!.altitude,
-      );
-      Placemark place = placemarks[0];
-      setState(() {
-        _currentAddress = "${place.locality},${place.country}";
-      });
-    } catch (e) {
-      log(e.toString());
-    }
+    position = newPosition;
+
+    placemarks = await placemarkFromCoordinates(
+      position!.latitude,
+      position!.longitude,
+    );
+
+    Placemark pMark = placemarks![0];
+
+    _addressLine.text = '${pMark.subLocality} ${pMark.locality}';
+    _city.text = '${pMark.subAdministrativeArea}';
+    _state.text = '${pMark.administrativeArea} ';
+    _country.text = '${pMark.country}';
+    _pinCode.text = '${pMark.postalCode}';
+    String fullAddress =
+        '${_addressLine.text}, ${_city.text}, ${_state.text}, ${_country.text}, ${_pinCode.text}';
+    _locationController.text = fullAddress;
   }
 
   @override
   void dispose() {
     _name.dispose();
     _phoneNumber.dispose();
-    _flatNumber.dispose();
+    _addressLine.dispose();
     _city.dispose();
     _state.dispose();
-    _completeAddress.dispose();
+    _country.dispose();
+    _pinCode.dispose();
     _locationController.dispose();
     super.dispose();
   }
@@ -97,10 +139,8 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: GestureDetector(
-                      onTap: () async {
-                        _currentLocation = await _getUserCurrentLocation();
-                        await getAddressFromCoordinates();
-                        setState(() {});
+                      onTap: () {
+                        getUserLocationAddress();
                       },
                       child: SizedBox(
                         height: Screen.height(7),
@@ -124,11 +164,10 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
                   ),
                 ],
               ),
-              // Text('data'),
               SizedBox(height: Screen.height(8)),
-              Text(
-                _currentAddress,
-                style: const TextStyle(
+              const Text(
+                'Save new Address here',
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                 ),
@@ -137,80 +176,47 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
                 key: _addressFormKey,
                 child: Column(
                   children: [
-                    TextFormField(
+                    AddressTextField(
                       controller: _name,
-                      decoration: const InputDecoration(
-                        labelText: 'Name',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter your name';
-                        }
-                        return null;
-                      },
+                      label: 'Name',
                     ),
-                    TextFormField(
+                    AddressTextField(
                       controller: _phoneNumber,
-                      decoration: const InputDecoration(
-                        labelText: 'Phone Number',
-                      ),
+                      label: 'Phone Number',
                       keyboardType: TextInputType.phone,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter your phone number';
-                        }
-                        return null;
-                      },
+                      inputFormatters: [
+                        LengthLimitingTextInputFormatter(10),
+                        FilteringTextInputFormatter.digitsOnly,
+                      ],
                     ),
-                    TextFormField(
+                    AddressTextField(
+                      controller: _addressLine,
+                      label: 'Address Line',
+                    ),
+                    AddressTextField(
                       controller: _city,
-                      decoration: const InputDecoration(
-                        labelText: 'City',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter the city';
-                        }
-                        return null;
-                      },
+                      label: 'City',
                     ),
-                    TextFormField(
-                      controller: _state,
-                      decoration: const InputDecoration(
-                        labelText: 'State',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter the state';
-                        }
-                        return null;
-                      },
+                    Row(
+                      children: [
+                        Expanded(
+                          child: AddressTextField(
+                            controller: _state,
+                            label: 'State',
+                          ),
+                        ),
+                        const SizedBox(width: 20),
+                        Expanded(
+                          child: AddressTextField(
+                            controller: _pinCode,
+                            label: 'PinCode',
+                          ),
+                        ),
+                      ],
                     ),
-                    TextFormField(
-                      controller: _flatNumber,
-                      maxLines: null,
-                      decoration: const InputDecoration(
-                        labelText: 'Address Line',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter the address line';
-                        }
-                        return null;
-                      },
-                    ),
-                    TextFormField(
-                      controller: _completeAddress,
-                      maxLines: null,
-                      decoration: const InputDecoration(
-                        labelText: 'Complete Address',
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter the complete address';
-                        }
-                        return null;
-                      },
+                    AddressTextField(
+                      controller: _country,
+                      label: 'Country',
                     ),
                   ],
                 ),
@@ -219,7 +225,33 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
               CommonButton(
                 title: 'Save Address',
                 onTap: () {
-                  if (_addressFormKey.currentState!.validate()) {}
+                  if (_addressFormKey.currentState!.validate()) {
+                    final address = Address(
+                      name: _name.text.trim(),
+                      phoneNumber: _phoneNumber.text.trim(),
+                      addressLine: _addressLine.text.trim(),
+                      city: _city.text.trim(),
+                      state: _state.text.trim(),
+                      country: _country.text.trim(),
+                      pinCode: _pinCode.text.trim(),
+                      fullAddress: _locationController.text.trim(),
+                      lat: position!.latitude,
+                      lng: position!.longitude,
+                    ).toJson();
+                    FirebaseFirestore.instance
+                        .collection("users")
+                        .doc(sharedPreferences!.getString("uid"))
+                        .collection("userAddress")
+                        .doc(DateTime.now().millisecondsSinceEpoch.toString())
+                        .set(address)
+                        .then((value) {
+                      ToastMessage.show(
+                        context,
+                        "New Address has been saved.",
+                      );
+                      _addressFormKey.currentState!.reset();
+                    });
+                  }
                 },
               ),
             ],

@@ -11,7 +11,7 @@ Column buildBottomButtons(BuildContext context) {
         isWhite: true,
         title: 'Add New Address',
         onTap: () {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
+          Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const SaveAddressPage(),
           ));
         },

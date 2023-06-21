@@ -1,9 +1,11 @@
 class Address {
   String? name;
   String? phoneNumber;
-  String? flatNumber;
+  String? addressLine;
   String? city;
   String? state;
+  String? country;
+  String? pinCode;
   String? fullAddress;
   double? lat;
   double? lng;
@@ -11,9 +13,11 @@ class Address {
   Address({
     this.name,
     this.phoneNumber,
-    this.flatNumber,
+    this.addressLine,
     this.city,
     this.state,
+    this.country,
+    this.pinCode,
     this.fullAddress,
     this.lat,
     this.lng,
@@ -22,9 +26,11 @@ class Address {
   Address.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     phoneNumber = json['phoneNumber'];
-    flatNumber = json['flatNumber'];
+    addressLine = json['addressLine'];
     city = json['city'];
     state = json['state'];
+    country = json['country'];
+    pinCode = json['pinCode'];
     fullAddress = json['fullAddress'];
     lat = json['lat'];
     lng = json['lng'];
@@ -34,9 +40,11 @@ class Address {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['name'] = name;
     data['phoneNumber'] = phoneNumber;
-    data['flatNumber'] = flatNumber;
+    data['addressLine'] = addressLine;
     data['city'] = city;
     data['state'] = state;
+    data['country'] = country;
+    data['pinCode'] = pinCode;
     data['fullAddress'] = fullAddress;
     data['lat'] = lat;
     data['lng'] = lng;

@@ -21,7 +21,7 @@ void saveAddressInfo(
       state: state.text.trim(),
       fullAddress: completeAddress.text.trim(),
       phoneNumber: phoneNumber.text.trim(),
-      flatNumber: flatNumber.text.trim(),
+      addressLine: flatNumber.text.trim(),
       city: city.text.trim(),
       lat: position!.latitude,
       lng: position!.longitude,
