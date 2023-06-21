@@ -38,33 +38,6 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
   late bool servicePermission = false;
   late LocationPermission permission;
 
-  // Future<Position> _getUserCurrentLocation() async {
-  //   servicePermission = await Geolocator.isLocationServiceEnabled();
-  //   if (!servicePermission) {
-  //     log('service disabled');
-  //   }
-  //   permission = await Geolocator.checkPermission();
-  //   if (permission == LocationPermission.denied) {
-  //     permission = await Geolocator.requestPermission();
-  //   }
-  //   return await Geolocator.getCurrentPosition();
-  // }
-
-  // getAddressFromCoordinates() async {
-  //   try {
-  //     List<Placemark> placemarks = await placemarkFromCoordinates(
-  //       _currentLocation!.latitude,
-  //       _currentLocation!.altitude,
-  //     );
-  //     Placemark place = placemarks[0];
-  //     setState(() {
-  //       _currentAddress = "${place.locality},${place.country}";
-  //     });
-  //   } catch (e) {
-  //     log(e.toString());
-  //   }
-  // }
-
   getUserLocationAddress() async {
     servicePermission = await Geolocator.isLocationServiceEnabled();
     if (!servicePermission) {
@@ -210,6 +183,11 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
                           child: AddressTextField(
                             controller: _pinCode,
                             label: 'PinCode',
+                            keyboardType: TextInputType.phone,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(6),
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
                           ),
                         ),
                       ],
@@ -234,7 +212,6 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
                       state: _state.text.trim(),
                       country: _country.text.trim(),
                       pinCode: _pinCode.text.trim(),
-                      fullAddress: _locationController.text.trim(),
                       lat: position!.latitude,
                       lng: position!.longitude,
                     ).toJson();
@@ -245,11 +222,12 @@ class _SaveAddressPageState extends State<SaveAddressPage> {
                         .doc(DateTime.now().millisecondsSinceEpoch.toString())
                         .set(address)
                         .then((value) {
+                      _addressFormKey.currentState!.reset();
+                      Navigator.pop(context);
                       ToastMessage.show(
                         context,
                         "New Address has been saved.",
                       );
-                      _addressFormKey.currentState!.reset();
                     });
                   }
                 },

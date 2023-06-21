@@ -6,7 +6,6 @@ class Address {
   String? state;
   String? country;
   String? pinCode;
-  String? fullAddress;
   double? lat;
   double? lng;
 
@@ -18,7 +17,6 @@ class Address {
     this.state,
     this.country,
     this.pinCode,
-    this.fullAddress,
     this.lat,
     this.lng,
   });
@@ -31,7 +29,6 @@ class Address {
     state = json['state'];
     country = json['country'];
     pinCode = json['pinCode'];
-    fullAddress = json['fullAddress'];
     lat = json['lat'];
     lng = json['lng'];
   }
@@ -45,7 +42,6 @@ class Address {
     data['state'] = state;
     data['country'] = country;
     data['pinCode'] = pinCode;
-    data['fullAddress'] = fullAddress;
     data['lat'] = lat;
     data['lng'] = lng;
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/data/models/address.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
 
 class AddressCard extends StatelessWidget {
@@ -7,10 +8,12 @@ class AddressCard extends StatelessWidget {
     required this.isSelected,
     required this.addressIndex,
     required this.onTap,
+    required this.address,
   });
   final bool isSelected;
   final int addressIndex;
   final VoidCallback onTap;
+  final Address address;
 
   @override
   Widget build(BuildContext context) {
@@ -29,24 +32,24 @@ class AddressCard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Column(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Thelma Sara-bear',
-                    style: TextStyle(
+                    address.name ?? 'Name',
+                    style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    'Trasaco hotel, behind navrongo campus',
-                    style: TextStyle(fontSize: 13),
+                    address.addressLine ?? 'Address Line',
+                    style: const TextStyle(fontSize: 13),
                   ),
                   Text(
-                    '+233 5413 8989',
-                    style: TextStyle(fontSize: 13),
+                    address.phoneNumber ?? 'Phone Number',
+                    style: const TextStyle(fontSize: 13),
                   ),
                 ],
               ),
