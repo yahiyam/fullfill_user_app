@@ -1,4 +1,5 @@
 class Address {
+  String? id;
   String? name;
   String? phoneNumber;
   String? addressLine;
@@ -8,6 +9,7 @@ class Address {
   String? pinCode;
 
   Address({
+    this.id,
     this.name,
     this.phoneNumber,
     this.addressLine,
@@ -18,6 +20,7 @@ class Address {
   });
 
   Address.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     name = json['name'];
     phoneNumber = json['phoneNumber'];
     addressLine = json['addressLine'];
@@ -29,6 +32,7 @@ class Address {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
     data['name'] = name;
     data['phoneNumber'] = phoneNumber;
     data['addressLine'] = addressLine;

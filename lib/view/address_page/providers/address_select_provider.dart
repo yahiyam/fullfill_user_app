@@ -23,9 +23,11 @@ class AddressSelectionProvider with ChangeNotifier {
           .collection('userAddress')
           .get();
 
-      _addresses = querySnapshot.docs
-          .map((doc) => Address.fromJson(doc.data()))
-          .toList();
+      _addresses = querySnapshot.docs.map((doc) {
+        final address = Address.fromJson(doc.data());
+        address.id = doc.id;
+        return address;
+      }).toList();
 
       notifyListeners();
     } catch (e) {

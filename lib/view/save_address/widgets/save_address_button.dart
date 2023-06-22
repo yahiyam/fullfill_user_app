@@ -20,6 +20,7 @@ Consumer<AddressControllerProvider> buildSaveButton() {
           if (addressController.addressFormkey.currentState!.validate()) {
             FullScreenLoading.show(context);
             final address = Address(
+              id: DateTime.now().millisecondsSinceEpoch.toString(),
               name: addressController.nameController.text.trim(),
               phoneNumber: addressController.phoneNumberController.text.trim(),
               addressLine: addressController.addressLineController.text.trim(),
