@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/globals/colors.dart';
+import 'package:fullfill_user_app/global/colors.dart';
 
 circularProgress() {
   return Container(

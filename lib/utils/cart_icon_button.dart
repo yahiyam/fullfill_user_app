@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/globals/colors.dart';
-import 'package:fullfill_user_app/presentation/cart_page/cart_page.dart';
-import 'package:fullfill_user_app/presentation/cart_page/providers/cart_item_counter_provider.dart';
+import 'package:fullfill_user_app/global/colors.dart';
+import 'package:fullfill_user_app/view/cart_page/cart_page.dart';
+import 'package:fullfill_user_app/view/cart_page/providers/cart_item_counter_provider.dart';
 import 'package:provider/provider.dart';
 
 class CartIconButton extends StatelessWidget {

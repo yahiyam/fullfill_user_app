@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/globals/colors.dart';
-import 'package:fullfill_user_app/globals/screen_size.dart';
+import 'package:fullfill_user_app/global/colors.dart';
+import 'package:fullfill_user_app/global/screen_size.dart';
 
 class EmptyPageMessege extends StatelessWidget {
   const EmptyPageMessege({

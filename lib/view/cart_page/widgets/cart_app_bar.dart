@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/screen_size.dart';
+import 'package:fullfill_user_app/view/cart_page/functions/assistant_methods.dart';
 
-AppBar buildSimpleAppBar(BuildContext context, String title) {
+AppBar buildAppBar(BuildContext context) {
   return AppBar(
+    toolbarHeight: Screen.height(10),
     centerTitle: true,
     backgroundColor: transparent,
     leading: IconButton(
@@ -16,14 +18,22 @@ AppBar buildSimpleAppBar(BuildContext context, String title) {
         size: Screen.height(2.2),
       ),
     ),
-    title: Text(
-      title,
+    title: const Text(
+      'Cart',
       textAlign: TextAlign.center,
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.bold,
         color: black,
       ),
     ),
+    actions: [
+      IconButton(
+        onPressed: () {
+          clearCartNow(context);
+        },
+        icon: const Icon(Icons.clear_all),
+      )
+    ],
   );
 }
