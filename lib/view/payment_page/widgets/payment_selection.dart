@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/screen_size.dart';
 
-import 'package:fullfill_user_app/view/profile_page/profile_page.dart';
+import 'package:fullfill_user_app/view/payment_page/widgets/payment_type_card.dart';
 
 Padding buildPaymentSelection() {
   return Padding(

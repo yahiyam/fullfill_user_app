@@ -4,6 +4,7 @@ import 'package:fullfill_user_app/global/instence.dart';
 import 'package:fullfill_user_app/utils/common_button.dart';
 import 'package:fullfill_user_app/utils/heading_title.dart';
 import 'package:fullfill_user_app/utils/common_widgets.dart';
+import 'package:fullfill_user_app/view/payment_page/widgets/payment_type_card.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -70,52 +71,6 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
-class PaymentTypeCard extends StatelessWidget {
-  const PaymentTypeCard({
-    super.key,
-    required this.type,
-    required this.icon,
-    this.iconBGcolor,
-    this.isSelected = false,
-  });
-  final String type;
-  final IconData icon;
-  final Color? iconBGcolor;
-  final bool? isSelected;
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        type,
-        style: const TextStyle(
-          fontSize: 17,
-          fontWeight: FontWeight.w400,
-        ),
-      ),
-      leading: Container(
-        height: 50,
-        width: 50,
-        decoration: BoxDecoration(
-          color: iconBGcolor,
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Icon(
-          icon,
-          color: Colors.white,
-        ),
-      ),
-      trailing: isSelected!
-          ? const Icon(
-              Icons.adjust_rounded,
-              color: commonColor,
-            )
-          : const Icon(
-              Icons.fiber_manual_record_outlined,
-              color: grey,
-            ),
-    );
-  }
-}
 
 class PersonCard extends StatelessWidget {
   const PersonCard({
