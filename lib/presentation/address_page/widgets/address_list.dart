@@ -16,32 +16,35 @@ Expanded buildAddressList() {
           subTitle: 'Add a new address to continue.',
         );
       }
-      return ListView.builder(
-        shrinkWrap: true,
-        itemCount: addressProvider.addresses.length,
-        itemBuilder: (context, index) {
-          final isSelected = index == addressProvider.selectedAddressIndex;
-          final address = addressProvider.addresses[index];
+      return GestureDetector(
+        onTap: () => addressProvider.clearLongPressedState(),
+        child: ListView.builder(
+          shrinkWrap: true,
+          itemCount: addressProvider.addresses.length,
+          itemBuilder: (context, index) {
+            final isSelected = index == addressProvider.selectedAddressIndex;
+            final address = addressProvider.addresses[index];
 
-          return AddressCard(
-            isSelected: isSelected,
-            address: address,
-            onTap: () {
-              addressProvider.selectAddress(index);
-              addressProvider.clearLongPressedState();
-            },
-            isLongPressed: addressProvider.isAddressLongPressed(index),
-            onDelete: () {
-              addressProvider.deleteAddress(
-                index,
-                sharedPreferences!.getString("uid"),
-              );
-            },
-            onLongPress: () {
-              addressProvider.toggleAddressLongPressed(index);
-            },
-          );
-        },
+            return AddressCard(
+              isSelected: isSelected,
+              address: address,
+              onTap: () {
+                addressProvider.selectAddress(index);
+                addressProvider.clearLongPressedState();
+              },
+              isLongPressed: addressProvider.isAddressLongPressed(index),
+              onDelete: () {
+                addressProvider.deleteAddress(
+                  index,
+                  sharedPreferences!.getString("uid"),
+                );
+              },
+              onLongPress: () {
+                addressProvider.toggleAddressLongPressed(index);
+              },
+            );
+          },
+        ),
       );
     }),
   );

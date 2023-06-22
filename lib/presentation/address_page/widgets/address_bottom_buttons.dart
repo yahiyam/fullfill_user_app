@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/screen_size.dart';
+import 'package:fullfill_user_app/presentation/save_address/provider/address_controller_provider.dart';
 import 'package:fullfill_user_app/presentation/save_address/save_address.dart';
 import 'package:fullfill_user_app/utils/common_button.dart';
+import 'package:provider/provider.dart';
 
 Column buildBottomButtons(BuildContext context) {
   return Column(
@@ -12,7 +14,9 @@ Column buildBottomButtons(BuildContext context) {
         title: 'Add New Address',
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const SaveAddressPage(),
+            builder: (context) => ChangeNotifierProvider(
+                create: (context) => AddressControllerProvider(),
+                child: const SaveAddressPage()),
           ));
         },
       ),

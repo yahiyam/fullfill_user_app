@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/globals/colors.dart';
 import 'package:fullfill_user_app/globals/screen_size.dart';
 
-AppBar buildAppBar(BuildContext context) {
+AppBar buildSimpleAppBar(BuildContext context, String title) {
   return AppBar(
     centerTitle: true,
     backgroundColor: transparent,
@@ -16,10 +16,10 @@ AppBar buildAppBar(BuildContext context) {
         size: Screen.height(2.2),
       ),
     ),
-    title: const Text(
-      'Deliver to',
+    title: Text(
+      title,
       textAlign: TextAlign.center,
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.bold,
         color: black,

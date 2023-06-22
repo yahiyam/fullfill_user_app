@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/globals/colors.dart';
 
 class ToastMessage {
   static void show(BuildContext context, String message) {
@@ -10,7 +11,7 @@ class ToastMessage {
           Navigator.of(context).pop();
         });
         return Dialog(
-          backgroundColor: Colors.transparent,
+          backgroundColor: transparent,
           elevation: 0,
           child: Align(
             alignment: Alignment.bottomCenter,
@@ -18,12 +19,12 @@ class ToastMessage {
               margin: const EdgeInsets.only(bottom: 16),
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.5),
+                color: black.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Text(
                 message,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: white),
               ),
             ),
           ),

@@ -180,13 +180,8 @@ SliverList buildCartSummary(
               CommonButton(
                 title: 'Proceed Order',
                 onTap: () {
-                  double grandTotal =
-                      Provider.of<TotalAmount>(context,listen: false).totalAmount;
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => AddressPage(
-                      totalAmount: grandTotal,
-                      sellerUID: sellerUID,
-                      ),
+                    builder: (context) => const AddressPage(),
                   ));
                 },
               ),
