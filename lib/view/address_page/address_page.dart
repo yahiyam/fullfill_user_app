@@ -13,8 +13,11 @@ import 'package:fullfill_user_app/utils/functions/simple_app_bar.dart';
 import 'package:fullfill_user_app/utils/functions/simple_heading.dart';
 
 class AddressPage extends StatelessWidget {
-  const AddressPage({super.key});
-
+  const AddressPage({
+    super.key,
+    required this.sellerUID,
+  });
+  final String sellerUID;
   @override
   Widget build(BuildContext context) {
     final addressProvider = Provider.of<AddressSelectionProvider>(context);
@@ -26,7 +29,7 @@ class AddressPage extends StatelessWidget {
         children: [
           buildSimpleHeading('Address details'),
           buildAddressList(),
-          buildBottomButtons(context),
+          buildBottomButtons(context, sellerUID),
         ],
       ),
     );

@@ -14,29 +14,35 @@ Future<dynamic> showAlertMessege(
         title: Text(title ?? 'Alert Message'),
         content: Text(message),
         actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: const Center(
-              child: Text(
-                'Cancel',
-                style: TextStyle(color: grey),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Center(
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(color: grey),
+                  ),
+                ),
               ),
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              if (onOKTap != null) {
-                onOKTap();
-              }
-            },
-            child: const Center(
-              child: Text(
-                'Continue',
-                style: TextStyle(color: commonColor),
+              ElevatedButton(
+                onPressed: () {
+                  if (onOKTap != null) {
+                    onOKTap();
+                  }
+                },
+                child: const Center(
+                  child: Text(
+                    'Continue',
+                    style: TextStyle(color: commonColor),
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
         ],
       );

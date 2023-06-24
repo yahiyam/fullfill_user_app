@@ -181,7 +181,7 @@ SliverList buildCartSummary(
                 title: 'Proceed Order',
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const AddressPage(),
+                    builder: (context) => AddressPage(sellerUID: sellerUID),
                   ));
                 },
               ),

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/data/models/items.dart';
 import 'package:fullfill_user_app/global/colors.dart';
+import 'package:fullfill_user_app/utils/widgets/cart_counter_badge.dart';
 import 'package:fullfill_user_app/view/cart_page/cart_page.dart';
-import 'package:fullfill_user_app/view/cart_page/providers/cart_item_counter_provider.dart';
-import 'package:provider/provider.dart';
 
 AppBar buildItemAppBar(BuildContext context, Items item) {
   return AppBar(
@@ -31,38 +30,8 @@ Widget buildCartIconButton(BuildContext context, Items item) {
           builder: (context) => CartPage(sellerUID: item.sellerUID!),
         )),
       ),
-      Positioned(
-        child: buildCartIconCounter(),
-      ),
+      buildCartIconCounter(),
     ],
   );
 }
 
-Widget buildCartIconCounter() {
-  return Stack(
-    children: [
-      const Icon(
-        Icons.brightness_1,
-        size: 20.0,
-        color: Colors.black,
-      ),
-      Positioned(
-        top: 2,
-        right: 6,
-        child: Center(
-          child: Consumer<CartItemCounter>(
-            builder: (context, counter, _) {
-              return Text(
-                counter.count.toString(),
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 12,
-                ),
-              );
-            },
-          ),
-        ),
-      ),
-    ],
-  );
-}

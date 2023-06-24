@@ -7,12 +7,35 @@ import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/screen_size.dart';
 
 import 'package:fullfill_user_app/view/cart_page/cart_page.dart';
+
+import 'package:fullfill_user_app/view/cart_page/functions/assistant_methods.dart';
 import 'package:fullfill_user_app/view/cart_page/providers/cart_item_counter_provider.dart';
+
+import 'package:fullfill_user_app/utils/alert_message.dart';
+import 'package:fullfill_user_app/utils/widgets/cart_counter_badge.dart';
 
 Widget buildAppBar(BuildContext context, Sellers seller) {
   return SliverAppBar(
     pinned: true,
     floating: true,
+    leading: IconButton(
+      onPressed: () {
+        // bool isCartNotEmpty = Provider.of<CartItemCounter>(context).count != 0;
+        bool isCartNotEmpty = context.read<CartItemCounter>().count != 0;
+        if (isCartNotEmpty) {
+          showAlertMessege(
+            context,
+            message: 'Your cart will be cleared from this Restaurant!',
+            onOKTap: () {
+              clearCartNow(context);
+            },
+          );
+        } else {
+          Navigator.of(context).pop();
+        }
+      },
+      icon: const Icon(Icons.arrow_back_ios_rounded),
+    ),
     title: _buildAppBarTitle(context, seller),
     expandedHeight: Screen.height(25),
     backgroundColor: backgroundColor,
@@ -63,34 +86,7 @@ Widget _buildCartIconButton(BuildContext context, Sellers seller) {
           );
         },
       ),
-      Positioned(
-        child: Stack(
-          children: [
-            const Icon(
-              Icons.brightness_1,
-              size: 20.0,
-              color: black,
-            ),
-            Positioned(
-              top: 2,
-              right: 6,
-              child: Center(
-                child: Consumer<CartItemCounter>(
-                  builder: (context, counter, _) {
-                    return Text(
-                      counter.count.toString(),
-                      style: const TextStyle(
-                        color: white,
-                        fontSize: 12,
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+      buildCartIconCounter(),
     ],
   );
 }

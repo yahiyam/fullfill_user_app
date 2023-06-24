@@ -9,11 +9,11 @@ class AddressSelectionProvider with ChangeNotifier {
   int _selectedAddressIndex = 0;
   List<Address> _addresses = [];
   final Set<int> _longPressedAddresses = <int>{};
-
+  Address? _selectedAddress;
   int get selectedAddressIndex => _selectedAddressIndex;
   List<Address> get addresses => _addresses;
-
   Set<int> get longPressedAddresses => _longPressedAddresses;
+  Address? get selectedAddress => _selectedAddress;
 
   Future<void> fetchAddresses(userUID) async {
     try {
@@ -29,6 +29,8 @@ class AddressSelectionProvider with ChangeNotifier {
         return address;
       }).toList();
 
+      _selectedAddress = _addresses.isNotEmpty ? _addresses[_selectedAddressIndex] : null;
+
       notifyListeners();
     } catch (e) {
       log("Error fetching addresses: $e");
@@ -37,6 +39,7 @@ class AddressSelectionProvider with ChangeNotifier {
 
   void selectAddress(int index) {
     _selectedAddressIndex = index;
+    _selectedAddress = _addresses.isNotEmpty ? _addresses[_selectedAddressIndex] : null;
     notifyListeners();
   }
 
