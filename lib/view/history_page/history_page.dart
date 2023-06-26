@@ -11,7 +11,7 @@ class HistoryPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          const EmptyPageMessege(
+          const EmptyPageMessage(
             icon: Icons.event_note_outlined,
             mainTitle: 'No history yet',
             subTitle: 'Hit the orange button down\nbelow to Create an order',

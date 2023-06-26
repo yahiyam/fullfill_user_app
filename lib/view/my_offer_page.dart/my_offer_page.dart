@@ -13,7 +13,7 @@ class MyOfferPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Center(
-            child: EmptyPageMessege(
+            child: EmptyPageMessage(
               mainTitle: 'ohh snap! No offers yet',
               subTitle: 'please check again later.',
             ),

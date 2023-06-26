@@ -15,7 +15,7 @@ class SearchPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Center(
-              child: EmptyPageMessege(
+              child: EmptyPageMessage(
                 icon: Icons.search_rounded,
                 mainTitle: 'Item not found',
                 subTitle: 'Try searching the item with\na different keyword.',

@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fullfill_user_app/data/models/address.dart';
+import 'package:fullfill_user_app/global/instence.dart';
 
 class AddressSelectionProvider with ChangeNotifier {
   int _selectedAddressIndex = 0;
@@ -15,11 +16,11 @@ class AddressSelectionProvider with ChangeNotifier {
   Set<int> get longPressedAddresses => _longPressedAddresses;
   Address? get selectedAddress => _selectedAddress;
 
-  Future<void> fetchAddresses(userUID) async {
+  Future<void> fetchAddresses() async {
     try {
       final querySnapshot = await FirebaseFirestore.instance
           .collection('users')
-          .doc(userUID)
+          .doc(sharedPreferences!.getString("uid"))
           .collection('userAddress')
           .get();
 
@@ -29,7 +30,8 @@ class AddressSelectionProvider with ChangeNotifier {
         return address;
       }).toList();
 
-      _selectedAddress = _addresses.isNotEmpty ? _addresses[_selectedAddressIndex] : null;
+      _selectedAddress =
+          _addresses.isNotEmpty ? _addresses[_selectedAddressIndex] : null;
 
       notifyListeners();
     } catch (e) {
@@ -39,7 +41,8 @@ class AddressSelectionProvider with ChangeNotifier {
 
   void selectAddress(int index) {
     _selectedAddressIndex = index;
-    _selectedAddress = _addresses.isNotEmpty ? _addresses[_selectedAddressIndex] : null;
+    _selectedAddress =
+        _addresses.isNotEmpty ? _addresses[_selectedAddressIndex] : null;
     notifyListeners();
   }
 

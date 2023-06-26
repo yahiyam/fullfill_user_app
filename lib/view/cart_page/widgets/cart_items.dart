@@ -35,7 +35,7 @@ StreamBuilder<QuerySnapshot<Object?>> buildCartItems() {
         return const SliverToBoxAdapter(
           child: Center(
             heightFactor: 2,
-            child: EmptyPageMessege(
+            child: EmptyPageMessage(
               icon: Icons.sentiment_neutral_rounded,
               mainTitle: 'No items available!',
               subTitle: "Add from restaurant page and checkout.",

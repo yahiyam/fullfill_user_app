@@ -16,7 +16,7 @@ class SaveAddressPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSimpleAppBar(context, 'Save New Address'),
+      appBar: buildSimpleAppBar(context, title: 'Save New Address'),
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: Padding(

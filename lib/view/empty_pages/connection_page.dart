@@ -12,7 +12,7 @@ class ConnectionErrorPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const EmptyPageMessege(
+          const EmptyPageMessage(
             icon: Icons.wifi_off_rounded,
             mainTitle: 'No internet Connection',
             subTitle:

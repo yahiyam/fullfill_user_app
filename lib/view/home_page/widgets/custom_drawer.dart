@@ -5,7 +5,7 @@ import 'package:fullfill_user_app/global/instence.dart';
 
 import 'package:fullfill_user_app/view/history_page/history_page.dart';
 import 'package:fullfill_user_app/view/my_offer_page.dart/my_offer_page.dart';
-import 'package:fullfill_user_app/view/order_complete_page/order_complete_page.dart';
+import 'package:fullfill_user_app/view/order_page/my_orders_page.dart';
 import 'package:fullfill_user_app/view/privacy_page/privacy_page.dart';
 import 'package:fullfill_user_app/view/profile_page/profile_page.dart';
 
@@ -37,11 +37,11 @@ class CustomDrawer extends StatelessWidget {
                 const CustomDrawerDivider(),
                 CustomDrawerTile(
                   leadingIcon: Icons.shopping_cart_checkout_rounded,
-                  title: 'orders',
+                  title: 'My orders',
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const OrderCompletePage(),
+                      builder: (context) => const MyOrderPage(),
                     ));
                   },
                 ),

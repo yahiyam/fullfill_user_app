@@ -37,7 +37,7 @@ Widget buildBodySection(Sellers seller) {
       if (snapshot.data!.docs.isEmpty) {
         return const SliverToBoxAdapter(
           child: Center(
-            child: EmptyPageMessege(
+            child: EmptyPageMessage(
               icon: Icons.sentiment_neutral_rounded,
               mainTitle: 'No categories available!',
               subTitle: "This seller hasn't updated any Food.",
@@ -119,7 +119,7 @@ Widget _buildItemsList(String sellerUID, String menuID) {
 
       if (snapshot.data!.docs.isEmpty) {
         return const Center(
-          child: EmptyPageMessege(
+          child: EmptyPageMessage(
             icon: Icons.sentiment_neutral_rounded,
             mainTitle: 'No items available!',
             subTitle: "This seller hasn't updated any items here.",

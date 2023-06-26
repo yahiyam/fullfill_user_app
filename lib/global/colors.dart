@@ -7,8 +7,10 @@ const Color white = Colors.white;
 const Color grey = Colors.grey;
 const Color pink = Colors.pink;
 const Color red = Colors.red;
+const Color green = Colors.green;
 const Color blue = Colors.blue;
 const Color transparent = Colors.transparent;
+
 //
 Color grey200 = Colors.grey.shade200;
 Color? grey300 = Colors.grey.shade300;

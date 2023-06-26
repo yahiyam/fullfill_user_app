@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:fullfill_user_app/global/colors.dart';
-import 'package:fullfill_user_app/global/instence.dart';
 
 import 'package:fullfill_user_app/view/address_page/providers/address_select_provider.dart';
 
@@ -17,13 +16,15 @@ class AddressPage extends StatelessWidget {
     super.key,
     required this.sellerUID,
   });
+
   final String sellerUID;
+
   @override
   Widget build(BuildContext context) {
     final addressProvider = Provider.of<AddressSelectionProvider>(context);
-    addressProvider.fetchAddresses(sharedPreferences!.getString("uid"));
+    addressProvider.fetchAddresses();
     return Scaffold(
-      appBar: buildSimpleAppBar(context, 'Deliver To'),
+      appBar: buildSimpleAppBar(context, title: 'Deliver To'),
       backgroundColor: backgroundColor,
       body: Column(
         children: [

@@ -96,7 +96,7 @@ class _PaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSimpleAppBar(context, 'Payment'),
+      appBar: buildSimpleAppBar(context, title: 'Payment'),
       backgroundColor: backgroundColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
