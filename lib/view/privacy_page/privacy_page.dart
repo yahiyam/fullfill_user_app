@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/utils/common_widgets.dart';
+import 'package:fullfill_user_app/utils/functions/simple_app_bar.dart';
 
 class PrivacyPage extends StatelessWidget {
   const PrivacyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(),
-      body: Center(
+    return  Scaffold(
+      appBar: buildSimpleAppBar(context,title: 'Privacy and Policy'),
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
