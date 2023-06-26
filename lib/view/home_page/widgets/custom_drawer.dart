@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/instence.dart';
+import 'package:fullfill_user_app/nothing/myorder/my_order_screen.dart';
 
 import 'package:fullfill_user_app/view/history_page/history_page.dart';
 import 'package:fullfill_user_app/view/my_offer_page.dart/my_offer_page.dart';
-import 'package:fullfill_user_app/view/my_order_page/my_orders_page.dart';
 import 'package:fullfill_user_app/view/privacy_page/privacy_page.dart';
 import 'package:fullfill_user_app/view/profile_page/profile_page.dart';
 
@@ -41,7 +41,7 @@ class CustomDrawer extends StatelessWidget {
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const MyOrderPage(),
+                      builder: (context) => const MyOrdersScreen(),
                     ));
                   },
                 ),
