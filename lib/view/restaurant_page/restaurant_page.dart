@@ -7,14 +7,14 @@ import 'package:fullfill_user_app/view/restaurant_page/widgets/app_bar.dart';
 import 'package:fullfill_user_app/view/restaurant_page/widgets/body_section.dart';
 import 'package:fullfill_user_app/view/restaurant_page/widgets/bottom_button.dart';
 
-import 'package:fullfill_user_app/data/models/sellers.dart';
+import 'package:fullfill_user_app/data/models/seller.dart';
 
 import 'package:fullfill_user_app/global/colors.dart';
 
 import 'package:fullfill_user_app/utils/alert_message.dart';
 
 class RestaurantPage extends StatelessWidget {
-  final Sellers seller;
+  final Seller seller;
 
   const RestaurantPage({
     super.key,

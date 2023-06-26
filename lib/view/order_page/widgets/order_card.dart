@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/data/models/order.dart';
 import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/screen_size.dart';
 import 'package:fullfill_user_app/global/strings.dart';
-import 'package:fullfill_user_app/view/order_page/provider/order_status_provider.dart';
 
 class OrderCard extends StatelessWidget {
-  const OrderCard({super.key, required this.order});
-  final Order order;
+  const OrderCard({super.key, this.order});
+  final MyOrder? order;
   @override
   Widget build(BuildContext context) {
     return Padding(

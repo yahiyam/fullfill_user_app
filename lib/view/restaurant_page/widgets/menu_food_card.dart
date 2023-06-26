@@ -4,7 +4,7 @@ import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/screen_size.dart';
 import 'package:fullfill_user_app/global/strings.dart';
 
-import 'package:fullfill_user_app/data/models/items.dart';
+import 'package:fullfill_user_app/data/models/item.dart';
 
 import 'package:fullfill_user_app/view/item_page/item_page.dart';
 
@@ -13,7 +13,7 @@ class MenuFoodCard extends StatelessWidget {
     super.key,
     required this.item,
   });
-  final Items item;
+  final Item item;
   @override
   Widget build(BuildContext context) {
     return Padding(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:fullfill_user_app/data/models/sellers.dart';
+import 'package:fullfill_user_app/data/models/seller.dart';
 
 import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/screen_size.dart';
@@ -14,7 +14,7 @@ import 'package:fullfill_user_app/view/cart_page/providers/cart_item_counter_pro
 import 'package:fullfill_user_app/utils/alert_message.dart';
 import 'package:fullfill_user_app/utils/widgets/cart_counter_badge.dart';
 
-Widget buildAppBar(BuildContext context, Sellers seller) {
+Widget buildAppBar(BuildContext context, Seller seller) {
   return SliverAppBar(
     pinned: true,
     floating: true,
@@ -45,7 +45,7 @@ Widget buildAppBar(BuildContext context, Sellers seller) {
   );
 }
 
-Widget _buildAppBarTitle(BuildContext context, Sellers seller) {
+Widget _buildAppBarTitle(BuildContext context, Seller seller) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.end,
     children: [
@@ -68,7 +68,7 @@ Widget _buildAppBarTitle(BuildContext context, Sellers seller) {
   );
 }
 
-Widget _buildCartIconButton(BuildContext context, Sellers seller) {
+Widget _buildCartIconButton(BuildContext context, Seller seller) {
   return Stack(
     children: [
       IconButton(
@@ -91,7 +91,7 @@ Widget _buildCartIconButton(BuildContext context, Sellers seller) {
   );
 }
 
-Widget _buildAppBarBackground(Sellers seller) {
+Widget _buildAppBarBackground(Seller seller) {
   return Container(
     decoration: const BoxDecoration(
       color: commonColor,

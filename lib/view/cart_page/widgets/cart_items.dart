@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/data/models/items.dart';
+import 'package:fullfill_user_app/data/models/item.dart';
 import 'package:fullfill_user_app/view/cart_page/functions/assistant_methods.dart';
 import 'package:fullfill_user_app/view/cart_page/providers/total_amount.dart';
 import 'package:fullfill_user_app/view/cart_page/widgets/cart_card.dart';
@@ -47,7 +47,7 @@ StreamBuilder<QuerySnapshot<Object?>> buildCartItems() {
       return SliverList(
         delegate: SliverChildBuilderDelegate(
           (context, index) {
-            Items model = Items.fromJson(
+            Item model = Item.fromJson(
               snapshot.data!.docs[index].data() as Map<String, dynamic>,
             );
 

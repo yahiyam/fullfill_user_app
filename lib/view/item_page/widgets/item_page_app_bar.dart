@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/data/models/items.dart';
+import 'package:fullfill_user_app/data/models/item.dart';
 import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/utils/widgets/cart_counter_badge.dart';
 import 'package:fullfill_user_app/view/cart_page/cart_page.dart';
 
-AppBar buildItemAppBar(BuildContext context, Items item) {
+AppBar buildItemAppBar(BuildContext context, Item item) {
   return AppBar(
     backgroundColor: backgroundColor,
     actions: [
@@ -21,7 +21,7 @@ IconButton buildFavoriteIconButton() {
   );
 }
 
-Widget buildCartIconButton(BuildContext context, Items item) {
+Widget buildCartIconButton(BuildContext context, Item item) {
   return Stack(
     children: [
       IconButton(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:fullfill_user_app/data/models/items.dart';
+import 'package:fullfill_user_app/data/models/item.dart';
 
 import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/screen_size.dart';
@@ -8,7 +8,7 @@ import 'package:fullfill_user_app/global/strings.dart';
 
 import 'stepper_widget.dart';
 
-Widget buildItemAvatar(Items item) {
+Widget buildItemAvatar(Item item) {
   return Stack(
     alignment: Alignment.topCenter,
     children: [

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/data/models/items.dart';
+import 'package:fullfill_user_app/data/models/item.dart';
 import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/screen_size.dart';
 import 'package:fullfill_user_app/global/strings.dart';
@@ -10,7 +10,7 @@ class CartCard extends StatefulWidget {
     this.item,
     this.quanNumber,
   });
-  final Items? item;
+  final Item? item;
   final int? quanNumber;
   @override
   State<CartCard> createState() => _CartCardState();

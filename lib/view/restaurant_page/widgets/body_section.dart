@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import 'package:fullfill_user_app/data/models/categories.dart';
-import 'package:fullfill_user_app/data/models/items.dart';
-import 'package:fullfill_user_app/data/models/sellers.dart';
+import 'package:fullfill_user_app/data/models/category.dart';
+import 'package:fullfill_user_app/data/models/item.dart';
+import 'package:fullfill_user_app/data/models/seller.dart';
 
 import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/screen_size.dart';
@@ -13,7 +13,7 @@ import 'package:fullfill_user_app/view/restaurant_page/widgets/menu_food_card.da
 import 'package:fullfill_user_app/utils/empty_page_message.dart';
 import 'package:fullfill_user_app/utils/progress_bar.dart';
 
-Widget buildBodySection(Sellers seller) {
+Widget buildBodySection(Seller seller) {
   return StreamBuilder<QuerySnapshot>(
     stream: FirebaseFirestore.instance
         .collection("sellers")
@@ -49,7 +49,7 @@ Widget buildBodySection(Sellers seller) {
       return SliverList(
         delegate: SliverChildBuilderDelegate(
           (context, index) {
-            final category = Categories.fromJson(
+            final category = Category.fromJson(
               snapshot.data!.docs[index].data()! as Map<String, dynamic>,
             );
 
@@ -62,7 +62,7 @@ Widget buildBodySection(Sellers seller) {
   );
 }
 
-Widget _buildCategoryContainer(Categories category) {
+Widget _buildCategoryContainer(Category category) {
   return Container(
     margin: const EdgeInsets.only(top: 20),
     color: backgroundColor,
@@ -133,7 +133,7 @@ Widget _buildItemsList(String sellerUID, String menuID) {
         itemCount: snapshot.data!.docs.length,
         separatorBuilder: (context, index) => const SizedBox(width: 10),
         itemBuilder: (context, index) {
-          final item = Items.fromJson(
+          final item = Item.fromJson(
             snapshot.data!.docs[index].data()! as Map<String, dynamic>,
           );
 

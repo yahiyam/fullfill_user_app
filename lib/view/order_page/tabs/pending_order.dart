@@ -11,14 +11,14 @@ class PendingOrder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<OrderStatusProvider>(
       builder: (context, status, _) {
-        if (status.ordersPending.isEmpty) {
+        if (status.pendingOrders.isEmpty) {
           return buildOrdersEmptyDetails(context);
         }
         return ListView.builder(
           shrinkWrap: true,
-          itemCount: status.ordersPending.length,
+          itemCount: status.pendingOrders.length,
           itemBuilder: (context, index) {
-            final order = status.ordersPending[index];
+            final order = status.pendingOrders[index];
             return OrderCard(order: order);
           },
         );

@@ -6,7 +6,7 @@ import 'package:fullfill_user_app/view/item_page/widgets/item_page_app_bar.dart'
 import 'package:fullfill_user_app/view/item_page/widgets/item_short_info.dart';
 import 'package:provider/provider.dart';
 
-import 'package:fullfill_user_app/data/models/items.dart';
+import 'package:fullfill_user_app/data/models/item.dart';
 
 import 'package:fullfill_user_app/global/colors.dart';
 
@@ -18,7 +18,7 @@ class ItemPage extends StatelessWidget {
     required this.item,
   });
 
-  final Items item;
+  final Item item;
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:fullfill_user_app/data/models/items.dart';
+import 'package:fullfill_user_app/data/models/item.dart';
 
 import 'package:fullfill_user_app/global/screen_size.dart';
 
-Widget buildShortInfo(Items item) {
+Widget buildShortInfo(Item item) {
   return SizedBox(
     height: Screen.height(31),
     width: double.infinity,

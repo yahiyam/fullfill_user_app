@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/data/models/sellers.dart';
+import 'package:fullfill_user_app/data/models/seller.dart';
 
 import 'package:fullfill_user_app/view/cart_page/cart_page.dart';
 import 'package:fullfill_user_app/view/cart_page/providers/cart_item_counter_provider.dart';
@@ -9,7 +9,7 @@ import 'package:fullfill_user_app/utils/common_button.dart';
 Visibility buildBottomButton(
   CartItemCounter cart,
   BuildContext context,
-  Sellers seller,
+  Seller seller,
 ) {
   return Visibility(
     visible: cart.count != 0,

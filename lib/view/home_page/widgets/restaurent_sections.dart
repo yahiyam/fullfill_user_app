@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import 'package:fullfill_user_app/data/models/sellers.dart';
+import 'package:fullfill_user_app/data/models/seller.dart';
 
 import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/screen_size.dart';
@@ -53,8 +53,8 @@ StreamBuilder<QuerySnapshot> buildRestaurantList() {
         );
       }
 
-      final List<Sellers> sellersList = snapshot.data!.docs
-          .map((doc) => Sellers.fromJson(doc.data() as Map<String, dynamic>))
+      final List<Seller> sellersList = snapshot.data!.docs
+          .map((doc) => Seller.fromJson(doc.data() as Map<String, dynamic>))
           .toList();
 
       if (sellersList.isEmpty) {
@@ -68,7 +68,7 @@ StreamBuilder<QuerySnapshot> buildRestaurantList() {
       return SliverList(
         delegate: SliverChildBuilderDelegate(
           (BuildContext context, int index) {
-            final Sellers seller = sellersList[index];
+            final Seller seller = sellersList[index];
             return Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: Screen.width(5),

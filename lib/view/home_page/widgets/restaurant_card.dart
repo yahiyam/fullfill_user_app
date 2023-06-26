@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:fullfill_user_app/data/models/sellers.dart';
+import 'package:fullfill_user_app/data/models/seller.dart';
 
 import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/screen_size.dart';
@@ -12,7 +12,7 @@ class RestaurantCard extends StatelessWidget {
     super.key,
     required this.seller,
   });
-  final Sellers seller;
+  final Seller seller;
   @override
   Widget build(BuildContext context) {
     return InkWell(

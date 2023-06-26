@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/data/models/items.dart';
+import 'package:fullfill_user_app/data/models/item.dart';
 import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/strings.dart';
 import 'package:fullfill_user_app/view/item_page/providers/stepper_provider.dart';
 import 'package:provider/provider.dart';
 
-Widget buildItemInfo(BuildContext context, Items item) {
+Widget buildItemInfo(BuildContext context, Item item) {
   final stepperProvider = Provider.of<StepperProvider>(context);
 
   return Column(
