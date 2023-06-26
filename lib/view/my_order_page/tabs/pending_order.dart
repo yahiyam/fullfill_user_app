@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/view/order_page/provider/order_status_provider.dart';
-import 'package:fullfill_user_app/view/order_page/widgets/order_card.dart';
-import 'package:fullfill_user_app/view/order_page/widgets/order_empty_details.dart';
+import 'package:fullfill_user_app/view/my_order_page/provider/order_status_provider.dart';
+import 'package:fullfill_user_app/view/my_order_page/widgets/order_card.dart';
+import 'package:fullfill_user_app/view/my_order_page/widgets/order_empty_details.dart';
 import 'package:provider/provider.dart';
 
 class PendingOrder extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:fullfill_user_app/view/order_page/provider/order_status_provider.dart';
-import 'package:fullfill_user_app/view/order_page/tabs/completed_order.dart';
-import 'package:fullfill_user_app/view/order_page/tabs/pending_order.dart';
+import 'package:fullfill_user_app/view/my_order_page/provider/order_status_provider.dart';
+import 'package:fullfill_user_app/view/my_order_page/tabs/completed_order.dart';
+import 'package:fullfill_user_app/view/my_order_page/tabs/pending_order.dart';
 
 import 'package:fullfill_user_app/global/colors.dart';
 

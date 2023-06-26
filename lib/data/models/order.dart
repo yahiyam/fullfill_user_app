@@ -1,4 +1,3 @@
-
 class MyOrder {
   final String orderId;
   final String addressID;
