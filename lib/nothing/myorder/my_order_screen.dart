@@ -26,58 +26,63 @@ class MyOrdersScreen extends StatelessWidget {
               .where("status", isEqualTo: "normal")
               .orderBy("orderTime", descending: true)
               .snapshots(),
-          builder: (c, snapshot) {
-            return snapshot.hasData
-                ? ListView.builder(
-                    itemCount: snapshot.data!.docs.length,
-                    itemBuilder: (c, index) {
-                      return FutureBuilder<QuerySnapshot>(
-                        future: FirebaseFirestore.instance
-                            .collection("items")
-                            .where("itemID",
-                                whereIn: separateOrderItemIDs(
-                                    (snapshot.data!.docs[index].data()!
-                                        as Map<String, dynamic>)["productIDs"]))
-                            .where("orderBy",
-                                whereIn: (snapshot.data!.docs[index].data()!
-                                    as Map<String, dynamic>)["uid"])
-                            .orderBy("publishedDate", descending: true)
-                            .get(),
-                        builder: (c, snap) {
-                          return snap.hasData
-                              ? OrderCard(
-                                  itemCount: snap.data!.docs.length,
-                                  data: snap.data!.docs,
-                                  seperateQuantitiesList:
-                                      separateOrderItemQuantities(
-                                          (snapshot.data!.docs[index].data()!
-                                                  as Map<String, dynamic>)[
-                                              "productIDs"]),
-                                )
-                              : Center(child: circularProgress());
-                        },
-                      );
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final orders = snapshot.data!.docs;
+              return ListView.builder(
+                itemCount: orders.length,
+                itemBuilder: (context, index) {
+                  final orderData =
+                      orders[index].data() as Map<String, dynamic>;
+                  final productIDs = orderData["productIDs"];
+
+                  return FutureBuilder<QuerySnapshot>(
+                    future: FirebaseFirestore.instance
+                        .collection("items")
+                        .where("itemID",
+                            whereIn: separateOrderItemIDs(productIDs))
+                        .where("orderBy", whereIn: orderData["uid"])
+                        .orderBy("publishedDate", descending: true)
+                        .get(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        final itemDocs = snapshot.data!.docs;
+                        final itemCount = itemDocs.length;
+                        final quantitiesList =
+                            separateOrderItemQuantities(productIDs);
+
+                        return OrderCard(
+                          itemCount: itemCount,
+                          data: itemDocs,
+                          separateQuantitiesList: quantitiesList,
+                        );
+                      } else {
+                        return Center(child: circularProgress());
+                      }
                     },
-                  )
-                : Center(
-                    child: circularProgress(),
                   );
+                },
+              );
+            } else {
+              return Center(child: circularProgress());
+            }
           },
         ),
       ),
     );
   }
 }
+
 class OrderCard extends StatelessWidget {
   final int? itemCount;
   final List<DocumentSnapshot>? data;
-  final List<String>? seperateQuantitiesList;
+  final List<String>? separateQuantitiesList;
 
   const OrderCard({
     super.key,
     this.itemCount,
     this.data,
-    this.seperateQuantitiesList,
+    this.separateQuantitiesList,
   });
 
   @override
@@ -95,7 +100,7 @@ class OrderCard extends StatelessWidget {
             return orderCardDesign(
               model,
               context,
-              seperateQuantitiesList![index],
+              separateQuantitiesList![index],
             );
           },
         ),
@@ -103,10 +108,10 @@ class OrderCard extends StatelessWidget {
     );
   }
 
-  orderCardDesign(
+  Widget orderCardDesign(
     Item model,
     BuildContext context,
-    seperateQuantitiesList,
+    String separateQuantitiesList,
   ) {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
@@ -151,7 +156,7 @@ class OrderCard extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Text('$seperateQuantitiesList items | 2.4 km'),
+                    Text('$separateQuantitiesList items | 2.4 km'),
                     Row(
                       children: [
                         SizedBox(
