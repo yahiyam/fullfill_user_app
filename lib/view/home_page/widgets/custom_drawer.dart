@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:fullfill_user_app/global/colors.dart';
 import 'package:fullfill_user_app/global/instence.dart';
-import 'package:fullfill_user_app/nothing/myorder/my_order_screen.dart';
+import 'package:fullfill_user_app/view/myorder/my_order_screen.dart';
 
 import 'package:fullfill_user_app/view/history_page/history_page.dart';
 import 'package:fullfill_user_app/view/my_offer_page.dart/my_offer_page.dart';

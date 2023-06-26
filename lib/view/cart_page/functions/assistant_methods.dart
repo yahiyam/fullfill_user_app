@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/data/services/cart_service.dart';
 import 'package:provider/provider.dart';
 
 import 'package:fullfill_user_app/global/instence.dart';
@@ -8,6 +8,8 @@ import 'package:fullfill_user_app/view/cart_page/providers/cart_item_counter_pro
 import 'package:fullfill_user_app/view/home_page/home_page.dart';
 
 import 'package:fullfill_user_app/utils/toast_message.dart';
+
+final CartService _cartService = CartService();
 
 separateItemIDs() {
   List<String> separateItemIDsList = [], defaultItemList = [];
@@ -47,12 +49,7 @@ addItemToCart(BuildContext context, String? foodItemId, int itemCounter) {
   List<String>? tempList = sharedPreferences!.getStringList("userCart");
   tempList!.add("${foodItemId!}:$itemCounter");
 
-  FirebaseFirestore.instance
-      .collection("users")
-      .doc(firebaseAuth.currentUser!.uid)
-      .update({
-    "userCart": tempList,
-  }).then((value) {
+  _cartService.addItemToCart(tempList).then((value) {
     ToastMessage.show(context, "Item Added Successfully.");
 
     sharedPreferences!.setStringList("userCart", tempList);
@@ -67,10 +64,7 @@ clearCartNow(context) {
   sharedPreferences!.setStringList("userCart", ['garbageValue']);
   List<String>? emptyList = sharedPreferences!.getStringList("userCart");
 
-  FirebaseFirestore.instance
-      .collection("users")
-      .doc(firebaseAuth.currentUser!.uid)
-      .update({"userCart": emptyList}).then((value) {
+  _cartService.clearCartNow(emptyList).then((value) {
     sharedPreferences!.setStringList("userCart", emptyList!);
   });
   Navigator.of(context).pushAndRemoveUntil(
