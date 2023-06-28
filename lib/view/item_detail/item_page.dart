@@ -9,14 +9,10 @@ import 'package:provider/provider.dart';
 
 import 'package:fullfill_user_app/data/models/item.dart';
 
-
 import 'package:fullfill_user_app/view_model/item_detail/stepper_provider.dart';
 
 class ItemPage extends StatelessWidget {
-  const ItemPage({
-    super.key,
-    required this.item,
-  });
+  const ItemPage({super.key, required this.item});
 
   final Item item;
 
@@ -29,15 +25,15 @@ class ItemPage extends StatelessWidget {
       },
       child: Scaffold(
         backgroundColor: backgroundColor,
-        appBar: buildItemAppBar(context, item),
+        appBar: ItemAppBar(item: item),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            buildItemAvatar(item),
-            buildItemInfo(context, item),
-            buildShortInfo(item),
-            buildAddToCartButton(context, item),
+            ItemImageandCounter(item: item),
+            ItemInfo(item: item),
+            ShortInfo(item: item),
+            AddToCartButton(item: item),
           ],
         ),
       ),

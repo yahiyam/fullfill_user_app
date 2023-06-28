@@ -7,7 +7,7 @@ import 'package:fullfill_user_app/view/my_orders/tabs/completed_order.dart';
 import 'package:fullfill_user_app/view/my_orders/tabs/pending_order.dart';
 
 
-import 'package:fullfill_user_app/utils/functions/simple_app_bar.dart';
+import 'package:fullfill_user_app/utils/widgets/simple_app_bar.dart';
 
 class MyOrderPage extends StatelessWidget {
   const MyOrderPage({super.key});
@@ -19,7 +19,7 @@ class MyOrderPage extends StatelessWidget {
     orderProvider.fetchOrderCompleted();
 
     return Scaffold(
-      appBar: buildSimpleAppBar(context, title: 'My Orders'),
+      appBar: const SimpleAppBar(title: 'My Orders'),
       backgroundColor: backgroundColor,
       body: const DefaultTabController(
         length: 2,

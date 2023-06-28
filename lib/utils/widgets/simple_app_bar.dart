@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/utils/colors.dart';
 import 'package:fullfill_user_app/utils/screen_size.dart';
-import 'package:fullfill_user_app/view/cart/functions/assistant_methods.dart';
 
-class CartAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const CartAppbar({super.key});
+class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const SimpleAppBar({super.key, this.title});
+  final String? title;
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      toolbarHeight: Screen.height(10),
       centerTitle: true,
       backgroundColor: transparent,
       leading: IconButton(
@@ -22,26 +24,15 @@ class CartAppbar extends StatelessWidget implements PreferredSizeWidget {
           size: Screen.height(2.2),
         ),
       ),
-      title: const Text(
-        'Cart',
+      title: Text(
+        title ?? '',
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
           color: black,
         ),
       ),
-      actions: [
-        IconButton(
-          onPressed: () {
-            clearCartNow(context);
-          },
-          icon: const Icon(Icons.clear_all),
-        )
-      ],
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

@@ -12,7 +12,7 @@ class PendingOrder extends StatelessWidget {
     return Consumer<OrderStatusProvider>(
       builder: (context, status, _) {
         if (status.pendingOrders.isEmpty) {
-          return buildOrdersEmptyDetails(context);
+          return const OrdersEmptyDetails();
         }
         return ListView.builder(
           shrinkWrap: true,

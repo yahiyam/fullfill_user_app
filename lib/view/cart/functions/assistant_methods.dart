@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 
 import 'package:fullfill_user_app/view_model/cart/cart_item_counter_provider.dart';
-import 'package:fullfill_user_app/view/home_page/home_page.dart';
+import 'package:fullfill_user_app/view/home/home_page.dart';
 
 import 'package:fullfill_user_app/utils/toast_message.dart';
 

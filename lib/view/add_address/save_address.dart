@@ -7,8 +7,8 @@ import 'package:fullfill_user_app/view/add_address/widgets/address_form.dart';
 import 'package:fullfill_user_app/view/add_address/widgets/save_address_button.dart';
 import 'package:fullfill_user_app/view/add_address/widgets/show_current_address.dart';
 
-import 'package:fullfill_user_app/utils/functions/simple_app_bar.dart';
-import 'package:fullfill_user_app/utils/functions/simple_heading.dart';
+import 'package:fullfill_user_app/utils/widgets/simple_app_bar.dart';
+import 'package:fullfill_user_app/utils/widgets/simple_heading.dart';
 
 class SaveAddressPage extends StatelessWidget {
   const SaveAddressPage({super.key});
@@ -16,7 +16,7 @@ class SaveAddressPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSimpleAppBar(context, title: 'Save New Address'),
+      appBar: const SimpleAppBar(title: 'Save New Address'),
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: Padding(
@@ -24,12 +24,12 @@ class SaveAddressPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              buildShowCurrentAddress(context),
+              const CurrentAddress(),
               SizedBox(height: Screen.height(8)),
-              buildSimpleHeading('Save new Address here'),
-              buildAddressForm(),
+              const SimpleHeading(title: 'Save new Address here'),
+              const AddressForm(),
               SizedBox(height: Screen.height(8)),
-              buildSaveButton(),
+              const SaveAddressButton(),
             ],
           ),
         ),

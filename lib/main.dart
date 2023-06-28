@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:fullfill_user_app/view/auth/auth_page.dart';
-import 'package:fullfill_user_app/view/home_page/home_page.dart';
+import 'package:fullfill_user_app/view/home/home_page.dart';
 import 'package:fullfill_user_app/view/get_started/get_started_page.dart';
 import 'package:fullfill_user_app/view_model/cart/cart_item_counter_provider.dart';
 import 'package:fullfill_user_app/view_model/get_started/splash_provider.dart';
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Screen.size = MediaQuery.of(context).size;
+    Screen.size = MediaQuery.sizeOf(context);
 
     final splashProvider = Provider.of<SplashProvider>(context, listen: false);
     splashProvider.initialize();
