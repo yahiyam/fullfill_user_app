@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/data/models/item.dart';
-import 'package:fullfill_user_app/global/colors.dart';
-import 'package:fullfill_user_app/global/instence.dart';
-import 'package:fullfill_user_app/global/screen_size.dart';
-import 'package:fullfill_user_app/global/strings.dart';
+import 'package:fullfill_user_app/utils/colors.dart';
+import 'package:fullfill_user_app/utils/instence.dart';
+import 'package:fullfill_user_app/utils/screen_size.dart';
+import 'package:fullfill_user_app/utils/strings.dart';
 import 'package:fullfill_user_app/view/myorder/oderidquantity.dart';
 import 'package:fullfill_user_app/utils/functions/simple_app_bar.dart';
 import 'package:fullfill_user_app/utils/progress_bar.dart';
-import 'package:fullfill_user_app/view/my_order_page/functions/id_seperating.dart';
+import 'package:fullfill_user_app/view/my_orders/functions/id_seperating.dart';
 
 class MyOrdersScreen extends StatelessWidget {
   const MyOrdersScreen({super.key});

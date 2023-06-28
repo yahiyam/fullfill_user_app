@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/global/colors.dart';
+import 'package:fullfill_user_app/utils/colors.dart';
 import 'package:fullfill_user_app/utils/progress_bar.dart';
 
 Future<dynamic> showMessageDialog(

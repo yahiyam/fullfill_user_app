@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/data/models/address.dart';
+import 'package:fullfill_user_app/utils/colors.dart';
+import 'package:fullfill_user_app/utils/instence.dart';
 
-import 'package:fullfill_user_app/global/colors.dart';
-import 'package:fullfill_user_app/global/instence.dart';
 import 'package:fullfill_user_app/utils/toast_message.dart';
-import 'package:fullfill_user_app/view/address_page/providers/address_select_provider.dart';
-import 'package:fullfill_user_app/view/cart_page/functions/assistant_methods.dart';
-import 'package:fullfill_user_app/view/cart_page/providers/total_amount.dart';
+import 'package:fullfill_user_app/view_model/list_address/address_select_provider.dart';
+import 'package:fullfill_user_app/view/cart/functions/assistant_methods.dart';
+import 'package:fullfill_user_app/view_model/cart/total_amount.dart';
 import 'package:fullfill_user_app/view/home_page/home_page.dart';
 
 import 'package:fullfill_user_app/view/payment_page/widgets/order_button.dart';

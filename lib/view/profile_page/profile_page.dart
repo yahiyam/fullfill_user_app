@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/global/colors.dart';
-import 'package:fullfill_user_app/global/instence.dart';
+import 'package:fullfill_user_app/utils/colors.dart';
 import 'package:fullfill_user_app/utils/common_button.dart';
 import 'package:fullfill_user_app/utils/functions/simple_app_bar.dart';
 import 'package:fullfill_user_app/utils/heading_title.dart';
+import 'package:fullfill_user_app/utils/instence.dart';
 import 'package:fullfill_user_app/view/payment_page/widgets/payment_type_card.dart';
 
 class ProfilePage extends StatelessWidget {

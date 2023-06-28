@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/global/colors.dart';
-import 'package:fullfill_user_app/view/cart_page/providers/cart_item_counter_provider.dart';
+import 'package:fullfill_user_app/utils/colors.dart';
+import 'package:fullfill_user_app/view_model/cart/cart_item_counter_provider.dart';
 import 'package:provider/provider.dart';
 
 Widget buildCartIconCounter() {

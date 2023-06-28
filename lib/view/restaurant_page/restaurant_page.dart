@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/utils/colors.dart';
 import 'package:provider/provider.dart';
 
-import 'package:fullfill_user_app/view/cart_page/functions/assistant_methods.dart';
-import 'package:fullfill_user_app/view/cart_page/providers/cart_item_counter_provider.dart';
+import 'package:fullfill_user_app/view/cart/functions/assistant_methods.dart';
+import 'package:fullfill_user_app/view_model/cart/cart_item_counter_provider.dart';
 import 'package:fullfill_user_app/view/restaurant_page/widgets/app_bar.dart';
 import 'package:fullfill_user_app/view/restaurant_page/widgets/body_section.dart';
 import 'package:fullfill_user_app/view/restaurant_page/widgets/bottom_button.dart';
 
 import 'package:fullfill_user_app/data/models/seller.dart';
 
-import 'package:fullfill_user_app/global/colors.dart';
 
 import 'package:fullfill_user_app/utils/alert_message.dart';
 

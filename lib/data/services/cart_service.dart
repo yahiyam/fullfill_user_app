@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fullfill_user_app/utils/instence.dart';
 
-import 'package:fullfill_user_app/global/instence.dart';
 
 class CartService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

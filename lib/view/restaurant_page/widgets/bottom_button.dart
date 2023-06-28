@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/data/models/seller.dart';
 
-import 'package:fullfill_user_app/view/cart_page/cart_page.dart';
-import 'package:fullfill_user_app/view/cart_page/providers/cart_item_counter_provider.dart';
+import 'package:fullfill_user_app/view/cart/cart_page.dart';
+import 'package:fullfill_user_app/view_model/cart/cart_item_counter_provider.dart';
 
 import 'package:fullfill_user_app/utils/common_button.dart';
 

@@ -2,9 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fullfill_user_app/data/models/seller.dart';
+import 'package:fullfill_user_app/utils/colors.dart';
+import 'package:fullfill_user_app/utils/screen_size.dart';
 
-import 'package:fullfill_user_app/global/colors.dart';
-import 'package:fullfill_user_app/global/screen_size.dart';
 
 import 'package:fullfill_user_app/view/home_page/widgets/restaurant_card.dart';
 

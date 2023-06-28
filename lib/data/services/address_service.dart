@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:fullfill_user_app/data/models/address.dart';
-import 'package:fullfill_user_app/global/instence.dart';
+import 'package:fullfill_user_app/utils/instence.dart';
 
 class AddressService {
   Future<List<Address>> fetchAddresses() async {

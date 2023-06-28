@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/utils/colors.dart';
+import 'package:fullfill_user_app/utils/instence.dart';
 
-import 'package:fullfill_user_app/global/colors.dart';
-import 'package:fullfill_user_app/global/instence.dart';
 import 'package:fullfill_user_app/view/myorder/my_order_screen.dart';
 
 import 'package:fullfill_user_app/view/history_page/history_page.dart';

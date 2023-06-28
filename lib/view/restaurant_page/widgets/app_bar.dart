@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/utils/colors.dart';
+import 'package:fullfill_user_app/utils/screen_size.dart';
 import 'package:provider/provider.dart';
 
 import 'package:fullfill_user_app/data/models/seller.dart';
 
-import 'package:fullfill_user_app/global/colors.dart';
-import 'package:fullfill_user_app/global/screen_size.dart';
 
-import 'package:fullfill_user_app/view/cart_page/cart_page.dart';
+import 'package:fullfill_user_app/view/cart/cart_page.dart';
 
-import 'package:fullfill_user_app/view/cart_page/functions/assistant_methods.dart';
-import 'package:fullfill_user_app/view/cart_page/providers/cart_item_counter_provider.dart';
+import 'package:fullfill_user_app/view/cart/functions/assistant_methods.dart';
+import 'package:fullfill_user_app/view_model/cart/cart_item_counter_provider.dart';
 
 import 'package:fullfill_user_app/utils/alert_message.dart';
 import 'package:fullfill_user_app/utils/widgets/cart_counter_badge.dart';

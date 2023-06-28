@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/utils/strings.dart';
 import 'package:provider/provider.dart';
 
-import 'package:fullfill_user_app/global/strings.dart';
 
-import 'package:fullfill_user_app/view/cart_page/providers/total_amount.dart';
+import 'package:fullfill_user_app/view_model/cart/total_amount.dart';
 
 Row buildDisplayAmount(BuildContext context) {
   return Row(

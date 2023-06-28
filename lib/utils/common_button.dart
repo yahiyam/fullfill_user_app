@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fullfill_user_app/global/colors.dart';
-import 'package:fullfill_user_app/global/screen_size.dart';
+import 'package:fullfill_user_app/utils/colors.dart';
+import 'package:fullfill_user_app/utils/screen_size.dart';
 
 class CommonButton extends StatelessWidget {
   const CommonButton({
