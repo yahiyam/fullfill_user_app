@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fullfill_user_app/utils/alert_message.dart';
 import 'package:fullfill_user_app/utils/colors.dart';
 import 'package:fullfill_user_app/utils/instence.dart';
 
@@ -83,15 +84,21 @@ class UserDrawer extends StatelessWidget {
             const SizedBox(),
             CustomDrawerTile(
               leadingIcon: Icons.logout_outlined,
-              title: 'Sign-out',
+              title: 'Logout',
               onTap: () {
-                firebaseAuth.signOut().then((value) {
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    '/auth',
-                    (route) => false,
-                  );
-                });
+                showAlertMessege(
+                  context,
+                  message: 'Do you really want to Logout',
+                  onOKTap: () {
+                    firebaseAuth.signOut().then((value) {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        '/auth',
+                        (route) => false,
+                      );
+                    });
+                  },
+                );
               },
             ),
           ],

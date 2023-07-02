@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 class AddressControllerProvider with ChangeNotifier {
   final TextEditingController _name = TextEditingController();
@@ -23,6 +26,33 @@ class AddressControllerProvider with ChangeNotifier {
 
   GlobalKey<FormState> get addressFormkey => _addressFormKey;
   
+  Position? _position;
+  Position? get position => _position;
+  set position(Position? newPosition) {
+    _position = newPosition;
+    notifyListeners();
+  }
+
+  Future<Position?> getUserCoordinates(context) async {
+    try {
+      bool servicePermission = await Geolocator.isLocationServiceEnabled();
+      if (!servicePermission) {
+        log('service disabled');
+      }
+      LocationPermission permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+      }
+      Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      );
+      return position;
+    } catch (e) {
+      log('getUserLocationAddress error \n $e');
+      return null;
+    }
+  }
+
   @override
   void dispose() {
     _name.dispose();

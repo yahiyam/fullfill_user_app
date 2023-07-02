@@ -33,6 +33,8 @@ class SaveAddressButton extends StatelessWidget {
                 state: addressController.stateController.text.trim(),
                 country: addressController.countryController.text.trim(),
                 pinCode: addressController.pinCodeController.text.trim(),
+                lat: addressController.position?.latitude ?? 0,
+                lng: addressController.position?.longitude ?? 0,
               ).toJson();
               FirebaseFirestore.instance
                   .collection("users")
