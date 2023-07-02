@@ -19,7 +19,6 @@ import 'package:fullfill_user_app/view_model/get_started/splash_provider.dart';
 import 'package:fullfill_user_app/view_model/item_detail/stepper_provider.dart';
 import 'package:fullfill_user_app/view_model/cart/total_amount.dart';
 
-
 import 'view_model/list_address/address_select_provider.dart';
 
 Future<void> main(List<String> args) async {
