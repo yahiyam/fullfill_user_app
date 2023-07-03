@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:fullfill_user_app/data/services/stripe_service.dart';
 import 'package:fullfill_user_app/utils/colors.dart';
@@ -26,8 +25,7 @@ import 'view_model/list_address/address_select_provider.dart';
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load();
-  Stripe.publishableKey = StripeService.getPublishableKey() as String;
+  Stripe.publishableKey = StripeService.getPublishableKey();
   await Stripe.instance.applySettings();
   await Firebase.initializeApp();
   sharedPreferences = await SharedPreferences.getInstance();

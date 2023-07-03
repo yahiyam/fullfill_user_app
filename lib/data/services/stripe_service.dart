@@ -1,23 +1,21 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
+import 'package:fullfill_user_app/.env.example';
 
 class StripeService {
   static const String _apiBase = 'https://api.stripe.com/v1';
 
-  static Future<String> getPublishableKey() async {
-    await dotenv.load();
-    final publishableKey = dotenv.env['PUBLISHABLE_KEY'];
-    return publishableKey!;
+  static String getPublishableKey() {
+    const publishableKey = PUBLISHABLE_KEY;
+    return publishableKey;
   }
 
   static Future<Map<String, dynamic>?> createPaymentIntent(
       int amount, String currency) async {
     try {
-      await dotenv.load();
-      final secretKey = dotenv.env['SECRET_KEY'];
+      const secretKey = SECRET_KEY;
 
       const url = '$_apiBase/payment_intents';
       final headers = {
