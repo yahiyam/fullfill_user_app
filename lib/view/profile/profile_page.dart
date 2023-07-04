@@ -38,24 +38,29 @@ class ProfilePage extends StatelessWidget {
                     color: Colors.white70,
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       PaymentTypeCard(
                         icon: Icons.payment,
                         type: 'Card',
-                        isSelected: true,
                         iconBGcolor: commonColor,
+                        isSelected: false,
+                        onTap: () {},
                       ),
                       PaymentTypeCard(
                         icon: Icons.account_balance_rounded,
                         type: 'UPI',
                         iconBGcolor: Colors.pinkAccent,
+                        isSelected: false,
+                        onTap: () {},
                       ),
                       PaymentTypeCard(
                         icon: Icons.payments_outlined,
                         type: 'Pay on delivery',
                         iconBGcolor: Colors.blueAccent,
+                        isSelected: false,
+                        onTap: () {},
                       ),
                     ],
                   ),

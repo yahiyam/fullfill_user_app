@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:http/http.dart' as http;
-import 'package:fullfill_user_app/.env.example';
+import 'package:fullfill_user_app/.env';
 
 class StripeService {
   static const String _apiBase = 'https://api.stripe.com/v1';
@@ -45,36 +45,28 @@ class StripeService {
     }
   }
 
-  static displayPaymentSheet() async {
+  static Future<String> displayPaymentSheet() async {
     try {
-      await Stripe.instance.presentPaymentSheet().then((value) {
-        log('Payment successful');
-      });
+      await Stripe.instance.presentPaymentSheet();
+      log('Payment successful');
+      return 'successful';
     } on StripeException catch (e) {
       log('Error displaying payment sheet: $e');
     }
+    return 'failed';
   }
 
   static initializePaymentSheet(Map<String, dynamic> paymentIntent) async {
     try {
-      const gpay = PaymentSheetGooglePay(
-        merchantCountryCode: 'GB',
-        currencyCode: 'GBP',
-        testEnv: true,
-      );
       await Stripe.instance.initPaymentSheet(
         paymentSheetParameters: SetupPaymentSheetParameters(
           paymentIntentClientSecret: paymentIntent['client_secret'],
           style: ThemeMode.light,
-          merchantDisplayName: 'Abhi',
-          googlePay: gpay,
+          merchantDisplayName: 'FULLFILL',
         ),
       );
-      await Stripe.instance.presentPaymentSheet().then((value) {
-        log('Payment successful');
-      });
     } catch (e) {
-      log('Error displaying payment sheet: $e');
+      log('Error initializing payment sheet: $e');
     }
   }
 

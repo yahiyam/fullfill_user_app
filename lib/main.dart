@@ -10,6 +10,9 @@ import 'package:fullfill_user_app/view_model/auth/image_provider.dart';
 import 'package:fullfill_user_app/view_model/auth/login_provider.dart';
 import 'package:fullfill_user_app/view_model/auth/registeration_provider.dart';
 import 'package:fullfill_user_app/view_model/my_orders/order_status_provider.dart';
+import 'package:fullfill_user_app/view_model/payment/payment_selection_view_model.dart';
+import 'package:fullfill_user_app/view_model/payment/payment_view_model.dart';
+import 'package:fullfill_user_app/view_model/payment/stripe_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -42,6 +45,9 @@ Future<void> main(List<String> args) async {
         ChangeNotifierProvider(create: (context) => TotalAmount()),
         ChangeNotifierProvider(create: (context) => AddressSelectionProvider()),
         ChangeNotifierProvider(create: (context) => OrderStatusProvider()),
+        ChangeNotifierProvider(create: (context) => StripeViewModel()),
+        ChangeNotifierProvider(create: (context) => PaymentSelectionViewModel()),
+        ChangeNotifierProvider(create: (context) => PaymentViewModel()),
       ],
       child: const MyApp(),
     ),

@@ -19,6 +19,9 @@ Color black12 = Colors.black12;
 Color black54 = Colors.black54;
 const Color transparent15 = Color.fromARGB(15, 0, 0, 0);
 
+const kLightColor = Color(0xFF808080);
+const kDarkColor = Color(0xFF303030);
+
 const Color commonColor = orange;
 Color searchBGC = const Color(0xFFEFEEEE);
 Color? backgroundColor = Colors.grey[200];

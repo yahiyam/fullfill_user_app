@@ -3,7 +3,6 @@ import 'package:fullfill_user_app/data/services/cart_service.dart';
 import 'package:fullfill_user_app/utils/instence.dart';
 import 'package:provider/provider.dart';
 
-
 import 'package:fullfill_user_app/view_model/cart/cart_item_counter_provider.dart';
 import 'package:fullfill_user_app/view/home/home_page.dart';
 
@@ -60,18 +59,26 @@ addItemToCart(BuildContext context, String? foodItemId, int itemCounter) {
   });
 }
 
-clearCartNow(context) {
+clearCartNow(
+  context, [
+  bool showMessage = true,
+  bool navigateHome = true,
+]) {
   sharedPreferences!.setStringList("userCart", ['garbageValue']);
   List<String>? emptyList = sharedPreferences!.getStringList("userCart");
 
   _cartService.clearCartNow(emptyList).then((value) {
     sharedPreferences!.setStringList("userCart", emptyList!);
   });
-  Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(builder: (context) => const HomePage()),
-      (route) => false);
+  if (navigateHome) {
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const HomePage()),
+        (route) => false);
+  }
   Provider.of<CartItemCounter>(context, listen: false)
       .displayCartListItemsNumber();
 
-  ToastMessage.show(context, 'Cart has been cleared');
+  if (showMessage) {
+    ToastMessage.show(context, 'Cart has been cleared');
+  }
 }

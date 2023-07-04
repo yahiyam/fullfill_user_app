@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fullfill_user_app/data/models/seller.dart';
 import 'package:fullfill_user_app/utils/colors.dart';
 import 'package:fullfill_user_app/utils/screen_size.dart';
-
+import 'package:fullfill_user_app/view/cart/functions/assistant_methods.dart';
 
 import 'package:fullfill_user_app/view/restaurant/restaurant_page.dart';
 
@@ -18,6 +18,7 @@ class RestaurantCard extends StatelessWidget {
     return InkWell(
       splashColor: transparent,
       onTap: () {
+        clearCartNow(context,false);
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => RestaurantPage(seller: seller)));
       },

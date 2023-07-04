@@ -8,14 +8,19 @@ class PaymentTypeCard extends StatelessWidget {
     required this.icon,
     this.iconBGcolor,
     this.isSelected = false,
+    required this.onTap,
   });
+
   final String type;
   final IconData icon;
   final Color? iconBGcolor;
   final bool? isSelected;
+  final VoidCallback onTap;
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: onTap,
       title: Text(
         type,
         style: const TextStyle(fontSize: 17),
