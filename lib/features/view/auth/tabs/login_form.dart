@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:user_app/constants/colors.dart';
+import 'package:user_app/constants/text_strings.dart';
 import 'package:user_app/features/view/auth/widgets/custom_text_field.dart';
 import 'package:user_app/features/view_model/auth/login_provider.dart';
 import 'package:user_app/features/view_model/auth/text_obscure.dart';
@@ -43,20 +44,7 @@ class LoginForm extends StatelessWidget {
                             icon: Icons.password_rounded,
                             showSuffixIcon: true,
                           ),
-                          SizedBox(height: Screen.height(1.42)),
-                          Align(
-                            alignment: Alignment.bottomLeft,
-                            child: TextButton(
-                              onPressed: () {},
-                              child: const Text(
-                                'Forgot Passcode?',
-                                style: TextStyle(
-                                  color: commonColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: Screen.height(1.42)),
+                          SizedBox(height: Screen.height(10)),
                         ],
                       ),
                     ),
@@ -65,7 +53,32 @@ class LoginForm extends StatelessWidget {
                       onTap: () {
                         loginProvider.loginFormValidation(context);
                       },
-                    )
+                    ),
+                    SizedBox(height: Screen.height(10)),
+                    const Align(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: EdgeInsets.all(32),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Icon(
+                              Icons.person,
+                              color: grey,
+                              size: 10,
+                            ),
+                            SizedBox(width: 8),
+                            Text(
+                              yAppDeveloperName,
+                              style: TextStyle(
+                                color: grey,
+                                fontSize: 8,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               );

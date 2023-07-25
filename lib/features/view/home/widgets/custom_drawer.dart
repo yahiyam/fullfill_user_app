@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:user_app/features/view/auth/auth_page.dart';
 import 'package:user_app/features/view/settings/settings_page.dart';
 
 import '../../../../constants/colors.dart';
@@ -9,6 +10,7 @@ import '../../my_offers/my_offer_page.dart';
 import '../../myorder_foodpanda/my_order_screen.dart';
 import '../../profile/profile_page.dart';
 import '../home_page.dart';
+
 class UserDrawer extends StatelessWidget {
   const UserDrawer({super.key});
 
@@ -65,10 +67,11 @@ class UserDrawer extends StatelessWidget {
                   message: 'Do you really want to Logout',
                   onOKTap: () {
                     firebaseAuth.signOut().then((value) {
-                      Navigator.pushNamedAndRemoveUntil(
+                      Navigator.push(
                         context,
-                        '/auth',
-                        (route) => false,
+                        MaterialPageRoute(
+                          builder: (context) => const AuthPage(),
+                        ),
                       );
                     });
                   },
@@ -112,13 +115,17 @@ class CustomDrawerTile extends StatelessWidget {
         ),
       ),
       onTap: () {
-        Navigator.pop(context);
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => navigate ?? const HomePage(),
-          ),
-        );
-        onTap;
+        if (onTap != null) {
+          onTap!();
+        }
+        if (navigate != null) {
+          Navigator.pop(context);
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => navigate ?? const HomePage(),
+            ),
+          );
+        }
       },
     );
   }

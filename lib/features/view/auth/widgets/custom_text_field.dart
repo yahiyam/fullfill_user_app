@@ -42,7 +42,12 @@ class CustomTextField extends StatelessWidget {
                         ? Icons.visibility
                         : Icons.visibility_off,
                   ),
-                  onPressed: obscure.togglePasswordVisibility,
+                  onPressed: () {
+                    obscure.togglePasswordVisibility();
+                    Future.delayed(const Duration(seconds: 2), () {
+                      obscure.togglePasswordVisibility();
+                    });
+                  },
                 )
               : null,
         ),
