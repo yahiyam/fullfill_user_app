@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:user_app/features/view/settings/policy_dialog.dart';
 import '../../../constants/image_strings.dart';
 import '../../../constants/text_strings.dart';
+import '../../data/services/app_services.dart';
+import 'policy_dialog.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -31,6 +32,21 @@ class SettingsPage extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        TextButton.icon(
+                          onPressed: () {
+                            AppServices.shareApp();
+                          },
+                          icon: const Icon(
+                            Icons.share,
+                            size: 24,
+                          ),
+                          label: const Text(
+                            'Share App',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
                         TextButton.icon(
                           onPressed: () {
                             showDialog(
