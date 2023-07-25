@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:user_app/features/view/settings/settings_page.dart';
 
 import '../../../../constants/colors.dart';
 import '../../../../utils/alert_message.dart';
@@ -6,7 +7,6 @@ import '../../../../utils/instence.dart';
 import '../../history/history_page.dart';
 import '../../my_offers/my_offer_page.dart';
 import '../../myorder_foodpanda/my_order_screen.dart';
-import '../../privacy/privacy_page.dart';
 import '../../profile/profile_page.dart';
 import '../home_page.dart';
 class UserDrawer extends StatelessWidget {
@@ -43,15 +43,15 @@ class UserDrawer extends StatelessWidget {
                 ),
                 CustomDrawerDivider(),
                 CustomDrawerTile(
-                  leadingIcon: Icons.sticky_note_2_outlined,
-                  title: 'Privacy policy',
-                  navigate: PrivacyPage(),
-                ),
-                CustomDrawerDivider(),
-                CustomDrawerTile(
                   leadingIcon: Icons.history,
                   title: 'History',
                   navigate: HistoryPage(),
+                ),
+                CustomDrawerDivider(),
+                CustomDrawerTile(
+                  leadingIcon: Icons.settings,
+                  title: 'Settings',
+                  navigate: SettingsPage(),
                 ),
               ],
             ),
