@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
 app release note;
 step i;
   1, make release branch 
-  2, add app logo to assets
+  2, add app logo to assets //https://romannurik.github.io/AndroidAssetStudio/icons-launcher
   3, add in yaml file
     dev_dependencies:
       flutter_launcher_icons: ^0.13.1
