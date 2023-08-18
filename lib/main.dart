@@ -21,7 +21,6 @@ import 'features/view_model/payment/payment_view_model.dart';
 import 'utils/instence.dart';
 import 'utils/screen_size.dart';
 
-
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -69,3 +68,27 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+/* 
+app release note;
+step i;
+  1, make release branch 
+  2, add app logo to assets
+  3, add in yaml file
+    dev_dependencies:
+      flutter_launcher_icons: ^0.13.1
+    flutter_icons:
+      android: true
+      ios: true
+      image_path: "assets/images/app_logo.png"
+  4, flutter clean && flutter pub get
+  5, flutter pub run flutter_launcher_icons:main
+  6, flutter pub global activate rename
+  7, flutter pub global run rename --appname "appname"
+  8, flutter pub global run rename --bundleId com.devname.appname  //here it's "com.yahiyamuhammed.usersapp"
+  9, run, test and push project.
+
+step ii;
+  1, 
+
+*/
